@@ -1,6 +1,14 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const fetch = require("node-fetch");
+const wakeUpDyno = (url, interval) => {
+    const milliseconds = interval * 60000;
+    setTimeout(() => {
+        fetch(url);
+    }, milliseconds);
+};
 
+module.exports = wakeUpDyno;
 bot.login('NzA0MzkyOTY3MDc0MzQ5MDg3.Xqcmqg.BhHFpk4jTCPoKmR2Oe3-YvHtJQg');
 
 // COMANDOS RESPOSTAS
