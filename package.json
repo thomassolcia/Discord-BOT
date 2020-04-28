@@ -1,4 +1,5 @@
 {
+  "start": "node index",
   "name": "testbot_proerd",
   "version": "1.0.0",
   "description": "",
