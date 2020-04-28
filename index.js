@@ -1,5 +1,7 @@
 const Discord = require('discord.js');
 const bot = new Discord.Client();
+const config = require('./config.json');
+const comandos = require('./comandos.json')
 const fetch = require("node-fetch");
 const wakeUpDyno = (url, interval) => {
     const milliseconds = interval * 60000;
@@ -11,19 +13,38 @@ const wakeUpDyno = (url, interval) => {
 module.exports = wakeUpDyno;
 bot.login('NzA0MzkyOTY3MDc0MzQ5MDg3.Xqcmqg.BhHFpk4jTCPoKmR2Oe3-YvHtJQg');
 
-// COMANDOS RESPOSTAS
-bot.on('message', message => {
-let responseObject = {
-    '=ping' : 'pong',
-    '=comandos' : '(**EVERYONE**)\n=ping\n=sorte\n=d[4-100]r\n\n(**OWNERS/PARTNERS**)\n=limpar'
-};
+bot.on('ready', () => {
+    bot.user.setActivity('maconheiro na reabilitação')
+    console.log('logado');
+});
 
-if (responseObject[message.content]){
-    message.channel.send(responseObject[message.content]);
-}
+bot.on('guildMemberAdd', member =>{
+    member.guild.channels.get('694285200582115418').send(member.user.username + 'entrou na reabilitação!')
+    member.send('Bem-Vindo ao Proerd! Não esqueça de ler as #regras, qualquer dúvida é só perguntar para algum admin! Se divirta!')
+});
+
+bot.on('guildMemberRemove', member =>{
+    member.guild.channels.get('694285200582115418').send(member.user.username + 'fugiu da reabilitação! Vocês conhecem alguém da familia dele?')
+});
+
+// COMANDOS - RESPOSTAS
+bot.on('message', message => {
+    responseObject = comandos;
+    if(responseObject[message.content]){
+        message.channel.send(responseObject[message.content]);
+    }
+    const msgs = message.content.slice(config.prefix.length).trim().split(/ +/g);
+    
+    if(message.content === config.prefix +'ping'){
+        message.channel.send('pong!')
+    }
+    if(message.content === config.prefix + 'mudarApelido'){
+        message.member.setNickname(msgs[1]);
+        message.reply(' Seu nick foi alterado para ' + msgs[1]);
+    }
 
 // TESTE DE SORTE
-if (message.content.startsWith('=sorte')){
+if (message.content === config.prefix + ('sorte')){
     randomNumberUser = 0;
     randomNumberUser = Math.floor(Math.random() * 21);
     randomNumberBot = 0;
@@ -43,48 +64,53 @@ if (message.content.startsWith('=sorte')){
     }
 }
 
-// ROLAGEM DE DADOS D4 - D100
-if (message.content.startsWith('=d4r')){
-    d4 = 0;
-    d4 = Math.floor(Math.random() * (4 - 1) + 1);
-
-    message.reply('Valor do dado: ' + d4);
-}
-if (message.content.startsWith('=d6r')){
-    d6 = 0;
-    d6 = Math.floor(Math.random() * (6 - 1) + 1);
-
-    message.reply('Valor do dado: ' + d6);
-}
-if (message.content.startsWith('=d8r')){
-    d8 = 0;
-    d8 = Math.floor(Math.random() * (8 - 1) + 1);
-
-    message.reply('Valor do dado: ' + d8);
-}
-if (message.content.startsWith('=d10r')){
-    d10 = 0;
-    d10 = Math.floor(Math.random() * (10 - 1) + 1);
-
-    message.reply('Valor do dado: ' + d10);
-}
-if (message.content.startsWith('=d20r')){
-    d20 = 0;
-    d20 = Math.floor(Math.random() * (20 - 1) + 1);
-
-    message.reply('Valor do dado: ' + d20);
-}
-if (message.content.match('=d100r')){
-    d100 = 0;
-    d100 = Math.floor(Math.random() * (100 - 1) + 1);
-
-    message.reply('Valor do dado: ' + d100);
+// ROLAGEM DE DADOS D2 - D100
+if(message.content.startsWith(config.prefix + 'r')){
+    if (msgs[1] === 'd2'){
+        d2 = 0;
+        d2 = Math.floor(Math.random() * (3 - 1) + 1);
+        message.reply('Valor do dado: ' + d2);
+    }
+    if (msgs[1] === 'd4'){
+        d4 = 0;
+        d4 = Math.floor(Math.random() * (5 - 1) + 1);
+        message.reply('Valor do dado: ' + d4);
+    } 
+    if (msgs[1] === 'd6'){
+        d6 = 0;
+        d6 = Math.floor(Math.random() * (7 - 1) + 1);
+        message.reply('Valor do dado: ' + d6);
+    } 
+    if (msgs[1] === 'd8'){
+        d8 = 0;
+        d8 = Math.floor(Math.random() * (9 - 1) + 1);
+        message.reply('Valor do dado: ' + d8);
+    } 
+    if (msgs[1] === 'd10'){
+        d10 = 0;
+        d10 = Math.floor(Math.random() * (11 - 1) + 1);
+        message.reply('Valor do dado: ' + d10);
+    } 
+    if (msgs[1] === 'd20'){
+        d20 = 0;
+        d20 = Math.floor(Math.random() * (21 - 1) + 1);
+        message.reply('Valor do dado: ' + d20);
+    } 
 }
 
 //DELEÇÃO DE MENSSAGENS
-if(message.member.roles.cache.some(role => role.name === 'OWNERS' || role.name === 'PARTNERS') && message.content.startsWith('=limpar')){
-    msgDel = 100;
+if(message.member.roles.cache.some(role => role.name === 'OWNERS' || role.name === 'PARTNERS' || role.name === 'testBOT') && message.content.startsWith(config.prefix + 'limpar')){
+    msgDel = msgs[1];
+    if(msgs[1]>100){
+        message.channel.send('Valor acima de 100 não é permitido. Diminua!');
+    }
+    else if(msgs[1] === (/^[A-Za-z ]+$/)){
+        message.channel.send('Somente valores numéricos são permitidos');
+    }
+    else{
     numberMessages = msgDel;
     message.channel.messages.fetch({limit: numberMessages}).then(messages => message.channel.bulkDelete(messages));
+    }
 }
 });
+bot.login(config.token);
