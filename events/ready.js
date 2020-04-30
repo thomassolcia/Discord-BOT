@@ -12,10 +12,8 @@ module.exports = async client => {
         let upbot = (client.uptime);
         upbotfix = (upbot / ((3, 6) ** 8.426));
         pingAPIChannel.setName(`Ping API: ${Math.floor(client.ws.ping)}ms`);
-        if(parseFloat(upbotfix).toFixed(2) < 2){
-            test.setName('Uptime: ' + parseFloat(upbotfix).toFixed(2) + ' hora!');
-        }else if(parseFloat(upbotfix).toFixed(2) <= 23.999999998 && parseFloat(upbotfix).toFixed >= 2) {
-            test.setName('Uptime: ' + parseFloat(upbotfix).toFixed(2) + ' horas');
+        if(parseFloat(upbotfix).toFixed(2) <= 24) {
+            test.setName('Uptime: ' + parseFloat(upbotfix).toFixed(2) + 'h');
         } else if ((parseFloat(upbotfix).toFixed(2) / 24) >= 0.9 && (parseFloat(upbotfix).toFixed(2) / 24) < 1.9) {
             test.setName('Uptime: ' + parseInt(upbotfix).toFixed(2) / 24 + ' dia');
         } else if ((parseFloat(upbotfix).toFixed(2) / 24) >= 1.9) {
