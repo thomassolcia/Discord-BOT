@@ -1,5 +1,6 @@
-exports.run = async (client, message) => {
+exports.run = async (client, message, args) => {
   const Discord = require("discord.js");
+  const client = new Discord.Client();
 
   const embed = {
 	"title": "Comandos: ~~(use com moderação ok?)~~",

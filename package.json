@@ -1,0 +1,31 @@
+{
+  "name": "Discord-BOT",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^12.2.0",
+    "enmap": "^5.2.4",
+    "erela.js": "^1.1.7",
+    "ffmpeg": "^0.0.4",
+    "fluent-ffmpeg": "^2.1.2",
+    "ytdl-core": "^2.1.1",
+    "yt-search": "^1.1.2",
+    "ytdl-core-discord": "^1.2.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thomassolcia/Discord-BOT.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/thomassolcia/Discord-BOT/issues"
+  },
+  "homepage": "https://github.com/thomassolcia/Discord-BOT#readme"
+}
