@@ -40,7 +40,7 @@ exports.run = async (client, message) => {
 	  },
 	  {
 		"name": "**=limpar [numeroLinhas]**",
-		"value": "*Limpa o chat, quantas linhas desejar!*"
+		"value": "*Limpa mensagens de até 2 semanas, quantas linhas desejar!*"
 	  },
 	  {
 		"name": "**=kick [nomeUsuário]**",
