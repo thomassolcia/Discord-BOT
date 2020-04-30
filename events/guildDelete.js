@@ -5,7 +5,7 @@ module.exports = (client, guild) => {
   let memberCountChannel = myGuild.channels.cache.get('704815480967266385');
   memberCountChannel.setName('Usuários: ' + memberCount);
   client.logger.cmd(`[GUILD LEAVE] ${guild.name} (${guild.id}) Removeu o bot.`);
-  
+
   if (client.settings.has(guild.id)) {
     client.settings.delete(guild.id);
   }

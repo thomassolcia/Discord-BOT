@@ -1,7 +1,6 @@
 {
   "name": "Discord-BOT",
   "version": "1.0.0",
-  "description": "",
   "main": "index.js",
   "dependencies": {
     "discord.js": "^12.2.0",
@@ -9,8 +8,8 @@
     "erela.js": "^1.1.7",
     "ffmpeg": "^0.0.4",
     "fluent-ffmpeg": "^2.1.2",
-    "ytdl-core": "^2.1.1",
     "yt-search": "^1.1.2",
+    "ytdl-core": "^2.1.1",
     "ytdl-core-discord": "^1.2.0"
   },
   "devDependencies": {},
@@ -27,5 +26,6 @@
   "bugs": {
     "url": "https://github.com/thomassolcia/Discord-BOT/issues"
   },
-  "homepage": "https://github.com/thomassolcia/Discord-BOT#readme"
+  "homepage": "https://github.com/thomassolcia/Discord-BOT#readme",
+  "description": ""
 }
