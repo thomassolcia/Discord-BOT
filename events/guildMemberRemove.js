@@ -3,7 +3,7 @@ module.exports = async (client, member) => {
     let memberCount = myGuild.memberCount;
     console.log('Usúarios no servidor: ' + memberCount);
     let memberCountChannel = myGuild.channels.cache.get('704815480967266385');
-    memberCountChannel.setName('Usuários: ' + memberCount)
+    memberCountChannel.setName('👥 | Usuários: ' + memberCount)
         .then(result => console.log(result))
         .catch(error => console.log(error));
 
