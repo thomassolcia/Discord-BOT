@@ -2,11 +2,14 @@ exports.run = async (client, message) => {
 	const embed = {
         "title": "Lista de Comandos: " + message.guild.name,
         "color": 15359,
+        "thumbnail": {
+          "url": "https://cdn.discordapp.com/avatars/704392967074349087/2a2ae76986efdcdf549d9bd0dcedeafc.png"
+        },
         "fields": [
-		  {
-			"name": "[EVERYONE]",
-			"value": '-'
-		  },
+		      {
+			      "name": "[EVERYONE]",
+			      "value": '-'
+		      },
           {
             "name": "=ping",
             "value": 'Mostra o tempo de resposta do bot'
@@ -28,25 +31,29 @@ exports.run = async (client, message) => {
             "value": 'Tempo que o bot está ativo.'
           },
           {
-            "name": "=user:",
-			"value": 'Veja informações sobre você.'
-		  },
-		  {
-            "name": "=server:",
+            "name": "=avatar [@]",
+            "value": 'Manda o link do avatar da pessoa mencionada. Podem ser várias ao mesmo tempo.'
+          },
+          {
+            "name": "=user",
+			      "value": 'Veja informações sobre você.'
+		      },
+		      {
+            "name": "=server",
             "value":'Veja informações sobre o servidor.'
-		  },
-		  {
+		      },
+		      {
             "name": "[OWNERS/PARTNERS]:",
             "value":'-'
-		  },
-		  {
+		      },
+		      {
             "name": "=kick [@]",
             "value":'Expulsa alguém do servidor!'
-		  },
-		  {
+		      },
+		      {
             "name": "=limpar [2-100]",
             "value":'Limpa mensagens de até 2 semanas.'
-		  }
+		      }
         ]
       };
       message.channel.send({ embed });

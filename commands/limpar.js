@@ -5,7 +5,7 @@ exports.run = async (client, message, args) => {
     if (isNaN(amount)) return message.reply('Valor inválido! Tente com números.');
 
     if (amount > 100) return message.reply('O limite é 100 mensagens por vez! Tente diminuir.');
-    if (amount < 1) return message.reply('Você precisa deletar pelo menos 1 mensagem!');
+    if (amount < 2) return message.reply('Você precisa deletar pelo menos 1 mensagem fora sua!');
 
     await message.channel.messages.fetch({ limit: amount }).then(messages => {
         message.channel.bulkDelete(messages)

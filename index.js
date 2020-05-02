@@ -15,7 +15,7 @@ fs.readdir("./events/", (err, files) => {
 });
 
 client.commands = new Enmap();
-
+console.log('\n     [COMANDOS]      \n')
 fs.readdir("./commands/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
