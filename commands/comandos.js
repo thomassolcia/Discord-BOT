@@ -1,3 +1,53 @@
 exports.run = async (client, message) => {
-	message.reply('\n*[EVERYONE]*\n\n`=ping`\n`Mostra o tempo de resposta do bot`\n\n`=sorte`\n`Faça-o e veja sua sorte!`\n\n`=r [tipoDado]`\n`d2, d4, d6, d8, d10, d20 ou d100. Você escolhe!`\n\n`=nick [novoApelido]`\n`Altere seu apelido no servidor.`\n\n`=uptime`\n`Altere seu apelido no servidor.`\n\n`=user\nVeja informações sobre você.`\n\n`=server\nVeja informações sobre o servidor.\n\n*[OWNERS/PARTNERS]*\n\n`=limpar [2-100]`\n`Limpa mensagens de até 2 semanas.`\n\n`=kick`\n`Expulsa alguém do servidor!`')
+	const embed = {
+        "title": "Lista de Comandos: " + message.guild.name,
+        "color": 15359,
+        "fields": [
+		  {
+			"name": "[EVERYONE]",
+			"value": '-'
+		  },
+          {
+            "name": "=ping",
+            "value": 'Mostra o tempo de resposta do bot'
+          },
+          {
+            "name": "=sorte",
+            "value": 'Faça-o e veja sua sorte!'
+          },
+          {
+            "name": "=r [valorDado]",
+            "value": 'd2, d4, d6, d8, d10, d20 ou d100. Você escolhe!'
+          },
+          {
+            "name": "=nick [novoApelido]",
+            "value": 'Altere seu apelido no servidor.'
+          },
+          {
+            "name": "=uptime",
+            "value": 'Tempo que o bot está ativo.'
+          },
+          {
+            "name": "=user:",
+			"value": 'Veja informações sobre você.'
+		  },
+		  {
+            "name": "=server:",
+            "value":'Veja informações sobre o servidor.'
+		  },
+		  {
+            "name": "[OWNERS/PARTNERS]:",
+            "value":'-'
+		  },
+		  {
+            "name": "=kick [@]",
+            "value":'Expulsa alguém do servidor!'
+		  },
+		  {
+            "name": "=limpar [2-100]",
+            "value":'Limpa mensagens de até 2 semanas.'
+		  }
+        ]
+      };
+      message.channel.send({ embed });
 }

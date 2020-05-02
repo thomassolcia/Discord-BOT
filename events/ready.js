@@ -20,12 +20,15 @@ module.exports = async client => {
             test.setName('🕒 | Uptime: ' + parseInt(upbotfix).toFixed(2) / 24 + ' dias');
         }
     }, 5000)
-
+    let myGuild1 = client.guilds.cache.get('364926866487902208');
+    let memberCount1 = myGuild1.memberCount;
     let statuses = [
+        
         "=comandos para obter dicas!",
-        memberCount + " maconheiros na reabilitação"
+        memberCount1 + " maconheiros na reabilitação"
     ]
     setInterval(function () {
+        memberCount = myGuild.memberCount;
         let status = statuses[Math.floor(Math.random() * statuses.length)];
         client.user.setActivity(status, { type: "PLAYING" });
     }, 5000)
