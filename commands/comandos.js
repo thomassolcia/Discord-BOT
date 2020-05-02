@@ -41,7 +41,7 @@ exports.run = async (client, message) => {
 		      {
             "name": "=server",
             "value":'Veja informações sobre o servidor.'
-		      },
+          },
 		      {
             "name": "[OWNERS/PARTNERS]:",
             "value":'-'
@@ -53,7 +53,11 @@ exports.run = async (client, message) => {
 		      {
             "name": "=limpar [2-100]",
             "value":'Limpa mensagens de até 2 semanas.'
-		      }
+          },
+          {
+            "name": "=vote [Questão]",
+            "value":'Crie uma votação.'
+		      },
         ]
       };
       message.channel.send({ embed });
