@@ -20,11 +20,11 @@ exports.run = async (client, message, args) => {
             "value": message.guild.id
           },
           {
-            "name": "Owner:",
+            "name": "Criado por:",
             "value": message.guild.owner.user.username + '#' + message.guild.owner.user.discriminator
           },
           {
-            "name": "Region:",
+            "name": "Região:",
             "value": message.guild.region + " 🇧🇷"
           },
           {
