@@ -1,11 +1,10 @@
 module.exports = async client => {
     console.log('\n     [STATUS]')
     console.log('\nBOT PRONTO PARA USO!');
-    let myGuild = client.guilds.cache.get('364926866487902208');
-    let memberCount = myGuild.memberCount;
-    console.log('Usúarios no servidor: ' + memberCount);
 
     setInterval(function () {
+        let myGuild = client.guilds.cache.get('364926866487902208');
+        let memberCount = myGuild.memberCount;
         let memberCountChannel = myGuild.channels.cache.get('704815480967266385');
         memberCountChannel.setName('👥 | Usuários: ' + memberCount);
         let pingAPIChannel = myGuild.channels.cache.get('705183603650199572');
@@ -20,16 +19,18 @@ module.exports = async client => {
         } else if ((parseFloat(upbotfix).toFixed(2) / 24) >= 1.9) {
             test.setName('🕒 | Uptime: ' + parseInt(upbotfix).toFixed(2) / 24 + ' dias');
         }
-    }, 5000)
+        console.log('Usúarios no servidor: ' + memberCount);
+    }, 60000)
+    
+    let myGuild = client.guilds.cache.get('364926866487902208');
+    let memberCount = myGuild.memberCount;
+    memberCount = myGuild.memberCount;
 
-    let myGuild1 = client.guilds.cache.get('364926866487902208');
-    let memberCount1 = myGuild1.memberCount;
     let statuses = [
-        "=comandos para obter dicas!",
-        memberCount1 + " maconheiros na reabilitação"
+        "=comandos",
+        memberCount + " usuários em reabilitação"
     ]
     setInterval(function () {
-        memberCount = myGuild.memberCount;
         let status = statuses[Math.floor(Math.random() * statuses.length)];
         client.user.setActivity(status, { type: "PLAYING" });
     }, 5000)
