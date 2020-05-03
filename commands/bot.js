@@ -1,5 +1,4 @@
 exports.run = (client, message, args) => {
-    const Discord = require('discord.js');
     let botAvatar = client.user.displayAvatarURL
     let date = client.user.createdAt
     let userName = client.user.username
@@ -12,14 +11,28 @@ exports.run = (client, message, args) => {
     let seconds = totalSeconds % 60;
     let uptime = `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
 
-    const embed = new Discord.MessageEmbed()
-        .setDescription('Informações sobre: ' + userName)
-        .setColor(15359)
-        .setThumbnail(botAvatar)
-        .addField('Nome: ', userName)
-        .addField('Online a: ', uptime)
-        .addField('Criado: ', formatDate('DD/MM/YYYY, às HH:mm:ss', date))
-    message.channel.send(embed);
+    const embed = {
+        "title": 'Informações sobre: ' + userName,
+        "color": 15359,
+        "thumbnail": {
+          "url": botAvatar
+        },
+        "fields": [
+          {
+            "name": "Nome: ",
+            "value": userName
+          },
+          {
+            "name": "Online a: ",
+            "value": uptime
+          },
+          {
+            "name": "Criado: ",
+            "value": formatDate('DD/MM/YYYY, às HH:mm:ss', date)
+          }
+        ]
+      };
+      message.channel.send({embed});
     }
     function formatDate(template, date) {
     var specs = 'YYYY:MM:DD:HH:mm:ss'.split(':')

@@ -5,13 +5,15 @@ exports.run = async (client, message, args) => {
 
 	if(!args[0]) return message.channel.send('Uso correto: =vote [Questão]');
 	
-	const embed = new Discord.MessageEmbed()
-	.setColor(15359)
-	.setFooter('Reaja com um emoji.')
-	.setDescription(args.join(' '))
-	.setTitle('Votação criada por: ' + message.author.username);
-
-	let msg = await message.channel.send(embed);
+	const embed = {
+		"title": 'Votação criada por: ' + message.author.username,
+		"description": (args.join(' ')),
+		"color": 15359,
+		"footer": {
+			"text": "Reaja com um emoji."
+		  },
+      };
+      let msg = await message.channel.send({embed});
 
 	await msg.react('👍');
 	await msg.react('👎');
