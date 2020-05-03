@@ -1,4 +1,5 @@
 exports.run = async (client, message, args) => {
+  let date = message.author.createdAt;
     function checkDays(date) {
         let now = new Date();
         let diff = now.getTime() - date.getTime();
@@ -19,9 +20,16 @@ exports.run = async (client, message, args) => {
           },
           {
             "name": "Entrou:",
-            "value": message.author.createdAt.toUTCString().substr(0, 16) + ' | ' + checkDays(message.author.createdAt),
+            "value": formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date),
           }
         ]
       };
       message.channel.send({embed});
+      function formatDate(template, date) {
+        var specs = 'YYYY:MM:DD:HH:mm:ss'.split(':')
+        date = new Date(date || Date.now() - new Date().getTimezoneOffset() * 6e4)
+        return date.toISOString().split(/[-:.TZ]/).reduce(function (template, item, i) {
+            return template.split(specs[i]).join(item)
+        }, template)
+      }
 }
