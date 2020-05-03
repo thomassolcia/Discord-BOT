@@ -16,14 +16,35 @@ fs.readdir("./events/", (err, files) => {
 
 client.commands = new Enmap();
 console.log('\n     [COMANDOS]      \n')
-fs.readdir("./commands/", (err, files) => {
+fs.readdir("./commands/diversos/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith(".js")) return;
-    let props = require(`./commands/${file}`);
+    let props = require(`./commands/diversos/${file}`);
     let commandName = file.split(".")[0];
     console.log(`${commandName} -> ✔️  Pronto!`);
     client.commands.set(commandName, props);
   });
 });
-client.login(config.token);
+
+fs.readdir("./commands/informativos/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/informativos/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`${commandName} -> ✔️  Pronto!`);
+    client.commands.set(commandName, props);
+  });
+});
+
+fs.readdir("./commands/staff/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/staff/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`${commandName} -> ✔️  Pronto!`);
+    client.commands.set(commandName, props);
+  });
+});

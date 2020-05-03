@@ -5,5 +5,5 @@ module.exports = async (client, member) => {
     let memberCountChannel = myGuild.channels.cache.get('704815480967266385');
     memberCountChannel.setName('👥 | Usuários: ' + memberCount);
 
-    member.guild.channels.cache.get('694285200582115418').send(`${userObject} fugiu da reabilitação! Vocês conhecem alguém da familia dele?`)
+    member.guild.channels.cache.get('694285200582115418').send(`<@${user.id}> fugiu da reabilitação! Vocês conhecem alguém da familia dele?`)
 }

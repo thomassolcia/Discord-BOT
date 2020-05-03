@@ -18,6 +18,8 @@
   "homepage": "https://github.com/thomassolcia/Discord-BOT#readme",
   "dependencies": {
     "discord.js": "^12.2.0",
-    "enmap": "^5.2.4"
+    "enmap": "^5.2.4",
+    "superagent": "^5.2.2",
+    "weather-js": "^2.0.0"
   }
 }
