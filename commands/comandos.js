@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
             .setTimestamp()
             .setColor(15359)
             .setFooter(message.author.tag, message.author.avatarURL)
-        message.channel.send(yes).then(msg => msg.delete(12000))
+        message.channel.send(yes)
 
         const embed = new Discord.MessageEmbed()
             .setAuthor(`Proerd ™ - Comandos`)
