@@ -1,4 +1,4 @@
-exports.run = async (client, message, args) => {
+/*exports.run = async (client, message, args) => {
     let myGuild = client.guilds.cache.get('364926866487902208');
     let memberCount = myGuild.memberCount;
     let date = message.channel.guild.createdAt;
@@ -58,4 +58,4 @@ exports.run = async (client, message, args) => {
               return template.split(specs[i]).join(item)
           }, template)
         }
-}
+}*/

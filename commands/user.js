@@ -1,4 +1,4 @@
-exports.run = async (client, message, args) => {
+/*exports.run = async (client, message, args) => {
   let date = message.author.createdAt;
     function checkDays(date) {
         let now = new Date();
@@ -33,3 +33,4 @@ exports.run = async (client, message, args) => {
         }, template)
       }
 }
+*/

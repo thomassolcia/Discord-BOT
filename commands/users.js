@@ -1,4 +1,4 @@
-exports.run = (client, message, args) => {
+/*exports.run = (client, message, args) => {
     message.guild.members.fetch().then(fetchedMembers => {
         const totalOnline = fetchedMembers.filter(member => member.presence.status === 'online');
         const totalAusente = fetchedMembers.filter(member => member.presence.status === 'idle');
@@ -37,4 +37,4 @@ exports.run = (client, message, args) => {
             message.channel.send({embed});
         
     });
-}
+}*/
