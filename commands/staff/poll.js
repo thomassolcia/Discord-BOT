@@ -17,5 +17,4 @@ exports.run = async (client, message, args) => {
 
 	await msg.react('👍');
 	await msg.react('👎');
-	message.delete({timeout: 1000})
 }

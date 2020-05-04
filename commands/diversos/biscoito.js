@@ -31,5 +31,4 @@ const cookembed = new Discord.MessageEmbed()
 .setImage(cookies[Math.floor(Math.random() * cookies.length)])
 
 message.channel.send(cookembed)
-   
 }

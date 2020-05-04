@@ -22,5 +22,4 @@ exports.run = async (client, message, args) => {
 				text = text.join(" ");
 			}
 			return message.channel.send("```"+text+"```");
-
 }

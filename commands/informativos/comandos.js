@@ -14,12 +14,12 @@ exports.run = (client, message, args) => {
             .setTimestamp()
             .setColor(15359)
             .setFooter(message.author.tag, message.author.avatarURL)
-        message.channel.send(yes).then(msg => msg.delete(12000))
+        message.channel.send(yes).then(msg => msg.delete(5000))
 
         const embed = new Discord.MessageEmbed()
             .setAuthor(`Proerd ™ - Comandos`)
             .setDescription(`Para saber meus comandos, reaja ao emoji de cada categoria.`)
-                    .addField(`ℹ️ **Informativos**`, '• `ajuda`, `server`, ...')
+                    .addField(`ℹ️ **Informativos**`, '• `comandos`, `server`, ...')
                     .addField(`🍀 **Diversos**`, '• `roll`, `sorte`, ...')
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
@@ -48,7 +48,7 @@ exports.run = (client, message, args) => {
                 const embedd = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`Para saber meus comandos, reaja ao emoji de cada categoria.`)
-                    .addField(`ℹ️ **Informativos**`, '• `ajuda`, `server`, ...')
+                    .addField(`ℹ️ **Informativos**`, '• `comandos`, `server`, ...')
                     .addField(`🍀 **Diversos**`, '• `roll`, `sorte`, ...')
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
@@ -61,7 +61,7 @@ exports.run = (client, message, args) => {
                 const embedinformacao = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`ℹ️ **Informativos**
-                    =ajuda - Exibe um menu de ajuda.
+                    =comandos - Exibe um menu de ajuda.
                     =server - Mostra informações sobre o servidor.
                     =user - Mostra informações sobre o seu usuário.
                     =bot - Mostra informações sobre mim.
@@ -84,6 +84,9 @@ exports.run = (client, message, args) => {
                     =tapa \`<@>\` - Dê um tapa em alguém.
                     =morse \`<palavra/frase>\` - Transforme uma palavra ou frase em código morse.
                     =sorte - Faça-o e veja se hoje é seu dia de sorte.
+                    =imgur \`<anexo>\` - Enviei uma imagem dirato para o imgur.
+                    =lembrete \`<tempo>\` \`<texto>\`  - Faz com que o bot te lembre de algo em um tempo determinado.
+                    =sugerir \`<sugestão>\` - Dê uma sugestão para o servidor.
             `)
                     .setColor("RANDOM")
                     .setFooter(message.author.tag, message.author.avatarURL)
@@ -100,6 +103,7 @@ exports.run = (client, message, args) => {
                     =ban \`<usuário>\` - Bane um usuário.
                     =limpar \`<quantidade>\` - Limpa mensagens de até 2 semanas. (2 a 100)
                     =poll \`<titulo>\` - Cria uma votação de sim ou não para sua enquete.
+                    =listban - Receba a lista de usuários banidos no privado.
             `)
                     .setColor("RANDOM")
                     .setFooter(message.author.tag, message.author.avatarURL)

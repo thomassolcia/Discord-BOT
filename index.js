@@ -48,3 +48,16 @@ fs.readdir("./commands/staff/", (err, files) => {
     client.commands.set(commandName, props);
   });
 });
+
+fs.readdir("./commands/música/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/música/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`${commandName} -> ✔️  Pronto!`);
+    client.commands.set(commandName, props);
+  });
+});
+
+client.login(config.token);

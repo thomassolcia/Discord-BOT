@@ -39,7 +39,7 @@ exports.run = async (client, message, args) => {
 
                         message.guild.channels.get(c.punishChannel).send(embed);
 
-                        message.guild.member(member).ban(motivo).catch(e => message.channel.send("Oporra o bixo e tão pesado que meu martelo nem tirou ele do lugar ;-;"));
+                        message.guild.member(member).ban(motivo).catch(e => message.channel.send("Falha ao banir. Deu sorte em!"));
                         break;
                     case '⏹':
                         msg.delete().then(message.channel.send(`Essa foi por pouco né ${member}?`));
