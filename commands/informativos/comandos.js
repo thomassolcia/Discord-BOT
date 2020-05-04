@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
             .setTimestamp()
-            .setColor(15359)
+            .setColor('WHITE')
         message.author.send(embed).catch(err => message.channel.send(erros)).then(async msg => {
             await msg.react('ℹ️')
             await msg.react('🍀')
@@ -53,7 +53,7 @@ exports.run = (client, message, args) => {
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
-                    .setColor("RANDOM")
+                    .setColor("WHITE")
                 msg.edit(embedd)
             })
 
@@ -70,7 +70,7 @@ exports.run = (client, message, args) => {
                     =users - Mostra informações gerais sobre os usuários do canal.
                     =year - Mostra quanto tempo falta até o fim do ano. 
             `)
-                    .setColor("RANDOM")
+                    .setColor("BLUE")
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
                 msg.edit(embedinformacao)
@@ -81,17 +81,17 @@ exports.run = (client, message, args) => {
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`🍀 **Diversos**
                     =ascii \`<texto>\` - Transforma um texto pequeno em ASCII.
-                    =biscoito \`<@>\` - Dê um biscoito para alguém. Seja gentil!
+                    =biscoito \`<@user>\` - Dê um biscoito para alguém. Seja gentil!
                     =imgur \`<anexo>\` - Enviei uma imagem dirato para o imgur.
                     =lembrete \`<tempo>\` \`<texto>\`  - Faz com que o bot te lembre de algo em um tempo determinado.
                     =morse \`<palavra/frase>\` - Transforme uma palavra ou frase em código morse.
-                    =nick \`<novoApelido>\ - Muda seu apelido dentro do servidor.
+                    =nick \`<novoApelido>\` - Muda seu apelido dentro do servidor.
                     =roll \`<tipoDado>\` - Role os dados. d2, d4, d6, d8, d10 ou d20.
                     =sorte - Faça-o e veja se hoje é seu dia de sorte.
                     =sugerir \`<sugestão>\` - Dê uma sugestão para o servidor.
-                    =tapa \`<@>\` - Dê um tapa em alguém.
+                    =tapa \`<@user>\ - Dê um tapa em alguém.
             `)
-                    .setColor("RANDOM")
+                    .setColor("GREEN")
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
                 msg.edit(embeddiversao)
@@ -101,13 +101,13 @@ exports.run = (client, message, args) => {
                 const embeddiversao = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`🦁 **Staff**
-                    =ban \`<usuário>\` - Bane um usuário.
-                    =kick \`<usuário>\` - Expulsa um usuário.
+                    =ban \`<@user>\` - Bane um usuário.
+                    =kick \`<@user>\` - Expulsa um usuário.
                     =limpar \`<quantidade>\` - Limpa mensagens de até 2 semanas. (2 a 100)
                     =listban - Receba a lista de usuários banidos no privado.
                     =poll \`<titulo>\` - Cria uma votação de sim ou não para sua enquete.
             `)
-                    .setColor("RANDOM")
+                    .setColor("RED")
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
                 msg.edit(embeddiversao)
