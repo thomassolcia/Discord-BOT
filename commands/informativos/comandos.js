@@ -61,12 +61,14 @@ exports.run = (client, message, args) => {
                 const embedinformacao = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`ℹ️ **Informativos**
+                    =avatar \`<@user>\` - Mostra o avatar de um usuário ou do próprio usuário que usou o comando.
+                    =bot - Mostra informações sobre mim.
                     =comandos - Exibe um menu de ajuda.
+                    =ping - Mostra a latência bot-servidor.
                     =server - Mostra informações sobre o servidor.
                     =user - Mostra informações sobre o seu usuário.
-                    =bot - Mostra informações sobre mim.
-                    =avatar \`<@user>\` - Mostra o avatar de um usuário ou do próprio usuário que usou o comando.
-                    =ping - Mostra a latência bot-servidor.
+                    =users - Mostra informações gerais sobre os usuários do canal.
+                    =year - Mostra quanto tempo falta até o fim do ano. 
             `)
                     .setColor("RANDOM")
                     .setFooter(message.author.tag, message.author.avatarURL)
@@ -78,15 +80,16 @@ exports.run = (client, message, args) => {
                 const embeddiversao = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`🍀 **Diversos**
-                            
-                    =roll \`<tipoDado>\` - Role os dados. d2, d4, d6, d8, d10 ou d20.
+                    =ascii \`<texto>\` - Transforma um texto pequeno em ASCII.
                     =biscoito \`<@>\` - Dê um biscoito para alguém. Seja gentil!
-                    =tapa \`<@>\` - Dê um tapa em alguém.
-                    =morse \`<palavra/frase>\` - Transforme uma palavra ou frase em código morse.
-                    =sorte - Faça-o e veja se hoje é seu dia de sorte.
                     =imgur \`<anexo>\` - Enviei uma imagem dirato para o imgur.
                     =lembrete \`<tempo>\` \`<texto>\`  - Faz com que o bot te lembre de algo em um tempo determinado.
+                    =morse \`<palavra/frase>\` - Transforme uma palavra ou frase em código morse.
+                    =nick \`<novoApelido>\ - Muda seu apelido dentro do servidor.
+                    =roll \`<tipoDado>\` - Role os dados. d2, d4, d6, d8, d10 ou d20.
+                    =sorte - Faça-o e veja se hoje é seu dia de sorte.
                     =sugerir \`<sugestão>\` - Dê uma sugestão para o servidor.
+                    =tapa \`<@>\` - Dê um tapa em alguém.
             `)
                     .setColor("RANDOM")
                     .setFooter(message.author.tag, message.author.avatarURL)
@@ -98,12 +101,11 @@ exports.run = (client, message, args) => {
                 const embeddiversao = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`🦁 **Staff**
-                            
-                    =kick \`<usuário>\` - Expulsa um usuário.
                     =ban \`<usuário>\` - Bane um usuário.
+                    =kick \`<usuário>\` - Expulsa um usuário.
                     =limpar \`<quantidade>\` - Limpa mensagens de até 2 semanas. (2 a 100)
-                    =poll \`<titulo>\` - Cria uma votação de sim ou não para sua enquete.
                     =listban - Receba a lista de usuários banidos no privado.
+                    =poll \`<titulo>\` - Cria uma votação de sim ou não para sua enquete.
             `)
                     .setColor("RANDOM")
                     .setFooter(message.author.tag, message.author.avatarURL)

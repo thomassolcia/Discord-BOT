@@ -19,9 +19,12 @@
   "dependencies": {
     "colors": "^1.4.0",
     "discord.js": "^12.2.0",
+    "discord.js-commando": "^0.10.0",
+    "discord.js-poll-embed": "^1.0.2",
     "enmap": "^5.2.4",
     "imgur": "^0.3.1",
     "moment": "^2.25.3",
+    "node-fetch": "^2.6.0",
     "node-gyp": "^6.1.0",
     "opusscript": "0.0.7",
     "simple-youtube-api": "^5.2.1",
