@@ -18,7 +18,7 @@ module.exports = async client => {
         totalSeconds %= 3600;
         let minutes = Math.floor(totalSeconds / 60);
         let seconds = totalSeconds % 60;
-        let uptime = `${days} dias`;
+        let uptime = `${days}:${hours}:${minutes}`;
 
         test.setName(`🕒 | Uptime: ${uptime}`);
 

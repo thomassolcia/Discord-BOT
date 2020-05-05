@@ -15,10 +15,10 @@ exports.run = async (client, message, args) => {
 	return message.channel.send({
 		embed: {
 			color: 'RANDOM',
-			title: "Uhuuu, quem vai ficar até o fim do ano sem usar drogas?",
+			title: `Uhuuu, quem vai ficar até o fim do ano sem usar drogas <@${message.author.id}>?`,
 			description: `Faltam **${days} dias**, **${hours} horas**, **${minutes} minutos** e **${seconds} segundos** até **${next.getFullYear()}**! 🎆`,
 			footer: {
-				text: `Aproximadamente ${moment.duration(next - now).humanize()}.`,
+				text: `Você consegue!`,
 			},
 		},
 	});
