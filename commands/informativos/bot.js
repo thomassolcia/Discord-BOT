@@ -23,7 +23,7 @@ exports.run = (client, message, args) => {
             "value": userName
           },
           {
-            "name": "Online a: ",
+            "name": "Uptime: ",
             "value": uptime
           },
           {

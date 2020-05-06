@@ -1,5 +1,5 @@
 const moment = require("moment");
-
+const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
 
 	const now = new Date();
@@ -12,14 +12,12 @@ exports.run = async (client, message, args) => {
 	const minutes = Math.floor((duration / 1000 / 60) % 60);
 	const hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
 	const days = Math.floor(duration / (1000 * 60 * 60 * 24));
-	return message.channel.send({
-		embed: {
-			color: 'RANDOM',
-			title: `Uhuuu, quem vai ficar até o fim do ano sem usar drogas <@${message.author.id}>?`,
-			description: `Faltam **${days} dias**, **${hours} horas**, **${minutes} minutos** e **${seconds} segundos** até **${next.getFullYear()}**! 🎆`,
-			footer: {
-				text: `Você consegue!`,
-			},
-		},
-	});
+
+	const yearembed = new Discord.MessageEmbed()
+	.setDescription(`Uhuuu, quem vai ficar até o fim do ano sem usar drogas <@${message.author.id}>?`)
+	.addField(`Tempo restante:`, ` **${days} dias**, **${hours} horas**, **${minutes} minutos** e **${seconds} segundos** até **${next.getFullYear()}**! 🎆`)
+	.setFooter('Você consegue!')
+	.setColor("RANDOM")
+	.setTimestamp()
+	message.channel.send(yearembed)
 };

@@ -6,7 +6,6 @@ module.exports = async client => {
     let memberCountChannel = myGuild.channels.cache.get('704815480967266385');
     memberCountChannel.setName('👥 | Usuários: ' + memberCount);
     console.log('Usúarios no servidor: ' + memberCount);
-
     setInterval(function () {
         let pingAPIChannel = myGuild.channels.cache.get('705183603650199572');
         let test = myGuild.channels.cache.get('705140258647572510');
@@ -18,10 +17,12 @@ module.exports = async client => {
         totalSeconds %= 3600;
         let minutes = Math.floor(totalSeconds / 60);
         let seconds = totalSeconds % 60;
-        let uptime = `${days}:${hours}:${minutes}`;
 
-        test.setName(`🕒 | Uptime: ${uptime}`);
+        if (days <= 1){
+            test.setName(`🕒 | Uptime: ${hours}h:${minutes}m`);
+        }else if (days >= 2)
+            test.setName(`🕒 | Uptime: ${days} dias`);
 
-    }, 5000)
+    }, 60000)
     client.user.setActivity("=comandos", { type: "PLAYING" });
 }
