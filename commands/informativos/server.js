@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
 
     const embed = {
         "title": "Informações do Servidor: " + message.guild.name,
-        "color": 15359,
+        "color": "BLUE",
         "thumbnail": {
           "url": "https://cdn.discordapp.com/avatars/704392967074349087/2a2ae76986efdcdf549d9bd0dcedeafc.png"
         },

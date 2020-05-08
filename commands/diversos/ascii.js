@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => { // setando a base, mas com a fu
   .addField(`:hammer: **Uso**`, `\`${c.prefix}ascii <texto>\``)
   .addField(`:book: **Exemplo**`, `\`${c.prefix}ascii texto\``)
   .addField(`:bookmark: **Permissão**`, `\`Nenhuma\``)
-  .setColor('#8c0046')
+  .setColor('GREEN')
     
     let text = encodeURIComponent(args.join(' ')); // puxando os argumentos
     // caso o membro nao escreva algo

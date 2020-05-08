@@ -12,7 +12,7 @@ exports.run = async (client, message, args) => {
     const embed = new Discord.MessageEmbed()
         .setAuthor(`Sugestão de: ${message.author.username}`, message.author.displayAvatarURL)
         .setDescription(`${mensg}`)
-        .setColor('RANDOM')
+        .setColor('GREEN')
         .setThumbnail(message.author.displayAvatarURL)
         .setTimestamp()
     client.channels.cache.get(`474358471433781249`).send(embed)

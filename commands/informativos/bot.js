@@ -13,7 +13,7 @@ exports.run = (client, message, args) => {
 
     const embed = {
         "title": 'Informações sobre: ' + userName,
-        "color": 15359,
+        "color": "BLUE",
         "thumbnail": {
           "url": botAvatar
         },

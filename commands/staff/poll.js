@@ -8,7 +8,7 @@ exports.run = async (client, message, args) => {
 	const embed = {
 		"title": 'Votação criada por: ' + message.author.username,
 		"description": (args.join(' ')),
-		"color": 15359,
+		"color": "RED",
 		"footer": {
 			"text": "Reaja com um emoji."
 		  },

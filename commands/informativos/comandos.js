@@ -22,6 +22,7 @@ exports.run = (client, message, args) => {
                     .addField(`ℹ️ **Informativos**`, '• `comandos`, `server`, ...')
                     .addField(`🍀 **Diversos**`, '• `roll`, `sorte`, ...')
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
+                    .addField(`🔞 **NSFW (+18)**`, '• `ass`, `boobs`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
             .setTimestamp()
             .setColor('WHITE')
@@ -29,18 +30,21 @@ exports.run = (client, message, args) => {
             await msg.react('ℹ️')
             await msg.react('🍀')
             await msg.react('🦁')
+            await msg.react('🔞')
             await msg.react("↩")
 
 
             const informacao = (reaction, user) => reaction.emoji.name === 'ℹ️' && user.id === message.author.id;
             const diversao = (reaction, user) => reaction.emoji.name === '🍀' && user.id === message.author.id;
             const staff = (reaction, user) => reaction.emoji.name === '🦁' && user.id === message.author.id;
+            const nsfw = (reaction, user) => reaction.emoji.name === '🔞' && user.id === message.author.id;
 
             const back = (reaction, user) => reaction.emoji.name === "↩" && user.id === message.author.id;
 
             const informacaoL = msg.createReactionCollector(informacao)
             const diversaoL = msg.createReactionCollector(diversao)
             const staffL = msg.createReactionCollector(staff)
+            const nsfwL = msg.createReactionCollector(nsfw)
             const backL = msg.createReactionCollector(back)
 
 
@@ -51,9 +55,10 @@ exports.run = (client, message, args) => {
                     .addField(`ℹ️ **Informativos**`, '• `comandos`, `server`, ...')
                     .addField(`🍀 **Diversos**`, '• `roll`, `sorte`, ...')
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
+                    .addField(`🔞 **NSFW (+18)**`, '• `ass`, `boobs`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
-                    .setColor("WHITE")
+                    .setColor("GREEN")
                 msg.edit(embedd)
             })
 
@@ -66,6 +71,7 @@ exports.run = (client, message, args) => {
                     =comandos - Exibe um menu de ajuda.
                     =ping - Mostra a latência bot-servidor.
                     =server - Mostra informações sobre o servidor.
+                    =tempo \`<cidade>\` - Mostra o climpa atual da cidade citada.
                     =user - Mostra informações sobre o seu usuário.
                     =users - Mostra informações gerais sobre os usuários do canal.
                     =year - Mostra quanto tempo falta até o fim do ano. 
@@ -111,6 +117,24 @@ exports.run = (client, message, args) => {
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
                 msg.edit(embeddiversao)
+            })
+
+            nsfwL.on('collect', r => {
+                const embednsfw = new Discord.MessageEmbed()
+                    .setAuthor(`Proerd ™ - Comandos`)
+                    .setDescription(`🔞 **NSFW (+18)**
+                    =ass - \`Apenas +18\`
+                    =boobs - \`Apenas +18\`
+                    =boobs2 - \`Apenas +18\`
+                    =h_bjob - \`Apenas +18\`
+                    =h_boobs - \`Apenas +18\`
+                    =h_pussy - \`Apenas +18\`
+                    =pussy - \`Apenas +18\`
+            `)
+                    .setColor("#000000")
+                    .setFooter(message.author.tag, message.author.avatarURL)
+                    .setTimestamp()
+                msg.edit(embednsfw)
             })
 
         })

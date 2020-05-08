@@ -9,7 +9,7 @@ exports.run = async (client, message, args) => {
 
     const embed = {
         "title": "Informações do usuário: " + message.author.username,
-        "color": 15359,
+        "color": "BLUE",
         "thumbnail": {
           "url": message.author.displayAvatarURL({ format: "png", dynamic: true })
         },

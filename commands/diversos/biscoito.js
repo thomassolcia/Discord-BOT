@@ -26,7 +26,7 @@ exports.run = (client, message, args) => {
 ];
 
 const cookembed = new Discord.MessageEmbed()
-.setColor("RANDOM")
+.setColor("GREEN")
 .setDescription(`<@${message.author.id}> deu para <@${user.id}> um biscoito! :cookie: `)
 .setImage(cookies[Math.floor(Math.random() * cookies.length)])
 

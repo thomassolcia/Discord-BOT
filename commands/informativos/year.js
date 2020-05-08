@@ -17,7 +17,7 @@ exports.run = async (client, message, args) => {
 	.setDescription(`Uhuuu, quem vai ficar até o fim do ano sem usar drogas <@${message.author.id}>?`)
 	.addField(`Tempo restante:`, ` **${days} dias**, **${hours} horas**, **${minutes} minutos** e **${seconds} segundos** até **${next.getFullYear()}**! 🎆`)
 	.setFooter('Você consegue!')
-	.setColor("RANDOM")
+	.setColor("BLUE")
 	.setTimestamp()
 	message.channel.send(yearembed)
 };

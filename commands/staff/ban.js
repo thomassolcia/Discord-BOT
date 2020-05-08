@@ -29,7 +29,7 @@ exports.run = async (client, message, args) => {
 
                         const embed = new Discord.MessageEmbed()
                             .setDescription(`**Banimento**`)
-                            .setColor("RANDOM")
+                            .setColor("RED")
                             .addField("Usuário", `${member}`, true)
                             .addField("Staff", message.author.username, true)
                             .setThumbnail(member.displayAvatarURL)
