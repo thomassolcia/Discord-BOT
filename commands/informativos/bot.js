@@ -11,11 +11,18 @@ exports.run = (client, message, args) => {
     let seconds = totalSeconds % 60;
     let uptime = `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
 
+    function checkDays(date) {
+      let now = new Date();
+      let diff = now.getTime() - date.getTime();
+      let days = Math.floor(diff / 86400000);
+      return days + (days == 1 ? " dia" : " dias") + " atrás";
+  };
+
     const embed = {
         "title": 'Informações sobre: ' + userName,
         "color": "BLUE",
         "thumbnail": {
-          "url": botAvatar
+          "url": "https://cdn.discordapp.com/avatars/704392967074349087/2a2ae76986efdcdf549d9bd0dcedeafc.png"
         },
         "fields": [
           {
@@ -28,7 +35,7 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "Criado: ",
-            "value": formatDate('DD/MM/YYYY, às HH:mm:ss', date)
+            "value": formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date)
           }
         ]
       };
