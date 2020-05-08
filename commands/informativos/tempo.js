@@ -19,7 +19,6 @@ exports.run = (client, message, args) => {
     .addField(`Sensação`, `${current.feelslike} Cº`, true)
     .addField(`Vento`, `${current.winddisplay}`, true)
     .addField(`Umidade`, `${current.humidity}%`, true)
-    .addField(`teste`, `${current.conditions}%`, true)
 
     message.channel.send(tempEmbed)
     })
