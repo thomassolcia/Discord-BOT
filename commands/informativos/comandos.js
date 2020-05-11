@@ -88,8 +88,11 @@ exports.run = (client, message, args) => {
                     .setDescription(`🍀 **Diversos**
                     =ascii \`<texto>\` - Transforma um texto pequeno em ASCII.
                     =biscoito \`<@user>\` - Dê um biscoito para alguém. Seja gentil!
+                    =hex \`<#000000>\` - Mostra a cor de qualquer hex desejado.
                     =imgur \`<anexo>\` - Enviei uma imagem dirato para o imgur.
                     =lembrete \`<tempo>\` \`<texto>\`  - Faz com que o bot te lembre de algo em um tempo determinado.
+                    =lenny - Sorteia uma lennyface. ಠ‿↼
+                    =moeda - Tira cara ou coroa.
                     =morse \`<palavra/frase>\` - Transforme uma palavra ou frase em código morse.
                     =nick \`<novoApelido>\` - Muda seu apelido dentro do servidor.
                     =roll \`<tipoDado>\` - Role os dados. d2, d4, d6, d8, d10 ou d20.

@@ -11,7 +11,7 @@ Este formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ### Adicionado
 - `=hex` mostra a cor de qualquer hex desejado.
-- `lenny` sorteia uma lennyface aleatória.
+- `lenny` sorteia uma lennyface.
 - `moeda` tira cara ou coroa.
 
 ### Removido
