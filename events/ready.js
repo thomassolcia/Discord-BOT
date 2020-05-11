@@ -18,9 +18,9 @@ module.exports = async client => {
         let minutes = Math.floor(totalSeconds / 60);
         let seconds = totalSeconds % 60;
 
-        if (days <= 1){
+        if (days < 1){
             test.setName(`🕒 | Uptime: ${hours}h:${minutes}m`);
-        }else if (days >= 2)
+        }else if (days >= 1)
             test.setName(`🕒 | Uptime: ${days} dias`);
 
     }, 60000)

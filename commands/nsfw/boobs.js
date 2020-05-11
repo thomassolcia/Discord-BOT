@@ -4,7 +4,7 @@ const rp = require('request-promise-native');
 
 exports.run = (client, message, args) => {
     if (!message.channel.nsfw) {
-        message.channel.send(":underage: NSFW Command. Please switch to NSFW channel in order to use this command.")
+        message.react('💢');
     } else {
       return rp.get('http://api.oboobs.ru/boobs/0/1/random').then(JSON.parse).then(function(res)  {
         return rp.get({

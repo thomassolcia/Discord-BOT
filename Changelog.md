@@ -4,115 +4,91 @@ Todas as modificações notáveis deste projeto será documentada neste arquivo.
 
 Este formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [v2.0] - 09.05.2020
+## [2.1] - 2020-05-11
+### Modificado
+- Todos comandos NSFW quando não utilizados na sala específica, recebe um `emoji` como resposta e é bloqueado.
+- Ao passar de 24 horas, o uptime agora é convertido automaticamente para 1 dia e assim em diante.
 
-### Commands
-#### Diversos
+### Adicionado
+- `=hex` mostra a cor de qualquer hex desejado.
+- `lenny` sorteia uma lennyface aleatória.
+- `moeda` tira cara ou coroa.
 
-- Cor padronizada `green`.
+### Removido
+- `guildCreate` e `guildDelete` não estavam sendo utilizado até o momento.
 
-#### Informativos
+## [2.0] - 2020-05-09
+### Consertado
+- Alterações na forma como era mostrado o uptime do bot. Agora a taxa de atualização é de 1 minuto ao invés de 5 segundos. Não era necessário ter essa taxa tão rápida, apenas aumentavam as instabilidades.
+- Não é mais possível o envio de mensagens privadas ao bot. Isso fazia com que ele parasse de funcionar com comandos específicos. Somente mensagens dentro do próprio servidor estão ativas.
 
-- Cor padronizada `blue`.
+### Modificado
+- Cor padronizada `green` em comandos `diversos`.
+- Cor padronizada `blue` em comandos `informativos`.
 - `=Bot` foi adicionado há quantos dias o bot foi criado e teve o embed remodelado.
 - `=Comandos` foi atualizado.
 - `=Ping` teve o embed adicionado.
-- `=Tempo` foi criado.
 - `=Year` teve o embed remodelado juntamente com algumas correções.
-
-#### Staff
-
 - Cor padronizada `red`.
 
-#### Nsfw
+### Adicionado
+- `=Tempo` mostra o clima em alguma cidade específica.
+- A categoria NSFW foi adicionada ao bot com cor padrão `black`.
+- Alguns comandos adicionados para teste na categoria NSFW.
 
-- Cor padronizada `black`.
-- Alguns comandos adicionados para teste.
+## [1.3] - 2020-05-04
+### Modificado
+- Os `commands` foram dividos por pastas. Cada uma contendo comandos específicos relacionados àquela categoria.
+- O status do bot agora fica estável em `Jogando =comandos`.
 
-### [Events]
-#### Ready
-Teve alterações na forma como era mostrado o uptime do bot. Agora a taxa de atualização é de 1 minuto ao invés de 5 segundos. Não era necessário ter essa taxa tão rápida, apenas aumentavam as instabilidades.
+### Adicionado
+- `=ascii` Transforma uma palavra ou frase curta em um texto ascii.
+- `=biscoito` Envia um biscoito para a pessoa mencionada.
+- `=imgur` Automaticamente envia uma imagem específica para o imgur gerando o link da mesma.
+- `=lembrete` Cria um lembrete para você. O bot avisa quando estiver na hora.
+- `=morse` Transforma uma palavra ou frase curta em um código morse.
+- `=sugerir` Envia uma sugestão na sala específica para sugestões.
+- `=tapa` Da um tapa na pessoa mencionada.
+- `=year` Mostra quantos dias faltam até o fim do ano.
+- `=listban` Envia uma lista dos usuários que estão banidos no servidor.
+- Duas salas específicas, uma para mostrar há quanto tempo o bot está ativo e outra para mostrar a data da ultima atualização do mesmo.
 
-#### Message
+## [1.2] - 2020-05-02
+### Modificado
+- `=Comandos` foi novamente reestruturado.
+- `=Roll` foi remodelado, `r -> Roll`.
 
-Foi modificado para não ser possível o envio de mensagens privadas ao bot. Isso fazia com que ele parasse de funcionar. Somente mensagens dentro do próprio servidor estão ativas.
-
-## [v1.3] - 04.05.2020
-### Commands
-
-Foi divido por pastas. Cada uma contendo comandos específicos relacionados àquela categoria.
-
-#### Diversos
-
-`=ascii` foi criado. Transforma uma palavra ou frase curta em um texto ascii.
-`=biscoito` foi criado. Envia um biscoito para a pessoa mencionada.
-`=imgur` foi criado. Automaticamente envia uma imagem específica para o imgur gerando o link da mesma.
-`=lembrete` foi criado. Cria um lembrete para você. O bot avisa quando estiver na hora.
-`=morse` foi criado. Transforma uma palavra ou frase curta em um código morse.
-`=sugerir` foi criado. Envia uma sugestão na sala específica para sugestões.
-`=tapa` foi criado. Da um tapa na pessoa mencionada.
-
-#### Informativos
-
-`=year` foi criado. Mostra quantos dias faltam até o fim do ano.
-
-#### Staff
-
-`=listban` foi criado. Envia uma lista dos usuários que estão banidos no servidor.
-
-### Events
-#### Ready
-
-O status do bot agora fica estável em `Jogando =comandos`. Também foram adicionadas duas salas específicas, uma para mostrar há quanto tempo o bot está ativo e outra para mostrar a data da ultima atualização do mesmo.
-
-## [v1.2] - 02.05.2020
-### Commands
-
+### Adicionado
 - `=Avatar` puxa o avatar de algum usuário do servidor.
 - `=Ban` bane alguém do servidor.
 - `=Bot` informações sobre o bot.
-- `=Comandos` foi atualizado.
 - `=Poll` cria uma votação e como respostas tem dois emojis.
-- `=Roll` foi remodelado, `r -> Roll`.
 - `=Server` mostra informações sobre o servidor.
 - `=User` mostra indormações sobre um usuário específico.
 - `=Users` mostra informações gerais dos usuários do servidor.
+- Agora é possível colocar em uma sala específica o número de usuários online no servidor e o ping atual da API em relação ao bot, o nome dessa sala irá ser alterada em tempo real de acordo com as informações recebidas pelo bot.
+- Foi adicionado uma função para proibir a `m-word` dentro do servidor.
 
-### Events
-#### Ready
-
-Agora é possível colocar em uma sala específica o número de usuários online no servidor e o ping atual da API em relação ao bot, tudo em tempo real.
-
-#### Message
-
-Foi adicionado uma função para proibir a `m-word` dentro do servidor.
-
-## [v1.1] - 29.04.2020
-
-Bot foi reestruturado e foram criadas duas divisões entre as funcionalidades.
-- `Commands` para inserção de todos os comandos.
-- `Events` para inserção de eventos. 
-
-### Commands
-- `=comandos` lista contendo todos os comandos.
-- `=kick` expulsa a pessoa mencionada do servidor.
-- `=limpar` limpa de 1 até 100 mensagens de um canal.
-- `=nick` altera o seu apelido dentro do servidor.
-- `=ping.` mostra o ping com o bot.
+## [1.1] - 2020-04-29
+### Modificado
+Bot reestruturado. Foram criadas duas divisões entre as funcionalidades `commands` e `events`.
+- `=comandos` agora em uma nova estrutura.
+- `=limpar` agora tem a opção de escolher a quantia de mensagens que deseja apagar.
 - `=r` foi remodelado, `rd -> r`.
+
+### Adicionado
+- `=kick` expulsa a pessoa mencionada do servidor.
+- `=nick` altera o seu apelido dentro do servidor.
 - `=reload` recarrega um comando sem precisar reiniciar o bot.
-- `=sorte` testa a sua sorte.
 - `=uptime` mostra o tempo em que o bot está ativo.
+- `ready` realiza algo enquanto o bot está ativo.
+- `message` realiza algo quando o bot recebe uma mensagem específica.
+- `guildMember_Remove` realiza algo quando alguém sai do servidor.
+- `guildMember_Add` realiza algo quando alguém entra do servidor.
+- Outros events.
 
-### Events
-- `ready`
-- `message`
-- `guildMember_Remove`
-- `guildMember_Add`
-- entre outros eventos.
-
-## [v1.0] - 27.04.2020
-
+## [1.0] - 2020-04-27
+### Adicionado
 - Versão inicial do bot.
 - `index.js` contendo todos os comandos
 - `=ping` para ver o ping com o bot.
