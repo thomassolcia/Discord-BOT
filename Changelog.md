@@ -8,6 +8,7 @@ Este formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.
 ### Modificado
 - Todos comandos NSFW quando não utilizados na sala específica, recebe um `emoji` como resposta e é bloqueado.
 - Ao passar de 24 horas, o uptime agora é convertido automaticamente para 1 dia e assim em diante.
+- Mensagem de erro alterada em `=roll`
 
 ### Adicionado
 - `=hex` mostra a cor de qualquer hex desejado.
@@ -16,6 +17,11 @@ Este formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.
 
 ### Removido
 - `guildCreate` e `guildDelete` não estavam sendo utilizado até o momento.
+
+### Consertado
+- Em `=tempo` algumas localizações travavam o bot pelo fato de não consatem no banco de dados da biblioteca. Agora uma mensagem é mostrada quando isso ocorre e o bot continuará funcional.
+- Alguns erros não estavam sendo tratados, causando o encerramento do bot. Agora, sempre que houver um erro, ele será notificado pelo mesmo e o bot continuará funcional.
+- Erros de grafia corrigidos em `=comandos`.
 
 ## [2.0] - 2020-05-09
 ### Consertado

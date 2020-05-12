@@ -98,7 +98,7 @@ exports.run = (client, message, args) => {
                     =roll \`<tipoDado>\` - Role os dados. d2, d4, d6, d8, d10 ou d20.
                     =sorte - Faça-o e veja se hoje é seu dia de sorte.
                     =sugerir \`<sugestão>\` - Dê uma sugestão para o servidor.
-                    =tapa \`<@user>\ - Dê um tapa em alguém.
+                    =tapa \`<@user>\` - Dê um tapa em alguém.
             `)
                     .setColor("GREEN")
                     .setFooter(message.author.tag, message.author.avatarURL)

@@ -51,5 +51,5 @@ exports.run = async (client, message, args) => {
         d100 = Math.floor(Math.random() * (max - min) + min);
         message.reply('Valor do dado: ' + d100);
     }
-    else { return message.channel.send("Insira um valor de dado existente!") }
+    else { return message.channel.send("Insira um tipo de dado existente!") }
 }

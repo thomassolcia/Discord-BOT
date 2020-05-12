@@ -10,13 +10,18 @@ module.exports = (client, message) => {
 
   const args = message.content.slice(client.config.prefix.length).trim().split(/ +/g);
   const command = args.shift().toLowerCase();
-  const cmd = client.commands.get(command);
+  const exports = client.commands.get(command);
 
   if (message.content.indexOf(client.config.prefix) !== 0) return;
 
   if(message.channel.type === 'dm') {
 		message.reply('Você só pode executar este comando num servidor.')
-	} else {
-    cmd.run(client, message, args);
+  } 
+  
+  try {
+    exports.run(client, message, args);
+  }
+  catch(err) {
+    message.reply('este comando não existe ou o formato está incorreto. Digite `=comandos` para mais informações!');
   }
 };
