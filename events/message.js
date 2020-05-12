@@ -14,8 +14,6 @@ module.exports = (client, message) => {
 
   if (message.content.indexOf(client.config.prefix) !== 0) return;
 
-  if (!cmd) return;
-
   if(message.channel.type === 'dm') {
 		message.reply('Você só pode executar este comando num servidor.')
 	} else {
