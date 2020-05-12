@@ -17,6 +17,6 @@
 [Discord.js documentation]: https://discord.js.org/
 [Visual Studio Code]: https://code.visualstudio.com/
 [GameGuardian]: https://gameguardian.net/
-[changelog]: ./changelog.md
-[stable-badge]: https://img.shields.io/badge/stable-v2.0-blue
+[changelog]: https://github.com/thomassolcia/Discord-BOT/blob/master/Changelog.md
+[stable-badge]: https://img.shields.io/badge/stable-v2.1-blue
 [changelog-badge]: https://img.shields.io/badge/changelog-v2.0-blue
