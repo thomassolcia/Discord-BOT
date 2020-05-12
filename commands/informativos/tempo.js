@@ -2,13 +2,9 @@ const weather = require('weather-js')
 const Discord = require('discord.js');
 
 exports.run = (client, message, args) => {
-
-    weather.find({search: args.join(' '), degreeType: 'C'}, function(err, result) {
-        if (err) message.channel.send(err);
-        
+    weather.find({search: args.join(' '), degreeType: 'C'}, function(result){
     var current = result[0].current;
     var location = result[0].location;
-
     const tempEmbed = new Discord.MessageEmbed()
     .setDescription(`**${current.skytext}**`)
     .setAuthor(`Clima atual na região de: ${current.observationpoint}`)
@@ -19,7 +15,6 @@ exports.run = (client, message, args) => {
     .addField(`Sensação`, `${current.feelslike} Cº`, true)
     .addField(`Vento`, `${current.winddisplay}`, true)
     .addField(`Umidade`, `${current.humidity}%`, true)
-
     message.channel.send(tempEmbed)
     })
 }
