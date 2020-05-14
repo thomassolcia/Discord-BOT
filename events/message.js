@@ -18,7 +18,7 @@ module.exports = (client, message) => {
 		message.reply('Você só pode executar este comando num servidor.')
   } 
   
-  const musicBot = ["play", 'np', 'skip', 'pause', 'next', 'stop', 'queue', 'volume'];
+  const musicBot = ["play", 'np', 'skip', 'pause', 'next', 'stop', 'queue', 'volume', 'resume'];
   if (musicBot.some(word1 => message.content.includes(word1))) {
     return
   }else

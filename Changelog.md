@@ -4,16 +4,19 @@ Todas as modificações notáveis deste projeto será documentada neste arquivo.
 
 Este formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
-## [2.1] - 2020-05-11
+## [2.1] - 2020-05-14
 ### Modificado
 - Todos comandos NSFW quando não utilizados na sala específica, recebe um `emoji` como resposta e é bloqueado.
 - Ao passar de 24 horas, o uptime agora é convertido automaticamente para 1 dia e assim em diante.
 - Mensagem de erro alterada em `=roll`
+- Uma seção de música foi adicionada em =comandos.
 
 ### Adicionado
 - `=hex` mostra a cor de qualquer hex desejado.
 - `lenny` sorteia uma lennyface.
 - `moeda` tira cara ou coroa.
+- `=igor` O Pinscher Malvoso.
+- Proerd Music. Agora temos o nosso próprio bot de música.
 
 ### Removido
 - `guildCreate` e `guildDelete` não estavam sendo utilizado até o momento.
