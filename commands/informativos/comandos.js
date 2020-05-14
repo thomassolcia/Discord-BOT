@@ -22,6 +22,7 @@ exports.run = (client, message, args) => {
                     .addField(`ℹ️ **Informativos**`, '• `comandos`, `server`, ...')
                     .addField(`🍀 **Diversos**`, '• `roll`, `sorte`, ...')
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
+                    .addField(`🎶 **Music**`, '• `play`, `pause`, ...')
                     .addField(`🔞 **NSFW (+18)**`, '• `ass`, `boobs`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
             .setTimestamp()
@@ -30,6 +31,7 @@ exports.run = (client, message, args) => {
             await msg.react('ℹ️')
             await msg.react('🍀')
             await msg.react('🦁')
+            await msg.react('🎶')
             await msg.react('🔞')
             await msg.react("↩")
 
@@ -37,6 +39,7 @@ exports.run = (client, message, args) => {
             const informacao = (reaction, user) => reaction.emoji.name === 'ℹ️' && user.id === message.author.id;
             const diversao = (reaction, user) => reaction.emoji.name === '🍀' && user.id === message.author.id;
             const staff = (reaction, user) => reaction.emoji.name === '🦁' && user.id === message.author.id;
+            const music = (reaction, user) => reaction.emoji.name === '🎶' && user.id === message.author.id;
             const nsfw = (reaction, user) => reaction.emoji.name === '🔞' && user.id === message.author.id;
 
             const back = (reaction, user) => reaction.emoji.name === "↩" && user.id === message.author.id;
@@ -44,6 +47,7 @@ exports.run = (client, message, args) => {
             const informacaoL = msg.createReactionCollector(informacao)
             const diversaoL = msg.createReactionCollector(diversao)
             const staffL = msg.createReactionCollector(staff)
+            const musicL = msg.createReactionCollector(music)
             const nsfwL = msg.createReactionCollector(nsfw)
             const backL = msg.createReactionCollector(back)
 
@@ -55,6 +59,7 @@ exports.run = (client, message, args) => {
                     .addField(`ℹ️ **Informativos**`, '• `comandos`, `server`, ...')
                     .addField(`🍀 **Diversos**`, '• `roll`, `sorte`, ...')
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
+                    .addField(`🎶 **Music**`, '• `play`, `pause`, ...')
                     .addField(`🔞 **NSFW (+18)**`, '• `ass`, `boobs`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
@@ -120,6 +125,25 @@ exports.run = (client, message, args) => {
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
                 msg.edit(embeddiversao)
+            })
+
+            musicL.on('collect', r => {
+                const embedmusic = new Discord.MessageEmbed()
+                    .setAuthor(`Proerd ™ - Comandos`)
+                    .setDescription(`🎶 **Music**
+                    =np - Mostra a música que está tocando no momento.
+                    =play \`<Link>\` - Começa a tocar uma música ou coloca ela na fila.
+                    =pause - Pausa a música que está tocando.
+                    =queue - Mostra as músicas que estão na fila.
+                    =resume - Volta a tocar a música que foi pausada.
+                    =skip - Pula a música que está tocando.
+                    =stop - Para de tocar as músicas e o bot sai da sala.
+                    =volume - Controla o volume geral de reprodução. Não é o mesmo volume do servidor.
+            `)
+                    .setColor("YELLOW")
+                    .setFooter(message.author.tag, message.author.avatarURL)
+                    .setTimestamp()
+                msg.edit(embedmusic)
             })
 
             nsfwL.on('collect', r => {
