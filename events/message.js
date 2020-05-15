@@ -18,14 +18,19 @@ module.exports = (client, message) => {
 		message.reply('Você só pode executar este comando num servidor.')
   } 
   
+  message.channel.name === 'bot-spam'
+  
   const musicBot = ["play", 'np', 'skip', 'pause', 'next', 'stop', 'queue', 'volume', 'resume'];
-  if (musicBot.some(word1 => message.content.includes(word1))) {
-    return
-  }else
+  if (musicBot.some(word1 => message.content.includes(word1))) return;
+  
+  if ( message.channel.name === 'bot-spam'){
     try {
       exports.run(client, message, args);
     }
     catch(err) {
       message.reply('este comando não existe ou o formato está incorreto. Digite `=comandos` para mais informações!');
     }
+  }else{
+    message.reply("os comandos agora só estão habilitados no canal <#694285200582115418> para evitarmos qualquer tipo de spam e termos uma melhor organização dentro do servidor.")
+  }
 };
