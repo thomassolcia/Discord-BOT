@@ -1,6 +1,7 @@
 exports.run = async (client, message, args) => {
     const amount = args.join(' ');
 
+    if (!message.member.hasPermission("BAN_MEMBERS")) return message.reply(`você não tem permissão para usar este comando`);
     if (!amount) return message.reply('Você não inseriu a quantidade de mensagens que deseja apagar.');
     if (isNaN(amount)) return message.reply('Valor inválido! Tente com números.');
 

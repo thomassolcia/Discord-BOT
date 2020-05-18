@@ -1,7 +1,10 @@
-exports.run = async (client, message, args) => {
+const Discord = require('discord.js')
+const c = require('../../config.json');
+
+exports.run = async (bot, message, args) => {
 
     var motivo = args.slice(1).join(" ")
-    var member = message.mentions.users.first() || client.users.get(args[0]);
+    var member = message.mentions.users.first() || bot.users.get(args[0]);
 
 
     if (message.mentions.users.size === 0) {
@@ -37,9 +40,9 @@ exports.run = async (client, message, args) => {
                             .setFooter(`${member.id}`)
                             .setTimestamp()
 
-                        message.guild.channels.get(c.punishChannel).send(embed);
+                        message.guild.channels.cache.get('694285200582115418').send(embed);
 
-                        message.guild.member(member).ban(motivo).catch(e => message.channel.send("Falha ao banir. Deu sorte em!"));
+                        message.guild.member(member).ban(motivo).catch(e => message.channel.send("Essa pessoa não pode ser banida! Ta maluco?"));
                         break;
                     case '⏹':
                         msg.delete().then(message.channel.send(`Essa foi por pouco né ${member}?`));

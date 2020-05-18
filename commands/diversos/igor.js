@@ -3,6 +3,7 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) => {
 
     let igor = [
+    'https://i.imgur.com/Qf0TGS4.gif',
     'https://i.imgur.com/XMtjIED.png', 
     'https://i.imgur.com/ce8DKTF.png', 
     'https://i.imgur.com/ERIxAtp.png',

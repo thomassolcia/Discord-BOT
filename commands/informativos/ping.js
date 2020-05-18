@@ -13,8 +13,8 @@ exports.run = async (client, message) => {
 	const tempEmbed = new Discord.MessageEmbed()
 	.setColor('BLUE')
 	.setTitle('Pong!')
-	.addField(`Latência com o BOT`, `${clientms}ms`, true)
-	.addField(`Latência com a API`, `${Math.floor(client.ws.ping)}ms`, true)
+	.addField(`Bot`, `${clientms}ms`, true)
+	.addField(`API`, `${Math.floor(client.ws.ping)}ms`, true)
 	ms.delete()
     ms.channel.send(tempEmbed)
 }

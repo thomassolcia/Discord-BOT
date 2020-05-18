@@ -38,6 +38,7 @@ module.exports = (client, message) => {
       message.reply('este comando não existe ou o formato está incorreto. Digite `=comandos` para mais informações!');
     }
   }else{
+    message.delete();
     message.reply("os comandos agora só estão habilitados no canal <#694285200582115418> para evitarmos qualquer tipo de spam e termos uma melhor organização dentro do servidor.")
   }  
 };
