@@ -14,7 +14,7 @@ exports.run = (client, message, args) => {
             .setTimestamp()
             .setColor(15359)
             .setFooter(message.author.tag, message.author.avatarURL)
-        message.channel.send(yes).then(msg => msg.delete(5000))
+        message.channel.send(yes)
 
         const embed = new Discord.MessageEmbed()
             .setAuthor(`Proerd ™ - Comandos`)
@@ -23,7 +23,6 @@ exports.run = (client, message, args) => {
                     .addField(`🍀 **Diversos**`, '• `roll`, `sorte`, ...')
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
                     .addField(`🎶 **Music**`, '• `play`, `pause`, ...')
-                    .addField(`🔞 **NSFW (+18)**`, '• `ass`, `boobs`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
             .setTimestamp()
             .setColor('WHITE')
@@ -32,7 +31,6 @@ exports.run = (client, message, args) => {
             await msg.react('🍀')
             await msg.react('🦁')
             await msg.react('🎶')
-            await msg.react('🔞')
             await msg.react("↩")
 
 
@@ -40,7 +38,6 @@ exports.run = (client, message, args) => {
             const diversao = (reaction, user) => reaction.emoji.name === '🍀' && user.id === message.author.id;
             const staff = (reaction, user) => reaction.emoji.name === '🦁' && user.id === message.author.id;
             const music = (reaction, user) => reaction.emoji.name === '🎶' && user.id === message.author.id;
-            const nsfw = (reaction, user) => reaction.emoji.name === '🔞' && user.id === message.author.id;
 
             const back = (reaction, user) => reaction.emoji.name === "↩" && user.id === message.author.id;
 
@@ -48,7 +45,6 @@ exports.run = (client, message, args) => {
             const diversaoL = msg.createReactionCollector(diversao)
             const staffL = msg.createReactionCollector(staff)
             const musicL = msg.createReactionCollector(music)
-            const nsfwL = msg.createReactionCollector(nsfw)
             const backL = msg.createReactionCollector(back)
 
 
@@ -60,7 +56,6 @@ exports.run = (client, message, args) => {
                     .addField(`🍀 **Diversos**`, '• `roll`, `sorte`, ...')
                     .addField(`🦁 **Staff**`, '• `ban`, `kick`, ...')
                     .addField(`🎶 **Music**`, '• `play`, `pause`, ...')
-                    .addField(`🔞 **NSFW (+18)**`, '• `ass`, `boobs`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
                     .setColor("GREEN")
@@ -92,16 +87,20 @@ exports.run = (client, message, args) => {
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`🍀 **Diversos**
                     =ascii \`<texto>\` - Transforma um texto pequeno em ASCII.
+                    =bigtext \`<texto>\` - Transforma um texto em emojis maiores.
                     =biscoito \`<@user>\` - Dê um biscoito para alguém. Seja gentil!
+                    =cat - Foto aleatória de um gatinho.
+                    =dog - Foto aleatória de um doguinho.
                     =hex \`<#000000>\` - Mostra a cor de qualquer hex desejado.
                     =igor - O Pinscher Malvoso.
                     =imgur \`<anexo>\` - Enviei uma imagem dirato para o imgur.
+                    -inverter \`<texto>\` - Inverte um texto.
                     =lembrete \`<tempo>\` \`<texto>\`  - Faz com que o bot te lembre de algo em um tempo determinado.
                     =lenny - Sorteia uma lennyface. ಠ‿↼
                     =moeda - Tira cara ou coroa.
                     =morse \`<palavra/frase>\` - Transforme uma palavra ou frase em código morse.
                     =nick \`<novoApelido>\` - Muda seu apelido dentro do servidor.
-                    =roll \`<tipoDado>\` - Role os dados. d2, d4, d6, d8, d10 ou d20.
+                    =roll \`<tipoDado>\` - Role os dados. d2, d4, d6, d8, d10, d20 ou d100.
                     =sorte - Faça-o e veja se hoje é seu dia de sorte.
                     =sugerir \`<sugestão>\` - Dê uma sugestão para o servidor.
                     =tapa \`<@user>\` - Dê um tapa em alguém.
@@ -116,8 +115,8 @@ exports.run = (client, message, args) => {
                 const embeddiversao = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`🦁 **Staff**
-                    =ban \`<@user>\` - Bane um usuário.
-                    =kick \`<@user>\` - Expulsa um usuário.
+                    =ban \`<@user>\` \`<motivo>\` - Bane um usuário.
+                    =kick \`<@user>\` \`<motivo>\` - Expulsa um usuário.
                     =limpar \`<quantidade>\` - Limpa mensagens de até 2 semanas. (2 a 100)
                     =listban - Receba a lista de usuários banidos no privado.
                     =poll \`<titulo>\` - Cria uma votação de sim ou não para sua enquete.
@@ -146,24 +145,5 @@ exports.run = (client, message, args) => {
                     .setTimestamp()
                 msg.edit(embedmusic)
             })
-
-            nsfwL.on('collect', r => {
-                const embednsfw = new Discord.MessageEmbed()
-                    .setAuthor(`Proerd ™ - Comandos`)
-                    .setDescription(`🔞 **NSFW (+18)**
-                    =ass - \`Apenas +18\`
-                    =boobs - \`Apenas +18\`
-                    =boobs2 - \`Apenas +18\`
-                    =h_bjob - \`Apenas +18\`
-                    =h_boobs - \`Apenas +18\`
-                    =h_pussy - \`Apenas +18\`
-                    =pussy - \`Apenas +18\`
-            `)
-                    .setColor("#000000")
-                    .setFooter(message.author.tag, message.author.avatarURL)
-                    .setTimestamp()
-                msg.edit(embednsfw)
-            })
-
         })
     }

@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) => {
     let user = message.guild.member(message.mentions.users.first() || message.guild.members.get(args[0]));
     if(!user) return message.channel.send("Não encontrei o usuário mencionado.");
-
+    if(user.id == message.author.id) return message.channel.send("Pare de ser egoísta! Dê um biscoito para alguém.")
     let cookies = [
     'http://i.imgur.com/SLwEY66.gif', 
     'http://i.imgur.com/K6VoNp3.gif', 

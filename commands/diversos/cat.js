@@ -7,7 +7,7 @@ exports.run = async (bot, message, args) => {
   .get(`http://aws.random.cat/meow`);
 
   let catembed = new Discord.MessageEmbed()
-  .setColor("RANDOM")
+  .setColor("GREEN")
   .setTitle("Gatíneos 🐱")
   .setImage(body.file);
 

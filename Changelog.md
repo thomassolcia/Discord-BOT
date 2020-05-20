@@ -4,6 +4,30 @@ Todas as modificações notáveis deste projeto será documentada neste arquivo.
 
 Este formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.2] - 2020-05-20
+### Modificado
+- Agora ao utilizar o comando `=igor` você tem 14% de chance de encontrar um gif raro (ou nem tão raro assim).
+- Agora temos um gif e uma mensagem própria para quando utilizado o comando `=tapa` em si mesmo.
+- O comando é apagado ao ser enviado em um canal não próprio.
+- Embed do comando `=ping` reestruturado.
+- Os comandos `=ban` e `=kick` foram modificados.
+- Comando `=biscoito` foi aprimorado.
+`=comandos` teve todos os comandos revisados e inseridos.
+
+### Adicionado
+- Novos gifs foram adicionados ao comando `=tapa`.
+`=inverter` inverte uma frase ou texto. 
+`=dog` mostra uma foto aleatória de um doguinho.
+`=cat` mostra uma foto aleatória de um gatíneo.
+`=bigtext` aumenta uma frase/palavra.
+
+### Removido
+Comandos `NSFW` foram removidos.
+
+### Consertado
+- Ao passar 24 horas com o bot ativo, o uptime era atualizado erroneamente para `1 dias`. Isso já foi corrigido para `1 dia`.
+- O comando `=limpar` podia ser utilizado por qualquer pessoa. Agora é restrito aos administradores.
+
 ## [2.1] - 2020-05-14
 ### Modificado
 - Todos comandos NSFW quando não utilizados na sala específica, recebe um `emoji` como resposta e é bloqueado.
