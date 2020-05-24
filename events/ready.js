@@ -20,9 +20,9 @@ module.exports = async client => {
 
         if (days < 1){
             test.setName(`🕒│Uptime: ${hours}h:${minutes}m:${seconds.toFixed(0)}s`);
-        }else if (days = 1){
+        }else if (days < 2){
             test.setName(`🕒│Uptime: ${days} dia`);
-        }else if (days > 1)
+        }else
             test.setName(`🕒│Uptime: ${days} dias`);
 
     }, 10000)

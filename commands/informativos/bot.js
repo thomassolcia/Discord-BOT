@@ -9,7 +9,13 @@ exports.run = (client, message, args) => {
     totalSeconds %= 3600;
     let minutes = Math.floor(totalSeconds / 60);
     let seconds = totalSeconds % 60;
-    let uptime = `${days} dias, ${hours} horas, ${minutes} minutos e ${seconds} segundos`;
+
+    if (days < 1){
+      dias = 'dias'
+    }else if (days < 2){
+      dias = 'dia'
+    }else
+      dias = 'dias'
 
     function checkDays(date) {
       let now = new Date();
@@ -17,6 +23,13 @@ exports.run = (client, message, args) => {
       let days = Math.floor(diff / 86400000);
       return days + (days == 1 ? " dia" : " dias") + " atrás";
   };
+
+  if (days < 1){
+    uptempo = `${hours}h:${minutes}m:${seconds.toFixed(0)}s`;
+  }else if (days < 2){
+    uptempo = (`${days} dia`);
+  }else
+    uptempo = (`${days} dias`);
 
     const embed = {
         "title": 'Informações sobre: ' + userName,
@@ -31,7 +44,7 @@ exports.run = (client, message, args) => {
           },
           {
             "name": "Uptime: ",
-            "value": uptime
+            "value": uptempo
           },
           {
             "name": "Criado: ",
