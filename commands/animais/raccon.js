@@ -36,7 +36,7 @@ exports.run = (client, message, args) => {
 ];
 
 const racconembed = new Discord.MessageEmbed()
-.setColor("GREEN")
+.setColor("PURPLE")
 .setTitle("🦝 Guaxinim")
 .setImage(raccon[Math.floor(Math.random() * raccon.length)])
 

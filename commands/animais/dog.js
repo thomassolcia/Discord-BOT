@@ -7,7 +7,7 @@ exports.run = async (bot, message, args) => {
   .get(`https://random.dog/woof.json`);
 
    let dogembed = new Discord.MessageEmbed()
-   .setColor("GREEN")
+   .setColor("PURPLE")
    .setTitle("Doguinhos :dog:")
    .setImage(body.url);
 

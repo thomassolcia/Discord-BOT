@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 exports.run = async (client, message, args) => {
 	
-	if(!message.member.roles.cache.find(r => r.name === 'OWNERS' || r.name === 'PARTNERS')) return message.channel.send('Para criar votações é necessário ser OWNER ou PARTNER');
+	if(!message.member.roles.cache.find(r => r.name === 'Owner' || r.name === 'Staff')) return message.channel.send('Para criar votações é necessário ser Owner ou fazer parte da Staff');
 
 	if(!args[0]) return message.channel.send('Uso correto: =vote [Questão]');
 	

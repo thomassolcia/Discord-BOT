@@ -49,4 +49,26 @@ fs.readdir("./commands/staff/", (err, files) => {
   });
 });
 
+fs.readdir("./commands/animais/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/animais/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`${commandName} -> ✔️  Pronto!`);
+    client.commands.set(commandName, props);
+  });
+});
+
+fs.readdir("./commands/minigames/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/minigames/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`${commandName} -> ✔️  Pronto!`);
+    client.commands.set(commandName, props);
+  });
+});
+
 client.login(config.token);

@@ -37,7 +37,7 @@ exports.run = (client, message, args) => {
 ];
 
 const goatembed = new Discord.MessageEmbed()
-.setColor("GREEN")
+.setColor("PURPLE")
 .setTitle("🐐 G.O.A.T")
 .setImage(goat[Math.floor(Math.random() * goat.length)])
 
