@@ -97,9 +97,13 @@ exports.run = (client, message, args) => {
                 const embeddiversao = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`🍀 **Diversos**
+                    =8ball \`<texto>\` - Responde qualquer pergunta sua.
                     =ascii \`<texto>\` - Transforma um texto pequeno em ASCII.
                     =bigtext \`<texto>\` - Transforma um texto em emojis maiores.
                     =biscoito \`<@user>\` - Dê um biscoito para alguém. Seja gentil!
+                    =calc \`<expressão>\` - Calcula alguma expressão matemática.
+                    =dick \`<@user>\` - Descobre o tamanho do dick de alguém.
+                    =frase - Mostra alguma frase de alguém inteligênte ou completamente aleatório.
                     =hex \`<#000000>\` - Mostra a cor de qualquer hex desejado.
                     =igor - O Pinscher Malvoso.
                     =imgur \`<anexo>\` - Enviei uma imagem dirato para o imgur.
