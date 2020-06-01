@@ -25,6 +25,6 @@ module.exports = async client => {
         }else
             test.setName(`🕒│Uptime: ${days} dias`);
 
-    }, 10000)
+    }, 60000)
     client.user.setActivity("=comandos", { type: "PLAYING" });
 }
