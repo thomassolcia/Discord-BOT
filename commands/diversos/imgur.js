@@ -8,7 +8,8 @@ exports.run = (bot, message, args) => {
 	} else {
 		if(message.attachments.first().url.endsWith('png') || message.attachments.first().url.endsWith('jpg') || message.attachments.first().url.endsWith('gif')) {
 			imgur.uploadUrl(message.attachments.first().url).then(function (json) {
-				message.channel.send('A imagem foi enviada: ' + json.data.link)
+				message.delete()
+				message.reply('a imagem foi enviada: ' + json.data.link)
 			}).catch(function (err) {
 				message.channel.send('Aconteceu um erro, tente novamente.')
 			})

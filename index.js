@@ -16,6 +16,17 @@ fs.readdir("./events/", (err, files) => {
 
 client.commands = new Enmap();
 console.log('\n     [COMANDOS]      \n')
+fs.readdir("./commands/animais/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/animais/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`${commandName} -> ✔️  Pronto!`);
+    client.commands.set(commandName, props);
+  });
+});
+
 fs.readdir("./commands/diversos/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
@@ -38,33 +49,22 @@ fs.readdir("./commands/informativos/", (err, files) => {
   });
 });
 
-fs.readdir("./commands/staff/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/staff/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`${commandName} -> ✔️  Pronto!`);
-    client.commands.set(commandName, props);
-  });
-});
-
-fs.readdir("./commands/animais/", (err, files) => {
-  if (err) return console.error(err);
-  files.forEach(file => {
-    if (!file.endsWith(".js")) return;
-    let props = require(`./commands/animais/${file}`);
-    let commandName = file.split(".")[0];
-    console.log(`${commandName} -> ✔️  Pronto!`);
-    client.commands.set(commandName, props);
-  });
-});
-
 fs.readdir("./commands/minigames/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/minigames/${file}`);
+    let commandName = file.split(".")[0];
+    console.log(`${commandName} -> ✔️  Pronto!`);
+    client.commands.set(commandName, props);
+  });
+});
+
+fs.readdir("./commands/staff/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/staff/${file}`);
     let commandName = file.split(".")[0];
     console.log(`${commandName} -> ✔️  Pronto!`);
     client.commands.set(commandName, props);

@@ -27,8 +27,12 @@ exports.run = async (client, message, args) => {
         if (!args[0]) return message.channel.send('Você precisa informar a cor em HEX');
         if (!validate(args.join(''))) return message.reply('Essa não é uma cor HEX valida! Tente nesse modelo `#000000 ou 000000`')
         args[0] = args[0].replace('#', '');
-        message.channel.send(`primeiro: ${args[0]}, segundo: ${args[1]}, terceiro: ${args[2]}`)
-        message.channel.send(new Discord.MessageEmbed().setColor(args[0]).setThumbnail(`http://placehold.it/500/${args[0]}/${args[0]}`).addField(`**HEX**: #${args[0]}`, `**RGB**: rgb(${r},${g},${b})`).setTimestamp());
+        message.channel.send(new Discord.MessageEmbed()
+        .setColor(args[0])
+        .setThumbnail(`http://placehold.it/500/${args[0]}/${args[0]}`)
+        .addField(`**HEX**: #${args[0]}`, `**RGB**: rgb(${r},${g},${b})`)
+        .setTimestamp()
+        .setFooter(message.author.tag));
     } catch (err) {
         message.channel.send('Aconteceu um erro!\n' + err).catch();
     }

@@ -27,7 +27,7 @@ module.exports.run = async (client, message, args) => {
 
     try {
         await message.channel.send(bigtext_arr.join(''));
-        return message.delete()
+        return
     } catch (e) {
         return message.channel.send(new discord.RichEmbed()
             .setTitle('Ocorreu um erro ao enviar a mensagem.')

@@ -42,7 +42,7 @@ exports.run = async (client, message, args) => {
           },
           {
             "name": "Nível de Verificação:",
-            "value": message.guild.verificationLevel + ' | ' + " É necessário ter uma conta com o e-mail verificado!",
+            "value": message.guild.verificationLevel + ' | ' + " Todos são bem-vindos em nosso servidor!",
           },
           {
             "name": "Criação:",
