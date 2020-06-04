@@ -80,6 +80,7 @@ exports.run = (client, message, args) => {
                     =avatar \`<@user>\` - Mostra o avatar de um usuário ou do próprio usuário que usou o comando.
                     =bot - Mostra informações sobre mim.
                     =comandos - Exibe um menu de ajuda.
+                    =covid \`<país>\` -  Mostra informações estatísticas sobre o covid-19 no país desejado.
                     =ping - Mostra a latência bot-servidor.
                     =server - Mostra informações sobre o servidor.
                     =tempo \`<cidade>\` - Mostra o climpa atual da cidade citada.
