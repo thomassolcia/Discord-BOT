@@ -3,9 +3,33 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) => {
 
   if(!args[0]){
-    message.channel.send('Você precisa inserir um país. Exemplo: \`=covid brazil\` ou \`=covid br\`')
-  }
+    fetch(`https://disease.sh/v2/all`)
+    .then(res => res.json())
+    .then(data => {
+      let casos = data.cases.toLocaleString();
+      let casosHoje = data. todayCases.toLocaleString();
+      let mortes = data.deaths.toLocaleString();
+      let mortesHoje = data.todayDeaths.toLocaleString();
+      let recuperados = data.recovered.toLocaleString();
+      let emRisco = data.critical.toLocaleString();
+      let mortesM = data.deathsPerOneMillion.toLocaleString();
+      let casosM = data.casesPerOneMillion.toLocaleString();
+      let testes = data.tests.toLocaleString();
+      let testesM = data.testsPerOneMillion.toLocaleString();
+      let pop = data.population.toLocaleString();
+      let paises = data.affectedCountries;
+      let ativos = data.active.toLocaleString();
 
+      const embed1 = new Discord.MessageEmbed()
+      .setColor('BLUE')
+      .setTimestamp(new Date())
+      .setAuthor("🌎 ESTATÍSTICAS GLOBAIS DO COVID-19")
+      .addField(`Dados: World`, `População Mundial: **${pop}**\nPaíses Afetados: **${paises}**\n\nConfirmados: (Total: **${casos}** | Hoje: **${casosHoje}**)\nMortes: (Total: **${mortes}** | Hoje: **${mortesHoje}**)\nRecuperados: **${recuperados}** \nEm risco: **${emRisco}** \nAtivos: **${ativos}**\n\nTestes: (Total: **${testes}** | per1M: **${testesM}**)\nCasos/1M: **${casosM}**\nMortes/1M: **${mortesM}**`)
+
+      message.channel.send(embed1);
+    message.channel.send('Informações do Covid-19 em um páis específico: \`=covid brazil\` ou \`=covid br\`')
+  })
+  }else{
     let countries = args[0] 
     fetch(`https://corona.lmao.ninja/v2/countries/${countries}`)
     .then(res => res.json())
@@ -19,6 +43,7 @@ exports.run = (client, message, args) => {
       let recovered = data.recovered.toLocaleString();
       let critical = data.critical.toLocaleString();
       let active = data.active.toLocaleString();
+      let tests = data.testsPerOneMillion.toLocaleString();
       let deathperm = data.deathsPerOneMillion.toLocaleString();
       let casesperm = data.casesPerOneMillion.toLocaleString();
       
@@ -26,7 +51,8 @@ exports.run = (client, message, args) => {
       .setColor('BLUE')
       .setTimestamp(new Date())
       .setAuthor("ESTATÍSTICAS DO COVID-19", flag)
-      .addField(`Dados: ${country}`, `Confirmados: (Total: **${confirmed}** | Hoje: **${todayconfirmed}**) \nMortes: (Total: **${deaths}** | Hoje: **${todaydeaths}**) \nRecuperados: **${recovered}** \nEm risco: **${critical}** \nAtivos: **${active}**\n\nCasos/1M: **${casesperm}**\nMortes/1M: **${deathperm}**`)
+      .addField(`Dados: ${country}`, `Confirmados: (Total: **${confirmed}** | Hoje: **${todayconfirmed}**) \nMortes: (Total: **${deaths}** | Hoje: **${todaydeaths}**) \nRecuperados: **${recovered}** \nEm risco: **${critical}** \nAtivos: **${active}**\n\nTestes/1M: **${tests}**\nCasos/1M: **${casesperm}**\nMortes/1M: **${deathperm}**`)
       message.channel.send(embed);
     })
+  }
 }

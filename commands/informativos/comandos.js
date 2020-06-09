@@ -82,6 +82,7 @@ exports.run = (client, message, args) => {
                     =comandos - Exibe um menu de ajuda.
                     =covid \`<país>\` -  Mostra informações estatísticas sobre o covid-19 no país desejado.
                     =ping - Mostra a latência bot-servidor.
+                    =promo \`<Nome>\` \`<Dia>\` \`<Hora>\` \`<Link>\` - Posta uma promoção de jogo, dlc ou pacote.
                     =server - Mostra informações sobre o servidor.
                     =tempo \`<cidade>\` - Mostra o climpa atual da cidade citada.
                     =user - Mostra informações sobre o seu usuário.

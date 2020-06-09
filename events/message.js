@@ -23,7 +23,7 @@ module.exports = (client, message) => {
   
   const comandos = ['ban', 'kick', 'limpar', 'listban', 'poll', 'moeda', 'ppt', 'roll', 'sorte', 'avatar', 'bot', 'clima', 'comandos', 'ping', 'server', 'user', 'users', 'year', 'cat', 'dog', 'goat', 'raccon', '8ball', 'ascii', 'bigtext', 'biscoito', 'calc', 'dick', 'frase', 'hex', 'igor', 'imgur', 'inverter', 'lembrete', 'lenny', 'morse', 'nick', 'sugerir', 'tapa', "play", 'np', 'skip', 'pause', 'next', 'stop', 'queue', 'volume', 'resume'];
 
-  if (message.channel.name === 'bot-spam'){
+  if (message.channel.name === 'bot-spam' || message.member.hasPermission("BAN_MEMBERS")){
     try {
       exports.run(client, message, args);
     }
