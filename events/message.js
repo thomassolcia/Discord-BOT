@@ -18,7 +18,7 @@ module.exports = (client, message) => {
 		message.reply('Você só pode executar este comando num servidor.')
   } 
   
-  const musicBot = ["play", 'np', 'skip', 'pause', 'next', 'stop', 'queue', 'volume', 'resume'];
+  const musicBot = ["p", "play", 'np', 'skip', 'pause', 'next', 'stop', 'queue', 'volume', 'resume'];
   if (musicBot.some(word1 => message.content.includes(word1))) return;
   
   const comandos = ['ban', 'kick', 'limpar', 'listban', 'poll', 'moeda', 'ppt', 'roll', 'sorte', 'avatar', 'bot', 'clima', 'comandos', 'ping', 'server', 'user', 'users', 'year', 'cat', 'dog', 'goat', 'raccon', '8ball', 'ascii', 'bigtext', 'biscoito', 'calc', 'dick', 'frase', 'hex', 'igor', 'imgur', 'inverter', 'lembrete', 'lenny', 'morse', 'nick', 'sugerir', 'tapa', "play", 'np', 'skip', 'pause', 'next', 'stop', 'queue', 'volume', 'resume'];
