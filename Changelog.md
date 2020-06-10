@@ -4,6 +4,80 @@ Todas as modificações notáveis deste projeto será documentada neste arquivo.
 
 Este formato é baseado no [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
 
+## [2.3.2] - 2020-06-09
+### Unificado
+- O bot `Proerd Music` foi unificado ao `Leão da Proerd`. Agora tudo está incluso em um único bot.
+
+### Modificado
+- Comando `=covid` agora pode ser utilizado sem um país específico para mostrar as estatísticas globais do vírus.
+- Comando `=play` agora pode ser utilizado sem um link. Você pode pesquisar pelo próprio nome da música.
+- Todos os comandos relacionados a música tiveram modificações.
+- Event `message` teve algumas permissões modificadas.
+
+### Adicionado
+- `=promo` comando para postar jogos em promoção.
+- `=p` possui a mesma funcionalidade do comando `=play`. Apenas para simplificar o uso.
+- `=next` possui a mesma funcionalidade do comando `=skip`. Apenas para simplificar o uso.
+
+### Removido
+- `struct\Client` foi removido para melhoria de desempenho do bot de música.
+
+### Consertado
+- `=kick` foi corrigido e está totalmente funcional.
+- `=ban` foi corrigido e está totalmente funcional.
+
+## [2.3.1] - 2020-06-04
+### Modificado
+- Comando `=bigtext` não deleta mais a mensagem anterior.
+- Comando `=hex` não mostra mais uma mensagem de debug.
+- Comando `=imgur` agora não duplica a foto, mostrando somente a imagem que foi upada.
+- Comando `=tempo` foi modificado para `=clima` por fazer mais sentido.
+- Comando `=server` teve a aba `Nivel de Verificação` modificada.
+- Comando `=moeda` agora possui um `footer` mostrando quem enviou a mensagem.
+- Comando `=ppt` foi reestruturado.
+    - Emebed adicionado.
+
+### Adicionado
+- `=covid` mostra informações estatísticas sobre o covid-19 no mundo.
+- `=covid <país>` mostra informações estatísticas sobre o covid-19 no país desejado.
+
+### Removido
+- Várias `dependencies` que não estavam em uso foram removidas ou devidamente substituidas. Isso otimizou o bot em até 14x. 
+    - `"@material-ui/core": "latest"` foi removido.
+    - `"colors": "^1.4.0"` foi removido.
+    - `"core-js": "^2.6.5"` foi removido.
+    - `"discord.js-commando": "^0.10.0"` foi removido.
+    - e mais...
+- Canal UPTIME e PING API foram removidos.
+    - Para saber quaisquer informações do bot, como estas, basta utilizar o comando `=bot`.
+
+### Obeservação
+- Tempo de inicialização/reinicialização do bot
+    - Antes da otimização, aproximadamente `840 segundos`
+    - Depois da otimização, aproximadamente  `40-120 segundos`
+
+## [2.3] - 2020-05-29
+### Modificado
+- Comando `=bot` foi reestruturado para mostrar o uptime correto do bot.
+- Comando `=moeda` foi reestruturado com embed.
+- Comando `=poll` foi ajustados às novas configurações do servidor.
+- Comando `=comandos` foi atualizado com todos os comandos presente no bot.
+- Agora temos mais duas seções de comandos para uma melhor organização. Uma para mini-games e outra para animais. Você pode conferir em `=comandos`.
+
+### Adicionado
+- `=goat` comando que mostra um gif aleatório de cabra. *Sugestão de* @Sykkere#1417 
+- `=raccon` comando que mostra um gif aleatório de guaxinim. *Sugestão de* @sonnytheck#3731 
+- `=8ball` comando onde a famosa bola mágica irá lhe dar respostas sobre qualquer pergunta.
+- `=dick` descobre o tamanho do dick de alguém.
+    - Com um pedido especial do @Sykkere#1417 .
+- `=calc` calcula algumas expressões matemáticas.
+- `=frase` cita alguma frase de alguém inteligênte ou completamente aleatório.
+- `=ppt` joga pedra, papel, tesoura com o bot.
+
+### Consertado
+- `ready.js` foi corrigido. O uptime congelava em 1 dia, mesmo que o bot já estivesse ativo a mais tempo que isso.
+- `index.js` foi corrigido. Todos os comandos agora são carregados ao mesmo tempo.
+
 ## [2.2] - 2020-05-20
 ### Modificado
 - Agora ao utilizar o comando `=igor` você tem 14% de chance de encontrar um gif raro (ou nem tão raro assim).
