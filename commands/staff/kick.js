@@ -1,10 +1,10 @@
 const Discord = require('discord.js')
 const c = require('../../config.json');
 
-exports.run = async (bot, message, args) => {
+exports.run = async (client, message, args) => {
 
     var motivo = args.slice(1).join(" ")
-    var member = message.mentions.users.first() || bot.users.get(args[0]);
+    var member = message.mentions.users.first() || client.users.cache.get(args[0]);
 
 
     if (message.mentions.users.size === 0) {
@@ -40,8 +40,7 @@ exports.run = async (bot, message, args) => {
                             .setFooter(`${member.id}`)
                             .setTimestamp()
 
-                        message.guild.channels.cache.get('694285200582115418').send(embed);
-
+                        client.channels.cache.get('694285200582115418').send(embed);
                         message.guild.member(member).kick(motivo).catch(e => message.channel.send("Essa pessoa não pode ser banida! Ta maluco?"));
                         break;
                     case '⏹':

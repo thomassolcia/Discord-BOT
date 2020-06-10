@@ -1,9 +1,12 @@
+require("dotenv").config();
 const Discord = require("discord.js");
 const Enmap = require("enmap");
 const fs = require("fs");
 const client = new Discord.Client();
 const config = require("./config.json");
 client.config = config;
+
+client.queue = new Map();
 
 fs.readdir("./events/", (err, files) => {
   if (err) return console.error(err);
@@ -68,6 +71,17 @@ fs.readdir("./commands/staff/", (err, files) => {
     let commandName = file.split(".")[0];
     console.log(`${commandName} -> ✔️  Pronto!`);
     client.commands.set(commandName, props);
+  });
+});
+
+fs.readdir(__dirname + "/commands/musica/", (err, files) => {
+  if (err) return console.error(err);
+  files.forEach(file => {
+    if (!file.endsWith(".js")) return;
+    let props = require(`./commands/musica/${file}`);
+    let commandName = file.split(".")[0];
+    client.commands.set(commandName, props);
+    console.log("Loading Command: "+commandName)
   });
 });
 
