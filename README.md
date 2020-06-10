@@ -18,5 +18,5 @@
 [Visual Studio Code]: https://code.visualstudio.com/
 [GameGuardian]: https://gameguardian.net/
 [changelog]: https://github.com/thomassolcia/Discord-BOT/blob/master/Changelog.md
-[stable-badge]: https://img.shields.io/badge/stable-v2.3.1-blue
-[changelog-badge]: https://img.shields.io/badge/changelog-v2.2-blue
+[stable-badge]: https://img.shields.io/badge/stable-v2.3.2-blue
+[changelog-badge]: https://img.shields.io/badge/changelog-v2.3.2-blue
