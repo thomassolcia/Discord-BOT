@@ -26,5 +26,14 @@ module.exports = async client => {
             test.setName(`🕒│Uptime: ${days} dias`);*/
 
     }, 5000)
+
     client.user.setActivity("=comandos", { type: "PLAYING" });
+
+    const verify = client.channels.cache.find(c => c.name === '📝│regras');
+
+    const fetchedChannels = [verify];
+    fetchedChannels.forEach(c =>{
+        c.messages.fetch({ limit: 100}).then(collected => console.log(`Fetched ${collected.size} mensagens no ${c.name}.`));
+    });
+
 }
