@@ -1,10 +1,10 @@
 module.exports = (client, message) => {
 
-  const swearWords = ["mongo", 'mongoloide', 'mongolóide', 'mongólico', 'monogolico'];
-  if (swearWords.some(word => message.content.includes(word))) {
-  message.reply("Cuidado! A `m-word` não está habilitada neste servidor. Não insista!");
-  message.delete().catch(e => {});
-  }
+  //const swearWords = ["mongo", 'mongoloide', 'mongolóide', 'mongólico', 'monogolico'];
+  //if (swearWords.some(word => message.content.includes(word))) {
+  //message.reply("Cuidado! A `m-word` não está habilitada neste servidor. Não insista!");
+  //message.delete().catch(e => {});
+  //}
 
   if (message.author.bot) return;
 
@@ -25,7 +25,7 @@ module.exports = (client, message) => {
       exports.run(client, message, args);
     }
     catch(err) {
-      message.reply('este comando não existe ou o formato está incorreto. Digite `=comandos` para mais informações!');
+      message.reply(err + 'este comando não existe ou o formato está incorreto. Digite `=comandos` para mais informações!');
     }
   }else{
     message.delete();
