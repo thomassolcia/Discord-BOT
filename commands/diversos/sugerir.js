@@ -19,10 +19,8 @@ exports.run = async (client, message, args) => {
         .then(function (msg) {
             msg.react("👍");
             msg.react("👎"); 
-            message.delete({
-                timeout: 1000
-            });
-            message.channel.send(`${message.author}, sua sugestão foi enviada em <#474358471433781249>. :mailbox_with_no_mail:`).then(msg => msg.delete(5000))
+            //message.delete({ timeout: 5000, reason: 'Feito!' });
+            message.channel.send(`${message.author}, sua sugestão foi enviada em <#474358471433781249>. :mailbox_with_no_mail:`).then(msg => msg.delete({ timeout: 5000, reason: 'Feito!' }))
         }).catch(function (error) {
             console.log(error);
         });
