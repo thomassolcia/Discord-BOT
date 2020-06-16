@@ -8,7 +8,8 @@ exports.run = (client, message, args) => {
     'https://i.imgur.com/ce8DKTF.png', 
     'https://i.imgur.com/ERIxAtp.png',
     'https://i.imgur.com/CGn88XO.png', 
-    'https://i.imgur.com/z72jJKL.png'
+    'https://i.imgur.com/z72jJKL.png',
+    'https://i.imgur.com/Virvil2.jpg'
 ];
 
 const cookembed = new Discord.MessageEmbed()
