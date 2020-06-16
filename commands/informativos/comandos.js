@@ -145,7 +145,7 @@ exports.run = (client, message, args) => {
                     =moeda - Tira cara ou coroa.
                     =ppt \`<pedra/papel/tesoura>\` - Jogue pedra, papel ou tesoura contra o bot.
                     =sorte - Faça-o e veja se hoje é seu dia de sorte.
-                    =roll \`<tipoDado>\` - Role os dados. d2, d4, d6, d8, d10, d20 ou d100.
+                    =roll \`<tipoDado>\` \`<bonûs>\` - Role os dados. d2, d4, d6, d8, d10, d20 ou d100.
             `)
                     .setColor("ORANGE")
                     .setFooter(message.author.tag, message.author.avatarURL)
@@ -157,8 +157,11 @@ exports.run = (client, message, args) => {
                 const embedmusic = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Comandos`)
                     .setDescription(`🎶 **Music**
+                    =clear - Limpa a fila atual de músicas.
+                    =next - Pula a música que está tocando.
                     =np - Mostra a música que está tocando no momento.
-                    =play \`<Link>\` - Começa a tocar uma música ou coloca ela na fila.
+                    =p \`<Link>\` ou \`<nome>\` - Começa a tocar uma música ou coloca ela na fila.
+                    =play \`<Link>\` ou \`<nome>\` - Começa a tocar uma música ou coloca ela na fila.
                     =pause - Pausa a música que está tocando.
                     =queue - Mostra as músicas que estão na fila.
                     =resume - Volta a tocar a música que foi pausada.
