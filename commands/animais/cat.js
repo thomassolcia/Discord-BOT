@@ -9,7 +9,8 @@ exports.run = async (bot, message, args) => {
   let catembed = new Discord.MessageEmbed()
   .setColor("PURPLE")
   .setTitle("Gatíneos 🐱")
-  .setImage(body.file);
-
+  .setImage(body.file)
+  .setTimestamp()
+  .setFooter(message.author.tag);
   message.channel.send(catembed);
 }

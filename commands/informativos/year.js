@@ -19,5 +19,6 @@ exports.run = async (client, message, args) => {
 	.setFooter('Você consegue!')
 	.setColor("BLUE")
 	.setTimestamp()
+	.setFooter(message.author.tag)
 	message.channel.send(yearembed)
 };

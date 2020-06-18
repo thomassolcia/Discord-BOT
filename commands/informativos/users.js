@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 exports.run = (client, message, args) => {
     message.guild.members.fetch().then(fetchedMembers => {
         const totalOnline = fetchedMembers.filter(member => member.presence.status === 'online');
@@ -5,35 +7,19 @@ exports.run = (client, message, args) => {
         const totalOcupado = fetchedMembers.filter(member => member.presence.status === 'dnd');
         const totalOffline = fetchedMembers.filter(member => member.presence.status === 'offline');
 
-            const embed = {
-                "title": "Usuários no Servidor: " + message.guild.name,
-                "color": "BLUE",
-                "thumbnail": {
-                "url": "https://cdn.discordapp.com/avatars/704392967074349087/2a2ae76986efdcdf549d9bd0dcedeafc.png"
-                },
-                "fields": [
-                {
-                    "name": "Usuários:",
-                    "value": `Atualmente temos ${totalOnline.size + totalAusente.size + totalOcupado.size + totalOffline.size} usuários no servidor.` 
-                },
-                {
-                    "name": "Status: Online",
-                    "value":  `${totalOnline.size} usuários.`
-                },
-                {
-                    "name": "Status: Ausente",
-                    "value":  `${totalAusente.size} usuários.`
-                },
-                {
-                    "name": "Status: Ocupado",
-                    "value":  `${totalOcupado.size} usuários.`
-                },
-                {
-                    "name": "Status: Offline",
-                    "value":  `${totalOffline.size} usuários.`
-                }
-                ]
-            };
-            message.channel.send({embed});
+        const embed = new Discord.MessageEmbed()
+        .setColor('BLUE')
+        .setTimestamp(new Date())
+        .setTitle("Usuários no Servidor: " + message.guild.name)
+        .setThumbnail('https://cdn.discordapp.com/avatars/704392967074349087/2a2ae76986efdcdf549d9bd0dcedeafc.png')
+        .addField('Usuários', `Atualmente temos ${totalOnline.size + totalAusente.size + totalOcupado.size + totalOffline.size} usuários no servidor.` )
+        .addField('Status: Online', `${totalOnline.size} usuários.`)
+        .addField('Status: Ausente', `${totalAusente.size} usuários.`)
+        .addField('Status: Ocupado', `${totalOcupado.size} usuários.`)
+        .addField('Status: Offline', `${totalOffline.size} usuários.`)
+        .setTimestamp()
+        .setFooter(message.author.tag)
+        message.channel.send(embed);
+
     });
 }

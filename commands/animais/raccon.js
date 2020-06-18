@@ -39,6 +39,7 @@ const racconembed = new Discord.MessageEmbed()
 .setColor("PURPLE")
 .setTitle("🦝 Guaxinim")
 .setImage(raccon[Math.floor(Math.random() * raccon.length)])
-
+.setTimestamp()
+.setFooter(message.author.tag);
 message.channel.send(racconembed)
 }

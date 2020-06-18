@@ -13,8 +13,8 @@ exports.run = (client, message, args) => {
         .setColor("GREEN")
         .setDescription(`<@${message.author.id}> deu tapa em sí mesmo!`)
         .setImage(cookies[Math.floor(Math.random() * cookies.length)])
-        .setFooter(message.author.tag)
         .setTimestamp()
+        .setFooter(message.author.tag);
         message.channel.send(cookembed)
     }else{
         let cookies = [
@@ -30,8 +30,8 @@ exports.run = (client, message, args) => {
         .setColor("GREEN")
         .setDescription(`<@${message.author.id}> deu um tapa em <@${user.id}>`)
         .setImage(cookies[Math.floor(Math.random() * cookies.length)])
-        .setFooter(message.author.tag)
         .setTimestamp()
+        .setFooter(message.author.tag);
         message.channel.send(cookembed1)
     }
 }

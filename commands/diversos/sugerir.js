@@ -15,6 +15,7 @@ exports.run = async (client, message, args) => {
         .setColor('GREEN')
         .setThumbnail(message.author.displayAvatarURL)
         .setTimestamp()
+        .setFooter(message.author.tag);
     client.channels.cache.get(`474358471433781249`).send(embed)
         .then(function (msg) {
             msg.react("👍");

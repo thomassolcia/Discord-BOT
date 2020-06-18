@@ -16,7 +16,7 @@ const cookembed = new Discord.MessageEmbed()
 .setColor("GREEN")
 .setDescription(`Pinscher Malvoso, ele mesmo!`)
 .setImage(igor[Math.floor(Math.random() * igor.length)])
-.setFooter(message.author.tag)
 .setTimestamp()
+.setFooter(message.author.tag);
 message.channel.send(cookembed)
 }

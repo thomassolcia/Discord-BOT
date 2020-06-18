@@ -25,7 +25,8 @@ exports.run = (client, message, args) => {
       .setTimestamp(new Date())
       .setAuthor("🌎 ESTATÍSTICAS GLOBAIS DO COVID-19")
       .addField(`Dados: World`, `População Mundial: **${pop}**\nPaíses Afetados: **${paises}**\n\nConfirmados: (Total: **${casos}** | Hoje: **${casosHoje}**)\nMortes: (Total: **${mortes}** | Hoje: **${mortesHoje}**)\nRecuperados: **${recuperados}** \nEm risco: **${emRisco}** \nAtivos: **${ativos}**\n\nTestes: (Total: **${testes}** | per1M: **${testesM}**)\nCasos/1M: **${casosM}**\nMortes/1M: **${mortesM}**`)
-
+      .setTimestamp()
+      .setFooter(message.author.tag);
       message.channel.send(embed1);
     message.channel.send('Informações do Covid-19 em um páis específico: \`=covid brazil\` ou \`=covid br\`')
   })
@@ -52,6 +53,8 @@ exports.run = (client, message, args) => {
       .setTimestamp(new Date())
       .setAuthor("ESTATÍSTICAS DO COVID-19", flag)
       .addField(`Dados: ${country}`, `Confirmados: (Total: **${confirmed}** | Hoje: **${todayconfirmed}**) \nMortes: (Total: **${deaths}** | Hoje: **${todaydeaths}**) \nRecuperados: **${recovered}** \nEm risco: **${critical}** \nAtivos: **${active}**\n\nTestes/1M: **${tests}**\nCasos/1M: **${casesperm}**\nMortes/1M: **${deathperm}**`)
+      .setTimestamp()
+      .setFooter(message.author.tag);
       message.channel.send(embed);
     })
   }

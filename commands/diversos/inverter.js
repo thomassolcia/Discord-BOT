@@ -10,8 +10,8 @@ exports.run = async (client, message, args) => {
       .setColor("GREEN")
       .addField(`Original:`, args[0])
       .addField(`Invertida:`, (str.split('').reverse().join('')))
-      .setFooter(message.author.tag)
       .setTimestamp()
+      .setFooter(message.author.tag);
       message.channel.send(embed)
 
     } catch (err) {

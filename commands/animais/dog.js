@@ -9,8 +9,9 @@ exports.run = async (bot, message, args) => {
    let dogembed = new Discord.MessageEmbed()
    .setColor("PURPLE")
    .setTitle("Doguinhos :dog:")
-   .setImage(body.url);
-
+   .setImage(body.url)
+   .setTimestamp()
+   .setFooter(message.author.tag);
    message.channel.send(dogembed);
 
 }

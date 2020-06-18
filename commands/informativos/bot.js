@@ -1,3 +1,5 @@
+const Discord = require("discord.js");
+
 exports.run = (client, message, args) => {
     let botAvatar = client.user.displayAvatarURL
     let date = client.user.createdAt
@@ -31,28 +33,17 @@ exports.run = (client, message, args) => {
   }else
     uptempo = (`${days} dias`);
 
-    const embed = {
-        "title": 'Informações sobre: ' + userName,
-        "color": "BLUE",
-        "thumbnail": {
-          "url": "https://cdn.discordapp.com/avatars/704392967074349087/2a2ae76986efdcdf549d9bd0dcedeafc.png"
-        },
-        "fields": [
-          {
-            "name": "Nome: ",
-            "value": userName
-          },
-          {
-            "name": "Uptime: ",
-            "value": uptempo
-          },
-          {
-            "name": "Criado: ",
-            "value": formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date)
-          }
-        ]
-      };
-      message.channel.send({embed});
+    let embed = new Discord.MessageEmbed()
+    .setColor("BLUE")
+    .setTitle('Informações sobre: ' + userName,)
+    .setThumbnail('https://cdn.discordapp.com/avatars/704392967074349087/2a2ae76986efdcdf549d9bd0dcedeafc.png')
+    .addField('Nome', userName)
+    .addField('Uptime', uptempo)
+    .addField('Criado', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date))
+    .setTimestamp()
+    .setFooter(message.author.tag);
+    message.channel.send(embed);
+
     }
     function formatDate(template, date) {
     var specs = 'YYYY:MM:DD:HH:mm:ss'.split(':')

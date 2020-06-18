@@ -1,3 +1,5 @@
+const Discord = require('discord.js');
+
 exports.run = async (client, message, args) => {
 
     function shuffleArray(array) {
@@ -17,6 +19,18 @@ exports.run = async (client, message, args) => {
     mix = [args[0], args[1], args[2], args[3], args[4], args[5], args[6], args[7], args[8], args[9]]
     var teams = splitTeams(shuffleArray(mix))
 
-    message.channel.send(teams)
+    //message.channel.send(teams)
+
+    const embed = new Discord.MessageEmbed()
+      .setColor('BLUE')
+      .setTimestamp(new Date())
+      .setTitle('Vila mix')
+      .addField('-------------',teams)
+      .setTimestamp()
+      .setFooter(message.author.tag);
+      let msg = await message.channel.send({embed});
+
+	await msg.react('👍');
+	await msg.react('👎');
 
 }

@@ -40,6 +40,7 @@ const goatembed = new Discord.MessageEmbed()
 .setColor("PURPLE")
 .setTitle("🐐 G.O.A.T")
 .setImage(goat[Math.floor(Math.random() * goat.length)])
-
+.setTimestamp()
+.setFooter(message.author.tag);
 message.channel.send(goatembed)
 }

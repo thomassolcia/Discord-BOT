@@ -10,23 +10,13 @@ const fetchquote = require('snekfetch');
                 return message.reply('Something is messing up the API try again please!');
             }
 
-            message.channel.send({embed: {
-                color: 3447003,
-                author: {
-                  name: 'Um cara inteligente disse:',
-                  icon_url: 'http://pngimages.net/sites/default/files/right-double-quotation-mark-png-image-80280.png'
-                },
-                fields: [{
-                    name: "Citação com fonte",
-                    value: `"${quote.body.quoteText}"\n**Autor:** ${quote.body.quoteAuthor}\n**Fonte:** ${quote.body.quoteLink}`
-                  }
-                ],
-                timestamp: new Date(),
-                footer: {
-                  icon_url: client.user.avatarURL,
-                  text: message.author.tag
-                }
-            }
-        })
+            let embed = new Discord.MessageEmbed()
+            .setColor("GREEN")
+            .setAuthor('Um cara inteligente disse:', 'http://pngimages.net/sites/default/files/right-double-quotation-mark-png-image-80280.png')
+            .addField('Citação com fonte', `"${quote.body.quoteText}"\n**Autor:** ${quote.body.quoteAuthor}\n**Fonte:** ${quote.body.quoteLink}`)
+            .setTimestamp()
+            .setFooter(`${message.author.tag}`);
+            message.channel.send(embed);
+
     });
 }
