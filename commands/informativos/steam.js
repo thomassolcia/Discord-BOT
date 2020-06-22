@@ -3,9 +3,9 @@ exports.run = async (client, message, args) => {
 
 	const now = new Date();
 	const next = new Date(now);
-	next.setFullYear(2020);
-	next.setHours(14, 0, 0, 0);
-	next.setMonth(05, 22);
+	next.setUTCFullYear(2020);
+	next.setUTCHours(17, 0, 0, 0);
+	next.setUTCMonth(05, 25);
 	const duration = next - now;
 	const seconds = Math.floor((duration / 1000) % 60);
 	const minutes = Math.floor((duration / 1000 / 60) % 60);
@@ -13,9 +13,9 @@ exports.run = async (client, message, args) => {
 	const days = Math.floor(duration / (1000 * 60 * 60 * 24));
 
 	const yearembed = new Discord.MessageEmbed()
-    .setTitle(`🛍 Game Festival: Summer Edition`)
-    .addField('Status:', 'Em andamento')
-	.addField(`Tempo restante:`, ` **${days} dias**, **${hours} horas**, **${minutes} minutos** e **${seconds} segundos**`)
+    .setTitle(`🛍 Summer Sale 2020`)
+    .addField('Status:', 'Em Breve')
+	.addField(`Começa em:`, ` **${days} dias**, **${hours} horas**, **${minutes} minutos** e **${seconds} segundos**`)
 	.setColor("BLUE")
 	.setTimestamp()
 	.setFooter(message.author.tag)
