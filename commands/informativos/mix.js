@@ -21,11 +21,29 @@ exports.run = async (client, message, args) => {
 
     //message.channel.send(teams)
 
+    function shuffleArrayMaps(array) {
+    
+        for (var i = array.length - 1; i > 0; i--) {
+            var j = Math.floor(Math.random() * i);
+            var temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
+        return array;
+    }
+
+    function splitMaps(names) {
+        return `\n\`${names.splice(0, Math.floor(names.length/7))}\``
+    }
+    mix = ['Mirage', 'Cobblestone', 'Inferno', 'Vertigo', 'Nuke', 'Overpass', 'Dust II']
+    var maps = splitMaps(shuffleArrayMaps(mix))
+
     const embed = new Discord.MessageEmbed()
       .setColor('BLUE')
       .setTimestamp(new Date())
       .setTitle('Vila mix')
-      .addField('-------------',teams)
+      .addField('------- Times -------',teams)
+      .addField('------- Mapa -------',maps)
       .setTimestamp()
       .setFooter(message.author.tag);
       let msg = await message.channel.send({embed});
