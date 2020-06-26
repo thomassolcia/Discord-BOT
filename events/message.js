@@ -14,7 +14,7 @@ module.exports = (client, message) => {
 		message.reply('Você só pode executar este comando num servidor.')
   } 
  
-  if (message.channel.name === 'bot-spam' || message.member.hasPermission("BAN_MEMBERS")){
+  if (message.channel.name === 'bot-spam' || message.member.hasPermission('MANAGE_MESSAGES', { checkAdmin: true, checkOwner: true })){
     try {
       exports.run(client, message, args);
     }
