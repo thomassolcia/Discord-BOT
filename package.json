@@ -17,6 +17,8 @@
   },
   "homepage": "https://github.com/thomassolcia/Discord-BOT#readme",
   "dependencies": {
+    "axios": "^0.19.2",
+    "cheerio": "^1.0.0-rc.3",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
     "enmap": "^5.2.4",
@@ -30,7 +32,10 @@
     "simple-youtube-api": "^5.2.1",
     "snekfetch": "^4.0.4",
     "superagent": "^5.2.2",
+    "wait-until": "0.0.2",
     "weather-js": "^2.0.0",
+    "winston": "^3.3.3",
+    "xmldom": "^0.3.0",
     "ytdl-core": "^2.1.7"
   },
   "optionalDependencies": {
