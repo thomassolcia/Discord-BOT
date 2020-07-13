@@ -77,15 +77,18 @@ exports.run = (client, message, args) => {
                 const embedinformacao = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Ajuda`)
                     .setDescription(`ℹ️ **Informativos**
+                    =ajuda - Exibe um menu de ajuda.
                     =avatar \`<@user>\` - Mostra o avatar de um usuário ou do próprio usuário que usou o comando.
                     =bot - Mostra informações sobre mim.
-                    =comandos - Exibe um menu de ajuda.
+                    =clima \`<cidade>\` - Mostra o climpa atual da cidade citada.
                     =covid \`<país>\` -  Mostra informações estatísticas sobre o covid-19 no país desejado.
+                    =dolar - Mostra a cotação atual do dolar.
+                    =mix - Para organizar times.
                     =ping - Mostra a latência bot-servidor.
                     =promo \`<Nome>\` \`<Dia>\` \`<Hora>\` \`<Link>\` - Posta uma promoção de jogo, dlc ou pacote.
                     =server - Mostra informações sobre o servidor.
                     =steam - Fique por dentro das promoções da steam.
-                    =tempo \`<cidade>\` - Mostra o climpa atual da cidade citada.
+                    =steamstat \`<Steam ID>\` - Mostra informações sobre a steam do ID inserido.
                     =user - Mostra informações sobre o seu usuário.
                     =users - Mostra informações gerais sobre os usuários do canal.
                     =year - Mostra quanto tempo falta até o fim do ano. 
