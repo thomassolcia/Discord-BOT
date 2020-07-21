@@ -1,6 +1,6 @@
 # Discord bot
 
-![stable-badge] [![changelog-badge]][changelog]
+[![changelog-badge]][changelog]
 
 ## Desenvolvimento
 ### O que foi usado
@@ -27,5 +27,4 @@
 [Visual Studio Code]: https://code.visualstudio.com/
 [GameGuardian]: https://gameguardian.net/
 [changelog]: https://sites.google.com/view/proerdbot/
-[stable-badge]: https://img.shields.io/badge/stable-v2.3.6-blue
-[changelog-badge]: https://img.shields.io/badge/changelog-v2.3.6-blue
+[changelog-badge]: https://img.shields.io/badge/changelog-2.3.9-blue
