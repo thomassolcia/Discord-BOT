@@ -132,6 +132,7 @@ exports.run = (client, message, args) => {
                     .setAuthor(`Proerd ™ - Ajuda`)
                     .setDescription(`🦁 **Animais**
                     =cat - Foto aleatória de um gatinho.
+                    =catfacts - Algum fato aleatório sobre gatos.
                     =dog - Foto aleatória de um doguinho.
                     =goat - Gif aleatório de uma cabra.
                     =raccon - Gif aleatório de um guaxinim.
@@ -146,6 +147,7 @@ exports.run = (client, message, args) => {
                 const embedGames = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Ajuda`)
                     .setDescription(`🎮 **Mini-Games**
+                    =forca - Jogue forca no discord. Isso mesmo!
                     =moeda - Tira cara ou coroa.
                     =ppt \`<pedra/papel/tesoura>\` - Jogue pedra, papel ou tesoura contra o bot.
                     =sorte - Faça-o e veja se hoje é seu dia de sorte.
