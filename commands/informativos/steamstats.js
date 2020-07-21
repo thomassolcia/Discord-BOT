@@ -51,14 +51,26 @@ if(!args[0]) {
                     .setColor("BLUE")
                     message.channel.send(steamEmbed)
                 }catch(err){
-                    const embed = new Discord.MessageEmbed() 
-                    .setTitle(`[BETA] Não foi possível obter as informações.`)
-                    .setDescription("**Veja abaixo possíveis motivos:**\n- Erro de requisição. (Tente novamente)\n- Perfil privado ou level 0.\n- ID incorreto.")
-                    .addField('Erro:',`\`${err}\``)
-                    .setColor("BLUE")
-                    .setTimestamp()
-                    .setFooter(message.author.tag)
-                    message.channel.send(embed)
+                    try{
+                        const steamEmbed = new Discord.MessageEmbed()
+                        .setTitle(`Informações Steam [${nome.replace( /\s/g, '')}]`)
+                        .addField('Nome:', nome.replace( /\s/g, ''), true)
+                        .addField('Level', staemLvl, true)
+                        .addField('VAC', VAC)
+                        .addField('Valor(aprox.)', valueSteam)
+                        .addField('Criada em', since.replace('None', ''))
+                        .setColor("BLUE")
+                        message.channel.send(steamEmbed)
+                    }catch(err){
+                        const embed = new Discord.MessageEmbed() 
+                        .setTitle(`[BETA] Não foi possível obter as informações.`)
+                        .setDescription("**Veja abaixo possíveis motivos:**\n- Erro de requisição. (Tente novamente)\n- Perfil privado ou level 0.\n- ID incorreto.")
+                        .addField('Erro:',`\`${err}\``)
+                        .setColor("BLUE")
+                        .setTimestamp()
+                        .setFooter(message.author.tag)
+                        message.channel.send(embed)
+                    }
                 }
             }
         })
