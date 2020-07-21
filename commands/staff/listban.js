@@ -23,7 +23,7 @@ exports.run = async (client, message) => { // eslint-disable-line no-unused-vars
 
                                 bans.forEach(async (ban) => {
                                     i++;
-                                    await message.author.send(i + '. **Nome:** ' + ban.user.tag + ' | **ID:** ' + ban.user.id + '');
+                                    await message.author.send(`${i}. Usuário: <@${ban.user.id}> | ID: ${ban.user.id}`);
                                 });
 
                             });
