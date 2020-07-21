@@ -3,7 +3,7 @@ const Discord = require('discord.js');
 exports.run = (client, message, args) => {
 
   if(!args[0]){
-    fetch(`https://disease.sh/v2/all`)
+    fetch(`https://corona.lmao.ninja/v3/covid-19/all`)
     .then(res => res.json())
     .then(data => {
       let casos = data.cases.toLocaleString();
@@ -32,7 +32,7 @@ exports.run = (client, message, args) => {
   })
   }else{
     let countries = args[0] 
-    fetch(`https://corona.lmao.ninja/v2/countries/${countries}`)
+    fetch(`https://corona.lmao.ninja/v3/covid-19/countries/${countries}`)
     .then(res => res.json())
     .then(data => {
       let country = data.country;
