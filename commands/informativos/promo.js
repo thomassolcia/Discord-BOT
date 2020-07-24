@@ -16,16 +16,16 @@ let link = args[3]
         .setFooter(message.author.tag)
         message.channel.send(embed)
         return;
+    }else{
+        const offEmbed = new Discord.MessageEmbed()
+        .setColor('BLUE')
+        .setTimestamp(new Date())
+        .setAuthor("💰 PROMOÇÃO DO DIA")
+        .addField(`Jogo:`, `${name}`)
+        .addField(`Disponível até`, `${until} às ${schedule}`)
+        .addField(`Link`, `${link}`)
+        .setFooter(message.author.tag)
+        message.delete();
+        client.channels.cache.get(`718011857771823114`).send(offEmbed)
     }
-
-    const offEmbed = new Discord.MessageEmbed()
-    .setColor('BLUE')
-    .setTimestamp(new Date())
-    .setAuthor("💰 PROMOÇÃO DO DIA")
-    .addField(`Jogo:`, `${name}`)
-    .addField(`Disponível até`, `${until} às ${schedule}`)
-    .addField(`Link`, `${link}`)
-    .setFooter(message.author.tag)
-    message.delete();
-    client.channels.cache.get(`718011857771823114`).send(offEmbed)
 }
