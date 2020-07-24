@@ -26,6 +26,6 @@ let link = args[3]
         .addField(`Link`, `${link}`)
         .setFooter(message.author.tag)
         message.delete();
-        client.channels.cache.get(`718011857771823114`).send(offEmbed)
+        client.channels.cache.get(`707809716205518868`).send(offEmbed)
     }
 }
