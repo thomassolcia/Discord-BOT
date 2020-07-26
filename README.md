@@ -26,5 +26,5 @@
 [Discord.js documentation]: https://discord.js.org/
 [Visual Studio Code]: https://code.visualstudio.com/
 [GameGuardian]: https://gameguardian.net/
-[changelog]: https://sites.google.com/view/proerdbot/
+[changelog]: https://sites.google.com/view/awoone/
 [changelog-badge]: https://img.shields.io/badge/changelog-2.3.9-blue
