@@ -16,7 +16,7 @@
 - Moderação;
 - Mini-Games;
 - Informativos;
-- Música;
+- Música (Removido por enquanto);
 - Animais;
 - Entre outras categorias.
 
