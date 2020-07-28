@@ -23,7 +23,7 @@ exports.run = (client, message, args) => {
                     .addField(`🍀 **Diversos**`, '• `ascii`, `bigtext`, ...')
                     .addField(`🦁 **Animais**`, '• `cat`, `dog`, ...')
                     .addField(`🎮 **Mini-Games**`, '• `moeda`, `ppt`, ...')
-                    .addField(`🎶 **Music**`, '• `play`, `pause`, ...')
+                    //.addField(`🎶 **Music**`, '• `play`, `pause`, ...')
                     .addField(`👑 **Staff**`, '• `ban`, `kick`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
             .setTimestamp()
@@ -33,7 +33,7 @@ exports.run = (client, message, args) => {
             await msg.react('🍀')
             await msg.react('🦁')
             await msg.react('🎮')
-            await msg.react('🎶')
+            //await msg.react('🎶')
             await msg.react('👑')
             await msg.react("↩")
 
@@ -42,7 +42,7 @@ exports.run = (client, message, args) => {
             const diversao = (reaction, user) => reaction.emoji.name === '🍀' && user.id === message.author.id;
             const animais = (reaction, user) => reaction.emoji.name === '🦁' && user.id === message.author.id;
             const minigames = (reaction, user) => reaction.emoji.name === '🎮' && user.id === message.author.id;
-            const music = (reaction, user) => reaction.emoji.name === '🎶' && user.id === message.author.id;
+            //const music = (reaction, user) => reaction.emoji.name === '🎶' && user.id === message.author.id;
             const staff = (reaction, user) => reaction.emoji.name === '👑' && user.id === message.author.id;
 
             const back = (reaction, user) => reaction.emoji.name === "↩" && user.id === message.author.id;
@@ -51,7 +51,7 @@ exports.run = (client, message, args) => {
             const diversaoL = msg.createReactionCollector(diversao)
             const animaisL = msg.createReactionCollector(animais)
             const minigamesL = msg.createReactionCollector(minigames)
-            const musicL = msg.createReactionCollector(music)
+            //const musicL = msg.createReactionCollector(music)
             const staffL = msg.createReactionCollector(staff)
 
             const backL = msg.createReactionCollector(back)
@@ -65,7 +65,7 @@ exports.run = (client, message, args) => {
                     .addField(`🍀 **Diversos**`, '• `ascii`, `bigtext`, ...')
                     .addField(`🦁 **Animais**`, '• `cat`, `dog`, ...')
                     .addField(`🎮 **Mini-Games**`, '• `moeda`, `ppt`, ...')
-                    .addField(`🎶 **Music**`, '• `play`, `pause`, ...')
+                    //.addField(`🎶 **Music**`, '• `play`, `pause`, ...')
                     .addField(`👑 **Staff**`, '• `ban`, `kick`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
@@ -159,7 +159,7 @@ exports.run = (client, message, args) => {
                 msg.edit(embedGames)
             })
 
-            musicL.on('collect', r => {
+            /*musicL.on('collect', r => {
                 const embedmusic = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Ajuda`)
                     .setDescription(`🎶 **Music**
@@ -179,7 +179,7 @@ exports.run = (client, message, args) => {
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
                 msg.edit(embedmusic)
-            })
+            })*/
 
             staffL.on('collect', r => {
                 const embeddiversao = new Discord.MessageEmbed()
