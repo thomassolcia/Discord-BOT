@@ -60,7 +60,7 @@ message.channel.send({embed}).then(msg => {
   msg.react('⬅').then( r => {
     msg.react('➡').then(s => {
         msg.react('❌')
-    }).then(message.delete({ timeout: 5000, reason: 'Feito!' })).then(msg.delete({ timeout: 60000, reason: 'Feito!' }))
+    }).then(message.delete({ timeout: 5000, reason: 'Feito!' }))
 
     // Filters
     const backwardsFilter = (reaction, user) => reaction.emoji.name === '⬅' && user.id === message.author.id
