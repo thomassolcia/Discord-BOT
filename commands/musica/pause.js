@@ -12,14 +12,19 @@ exports.run = (client, message, args) => {
     }).then(r => {
       message.delete()
     })
+  } else {
+    const embederr = new Discord.MessageEmbed()
+      .setTitle(`Ocorreu algum problema...`)
+      .setDescription("Contate um admin para mais informações!")
+      .addField('Erro:', `\`${err}\``)
+      .setColor("ORANGE")
+      .setTimestamp()
+      .setFooter(message.author.tag)
+    return message.channel.send(embederr).then(msg => {
+      msg.react('❌')
+    }).then(r => {
+      message.delete()
+    })
   }
-  const embed1 = {
-    "description": 'Não tem nada tocando, você é esquizofrênico?',
-    "color": "YELLOW",
-  };
-  return message.channel.send({ embed1 }).then(msg => {
-    msg.react('❌')
-  }).then(r => {
-    message.delete()
-  });
-};
+}
+

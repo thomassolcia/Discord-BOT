@@ -6,20 +6,28 @@ exports.run = (client, message, args) => {
     const embed = {
       "description": 'Voltando a tocar a música!',
       "color": "YELLOW",
-      };
-      return message.channel.send({embed}).then(msg => {
-        msg.react('▶️')
-      }).then(r => {
-        message.delete()
-      });
-  }
-  const embed1 = {
-    "description": 'Não tinha nada tocando aqui.',
-    "color": "YELLOW",
     };
-    return message.channel.send({embed1}).then(msg => {
+    return message.channel.send({ embed }).then(msg => {
+      msg.react('▶️')
+    }).then(r => {
+      message.delete()
+    });
+  } else {
+    const embederr = new Discord.MessageEmbed()
+      .setTitle(`Ocorreu algum problema...`)
+      .setDescription("Contate um admin para mais informações!")
+      .addField('Erro:', `\`${err}\``)
+      .setColor("ORANGE")
+      .setTimestamp()
+      .setFooter(message.author.tag)
+    return message.channel.send(embederr).then(msg => {
+      msg.react('❌')
+    }).then(r => {
+      message.delete()
+    }).then(msg => {
       msg.react('❌')
     }).then(r => {
       message.delete()
     });
-};
+  }
+}

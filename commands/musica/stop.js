@@ -1,23 +1,45 @@
 exports.run = (client, message, args) => {
-    const { channel } = message.member.voice;
-    if (!channel)
-      return message.channel.send(
-        "Você precisa estar em um canal de voz primeiro!"
-      );
-    const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue)
-      return message.channel.send(
-        "Não tem nada tocando no momento."
-      );
-    serverQueue.songs = [];
-    const embed = {
-			"description": 'Músicas encerradas!',
-			"color": "YELLOW",
-		};
-		message.channel.send({embed}).then(msg => {
-      msg.react('⏹️')
+  const { channel } = message.member.voice;
+  if (!channel) {
+    const embederr = new Discord.MessageEmbed()
+      .setTitle(`Ocorreu algum problema...`)
+      .setDescription("Contate um admin para mais informações!")
+      .addField('Erro:', `\`${err}\``)
+      .setColor("ORANGE")
+      .setTimestamp()
+      .setFooter(message.author.tag)
+    return message.channel.send(embederr).then(msg => {
+      msg.react('❌')
     }).then(r => {
       message.delete()
-    });
-    serverQueue.connection.dispatcher.end();
+    })
+  }
+
+  const serverQueue = message.client.queue.get(message.guild.id);
+  if (!serverQueue) {
+    const embederr = new Discord.MessageEmbed()
+      .setTitle(`Ocorreu algum problema...`)
+      .setDescription("Contate um admin para mais informações!")
+      .addField('Erro:', `\`${err}\``)
+      .setColor("ORANGE")
+      .setTimestamp()
+      .setFooter(message.author.tag)
+    return message.channel.send(embederr).then(msg => {
+      msg.react('❌')
+    }).then(r => {
+      message.delete()
+    })
+  }
+  
+  serverQueue.songs = [];
+  const embed = {
+    "description": 'Músicas encerradas!',
+    "color": "YELLOW",
+  };
+  message.channel.send({ embed }).then(msg => {
+    msg.react('⏹️')
+  }).then(r => {
+    message.delete()
+  });
+  serverQueue.connection.dispatcher.end();
 };
