@@ -1,19 +1,18 @@
 exports.run = (client, message, args) => {
-    const serverQueue = message.client.queue.get(message.guild.id);
-    if (!serverQueue) return message.channel.send("Não tem nada tocando no momento.");
+    let queue = client.queues.get(message.guild.id);
+    if (!queue) return message.channel.send("Não tem nada tocando no momento.");
     try {
-        init = '**-> **';
+        init = 0;
         const embed = {
-            "title": 'Fila de reprodução',
             "color": "YELLOW",
             "fields": [
                 {
                     "name": "**Fila de Músicas:**",
-                    "value": `${serverQueue.songs.map(song => init + song.title).join('\n')}`
+                    "value": `${queue.songs.map(song => `[${init++}]. ` + song.title).join('\n')}`
                 },
                 {
                     "name": "**Tocando Agora:**",
-                    "value": `[${serverQueue.songs[0].title}](${serverQueue.songs[0].url})`
+                    "value": `[${queue.songs[0].title}](${queue.songs[0].url})`
                 }
             ]
         };
@@ -21,7 +20,6 @@ exports.run = (client, message, args) => {
     } catch{
         init = '**-**';
         const embed = {
-            "title": 'Fila de reprodução',
             "color": "YELLOW",
             "fields": [
                 {
