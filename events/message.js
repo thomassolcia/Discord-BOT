@@ -19,6 +19,7 @@ module.exports = (client, message) => {
         exports.run(client, message, args);
       }
       catch (err) {
+        console.log(err)
         const embed = new Discord.MessageEmbed()
           .setTitle(`Este comando não existe ou o formato está incorreto.`)
           .setDescription("Digite `=ajuda` para mais informações!")
