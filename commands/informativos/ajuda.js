@@ -23,7 +23,7 @@ exports.run = (client, message, args) => {
                     .addField(`🍀 **Diversos**`, '• `ascii`, `bigtext`, ...')
                     .addField(`🦁 **Animais**`, '• `cat`, `dog`, ...')
                     .addField(`🎮 **Mini-Games**`, '• `moeda`, `ppt`, ...')
-                    //.addField(`🎶 **Music**`, '• `play`, `pause`, ...')
+                    .addField(`🎶 **Music**`, '• `play`, `pause`, ...')
                     .addField(`👑 **Staff**`, '• `ban`, `kick`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
             .setTimestamp()
@@ -65,7 +65,7 @@ exports.run = (client, message, args) => {
                     .addField(`🍀 **Diversos**`, '• `ascii`, `bigtext`, ...')
                     .addField(`🦁 **Animais**`, '• `cat`, `dog`, ...')
                     .addField(`🎮 **Mini-Games**`, '• `moeda`, `ppt`, ...')
-                    //.addField(`🎶 **Music**`, '• `play`, `pause`, ...')
+                    .addField(`🎶 **Music**`, '• `play`, `pause`, ...')
                     .addField(`👑 **Staff**`, '• `ban`, `kick`, ...')
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
@@ -159,13 +159,12 @@ exports.run = (client, message, args) => {
                 msg.edit(embedGames)
             })
 
-            /*musicL.on('collect', r => {
+            musicL.on('collect', r => {
                 const embedmusic = new Discord.MessageEmbed()
                     .setAuthor(`Proerd ™ - Ajuda`)
                     .setDescription(`🎶 **Music**
                     =clear - Limpa a fila atual de músicas.
                     =next - Pula a música que está tocando.
-                    =np - Mostra a música que está tocando no momento.
                     =p \`<Link>\` ou \`<nome>\` - Começa a tocar uma música ou coloca ela na fila.
                     =play \`<Link>\` ou \`<nome>\` - Começa a tocar uma música ou coloca ela na fila.
                     =pause - Pausa a música que está tocando.
@@ -179,7 +178,7 @@ exports.run = (client, message, args) => {
                     .setFooter(message.author.tag, message.author.avatarURL)
                     .setTimestamp()
                 msg.edit(embedmusic)
-            })*/
+            })
 
             staffL.on('collect', r => {
                 const embeddiversao = new Discord.MessageEmbed()
