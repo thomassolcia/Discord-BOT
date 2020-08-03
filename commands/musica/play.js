@@ -61,7 +61,9 @@ exports.run = (client, message, args) => {
       .addField('Pedido:', `<@${message.author.id}>`, true)
       .addField('Duração:', `${song.duration}`, true)
       .setColor("YELLOW")
-    message.channel.send(embed)
+    message.channel.send(embed).then(msg => {
+      msg.delete({ timeout: (queue.songs[0].seconds)*1000, reason: 'Feito!' })
+    });
     queue.dispatcher.on("finish", () => {
       queue.songs.shift();
       playSong(client, message, queue.songs[0]);
