@@ -21,18 +21,18 @@ exports.run = async (client, message, args) => {
     try {
         calcResult = math.eval(calcArgs);
     } catch (e) { 
-        calcResult = 'Error: "Input inválido"';
+        calcResult = 'Error: "Entrada inválida"';
     }
 
     message.channel.send({embed: {
         color: 3447003,
         author: {
-          name: 'Proerd\'s calculator',
+          name: 'Calculadora do Proerd',
           icon_url: client.user.avatarURL
         },
         fields: [
-            { name: "Input", value: `\`\`\`js\n${calcArgs}\`\`\`` },
-          { name: "Output", value: `\`\`\`js\n${calcResult}\`\`\`` }
+            { name: "Entrada", value: `\`\`\`js\n${calcArgs}\`\`\`` },
+          { name: "Saida", value: `\`\`\`js\n${calcResult}\`\`\`` }
         ],
         timestamp: new Date(),
         footer: {
