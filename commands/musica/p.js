@@ -2,7 +2,8 @@ const search = require("yt-search");
 const ytdl = require("ytdl-core-discord");
 const Discord = require('discord.js');
 
-exports.run = (client, message, args) => {
+exports.run = async (client, message, args) => {
+  const nameUser = message.author.id;
   const s = args.join(" ");
   try {
     search(s, (err, result) => {
@@ -51,18 +52,18 @@ exports.run = (client, message, args) => {
       };
     }
     queue.dispatcher = await queue.connection.play(
-      await ytdl(song.url, { highWaterMark: 1 << 25, filter: "audioonly" }),
+      await ytdl(song.url, { quality: 'highestaudio', highWaterMark: 1024 * 1024 * 10 }),
       {
         type: "opus",
       }
     );
-    const embed = new Discord.MessageEmbed()
+    var embed = new Discord.MessageEmbed()
       .setDescription(`Tocando [${queue.songs[0].title}](${queue.songs[0].url})`)
-      .addField('Pedido:', `<@${message.author.id}>`, true)
+      .addField('Pedido:', `<@${nameUser}>`, true)
       .addField('Duração:', `${song.duration}`, true)
       .setColor("YELLOW")
     message.channel.send(embed).then(msg => {
-      msg.delete({ timeout: (queue.songs[0].seconds)*1000, reason: 'Feito!' })
+      msg.delete({ timeout: (queue.songs[0].seconds) * 1000, reason: 'Feito!' })
     });
     queue.dispatcher.on("finish", () => {
       queue.songs.shift();
