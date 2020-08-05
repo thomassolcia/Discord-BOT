@@ -82,7 +82,7 @@ fs.readdir(__dirname + "/commands/musica/", (err, files) => {
     let props = require(`./commands/musica/${file}`);
     let commandName = file.split(".")[0];
     client.commands.set(commandName, props);
-    console.log("Loading Command: "+commandName)
+    console.log("Loading Command: " + commandName)
   });
 });
 
