@@ -19,14 +19,15 @@ fs.readdir("./events/", (err, files) => {
 });
 
 client.commands = new Enmap();
-console.log('\n     [COMANDOS]      \n')
+console.log(`[✔️  ] Carregado | [❌ ] Com erro`);
+console.log('\n     [Status dos Comandos]      \n')
 fs.readdir("./commands/animais/", (err, files) => {
   if (err) return console.error(err);
   files.forEach(file => {
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/animais/${file}`);
     let commandName = file.split(".")[0];
-    console.log(`${commandName} -> ✔️  Pronto!`);
+    console.log(`[✔️  ] ${commandName}`);
     client.commands.set(commandName, props);
   });
 });
@@ -37,7 +38,7 @@ fs.readdir("./commands/diversos/", (err, files) => {
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/diversos/${file}`);
     let commandName = file.split(".")[0];
-    console.log(`${commandName} -> ✔️  Pronto!`);
+    console.log(`[✔️  ] ${commandName}`);
     client.commands.set(commandName, props);
   });
 });
@@ -48,7 +49,7 @@ fs.readdir("./commands/informativos/", (err, files) => {
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/informativos/${file}`);
     let commandName = file.split(".")[0];
-    console.log(`${commandName} -> ✔️  Pronto!`);
+    console.log(`[✔️  ] ${commandName}`);
     client.commands.set(commandName, props);
   });
 });
@@ -59,7 +60,7 @@ fs.readdir("./commands/minigames/", (err, files) => {
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/minigames/${file}`);
     let commandName = file.split(".")[0];
-    console.log(`${commandName} -> ✔️  Pronto!`);
+    console.log(`[✔️  ] ${commandName}`);
     client.commands.set(commandName, props);
   });
 });
@@ -70,7 +71,7 @@ fs.readdir("./commands/staff/", (err, files) => {
     if (!file.endsWith(".js")) return;
     let props = require(`./commands/staff/${file}`);
     let commandName = file.split(".")[0];
-    console.log(`${commandName} -> ✔️  Pronto!`);
+    console.log(`[✔️  ] ${commandName}`);
     client.commands.set(commandName, props);
   });
 });
@@ -82,7 +83,7 @@ fs.readdir(__dirname + "/commands/musica/", (err, files) => {
     let props = require(`./commands/musica/${file}`);
     let commandName = file.split(".")[0];
     client.commands.set(commandName, props);
-    console.log("Loading Command: " + commandName)
+    console.log(`[✔️  ] ${commandName}`);
   });
 });
 
