@@ -52,7 +52,7 @@ exports.run = async (client, message, args) => {
       };
     }
     queue.dispatcher = await queue.connection.play(
-      await ytdl(song.url, { quality: 'highestaudio', highWaterMark: 1024 * 1024 * 10 }),
+      await ytdl(song.url, { bitrate: 192000, quality: 'highestaudio', highWaterMark: 1 << 25, filter: "audioonly" }),
       {
         type: "opus",
       }

@@ -3,6 +3,9 @@ const ytdl = require("ytdl-core-discord");
 const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
+  if(message.content.includes('playlist') || message.content.includes('list') || message.content.includes('index')){
+    return message.reply('Playlists não estão disponíveis para reprodução no momento.')
+  }
   const nameUser = message.author.id;
   const s = args.join(" ");
   try {
@@ -43,7 +46,7 @@ exports.run = async (client, message, args) => {
     }
 
     if (!queue) {
-      const conn = await message.member.voice.channel.join();
+      const conn = await message.member.voice.channel.join()
       queue = {
         volume: 10,
         connection: conn,
@@ -52,11 +55,11 @@ exports.run = async (client, message, args) => {
       };
     }
     queue.dispatcher = await queue.connection.play(
-      await ytdl(song.url, { quality: 'highestaudio', highWaterMark: 1024 * 1024 * 10 }),
+      await ytdl(song.url, { bitrate: 192000, quality: 'highestaudio', highWaterMark: 1 << 25, filter: "audioonly" }),
       {
         type: "opus",
       }
-    );
+    )
     var embed = new Discord.MessageEmbed()
       .setDescription(`Tocando [${queue.songs[0].title}](${queue.songs[0].url})`)
       .addField('Pedido:', `<@${nameUser}>`, true)
@@ -64,7 +67,7 @@ exports.run = async (client, message, args) => {
       .setColor("YELLOW")
     message.channel.send(embed).then(msg => {
       msg.delete({ timeout: (queue.songs[0].seconds) * 1000, reason: 'Feito!' })
-    });
+    })
     queue.dispatcher.on("finish", () => {
       queue.songs.shift();
       playSong(client, message, queue.songs[0]);
