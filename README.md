@@ -16,7 +16,7 @@
 - Moderação;
 - Mini-Games;
 - Informativos;
-- Música (Removido por enquanto);
+- Música;
 - Animais;
 - Entre outras categorias.
 
@@ -27,4 +27,4 @@
 [Visual Studio Code]: https://code.visualstudio.com/
 [GameGuardian]: https://gameguardian.net/
 [changelog]: https://sites.google.com/view/awoone/
-[changelog-badge]: https://img.shields.io/badge/changelog-2.3.9-blue
+[changelog-badge]: https://img.shields.io/badge/changelog-2.4.1-blue
