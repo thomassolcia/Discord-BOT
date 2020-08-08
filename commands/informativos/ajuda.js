@@ -33,7 +33,7 @@ exports.run = (client, message, args) => {
             await msg.react('🍀')
             await msg.react('🦁')
             await msg.react('🎮')
-            //await msg.react('🎶')
+            await msg.react('🎶')
             await msg.react('👑')
             await msg.react("↩")
 
@@ -42,7 +42,7 @@ exports.run = (client, message, args) => {
             const diversao = (reaction, user) => reaction.emoji.name === '🍀' && user.id === message.author.id;
             const animais = (reaction, user) => reaction.emoji.name === '🦁' && user.id === message.author.id;
             const minigames = (reaction, user) => reaction.emoji.name === '🎮' && user.id === message.author.id;
-            //const music = (reaction, user) => reaction.emoji.name === '🎶' && user.id === message.author.id;
+            const music = (reaction, user) => reaction.emoji.name === '🎶' && user.id === message.author.id;
             const staff = (reaction, user) => reaction.emoji.name === '👑' && user.id === message.author.id;
 
             const back = (reaction, user) => reaction.emoji.name === "↩" && user.id === message.author.id;
@@ -51,7 +51,7 @@ exports.run = (client, message, args) => {
             const diversaoL = msg.createReactionCollector(diversao)
             const animaisL = msg.createReactionCollector(animais)
             const minigamesL = msg.createReactionCollector(minigames)
-            //const musicL = msg.createReactionCollector(music)
+            const musicL = msg.createReactionCollector(music)
             const staffL = msg.createReactionCollector(staff)
 
             const backL = msg.createReactionCollector(back)
@@ -80,6 +80,7 @@ exports.run = (client, message, args) => {
                     =ajuda - Exibe um menu de ajuda.
                     =avatar \`<@user>\` - Mostra o avatar de um usuário ou do próprio usuário que usou o comando.
                     =bot - Mostra informações sobre mim.
+                    =changelog - Mostra o site para acompanhamento das mudanças realizadas no BOT.
                     =clima \`<cidade>\` - Mostra o climpa atual da cidade citada.
                     =covid \`<país>\` -  Mostra informações estatísticas sobre o covid-19 no país desejado.
                     =dolar - Mostra a cotação atual do dolar.
@@ -88,7 +89,7 @@ exports.run = (client, message, args) => {
                     =promo \`<Nome>\` \`<Dia>\` \`<Hora>\` \`<Link>\` - Posta uma promoção de jogo, dlc ou pacote.
                     =server - Mostra informações sobre o servidor.
                     =steam - Fique por dentro das promoções da steam.
-                    =steamstat \`<Steam ID>\` - Mostra informações sobre a steam do ID inserido.
+                    =steamstats \`<Steam ID>\` - Mostra informações sobre a steam do ID inserido.
                     =user - Mostra informações sobre o seu usuário.
                     =users - Mostra informações gerais sobre os usuários do canal.
                     =year - Mostra quanto tempo falta até o fim do ano. 
@@ -107,12 +108,13 @@ exports.run = (client, message, args) => {
                     =ascii \`<texto>\` - Transforma um texto pequeno em ASCII.
                     =bigtext \`<texto>\` - Transforma um texto em emojis maiores.
                     =biscoito \`<@user>\` - Dê um biscoito para alguém. Seja gentil!
+                    =bug \`<texto>\` - Informa um bug diratamente ao desenvolvedor.
                     =calc \`<expressão>\` - Calcula alguma expressão matemática.
                     =dick \`<@user>\` - Descobre o tamanho do dick de alguém.
                     =frase - Mostra alguma frase de alguém inteligênte ou completamente aleatório.
                     =hex \`<#000000>\` - Mostra a cor de qualquer hex desejado.
                     =igor - O Pinscher Malvoso.
-                    =imgur \`<anexo>\` - Enviei uma imagem dirato para o imgur.
+                    =imgur \`<anexo>\` - Envie uma imagem dirato para o imgur.
                     -inverter \`<texto>\` - Inverte um texto.
                     =lembrete \`<tempo>\` \`<texto>\`  - Faz com que o bot te lembre de algo em um tempo determinado.
                     =lenny - Sorteia uma lennyface. ಠ‿↼
@@ -170,6 +172,8 @@ exports.run = (client, message, args) => {
                     =pause - Pausa a música que está tocando.
                     =queue - Mostra as músicas que estão na fila.
                     =resume - Volta a tocar a música que foi pausada.
+                    =search \`<nome>\` - Faz uma busca no youtube e te mostra 5 opções de músicas para adicionar na fila.
+                    =src \`<nome>\` - Faz uma busca no youtube e te mostra 5 opções de músicas para adicionar na fila.
                     =skip - Pula a música que está tocando.
                     =stop - Para de tocar as músicas e o bot sai da sala.
                     =volume - Controla o volume geral de reprodução. Não é o mesmo volume do servidor.
