@@ -18,7 +18,7 @@ exports.run = async (client, message, args) => {
     let question = message.content.split(' ').slice(1).join(' ');
 
     if (!question) {
-        return message.reply('O que você deseja me perguntar?\n\**Exemplo:** `=8ball você também acha o Awoone é maravilhoso?`');
+        return message.reply('O que você deseja me perguntar?\n\**Exemplo:** `-8ball você também acha o Awoone é maravilhoso?`');
     }
 
     let embed = new Discord.MessageEmbed()
