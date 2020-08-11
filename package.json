@@ -1,10 +1,9 @@
 {
   "name": "discord-bot",
-  "version": "2.4.0",
-  "description": "[![changelog-badge]][changelog]",
+  "version": "2.4.2",
+  "description": "A Discord Bot",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -22,19 +21,15 @@
     "common-tags": "^1.8.0",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
-    "enmap": "^5.4.1",
-    "ffmpeg": "0.0.4",
-    "ffmpeg-static": "^4.2.6",
+    "enmap": "^5.6.1",
     "imgur": "^0.3.1",
-    "jsdom": "^16.3.0",
+    "jsdom": "^16.4.0",
     "moment": "^2.27.0",
     "number-to-words": "^1.2.4",
     "request": "^2.88.2",
-    "simple-youtube-api": "^5.2.1",
-    "superagent": "^5.3.1",
+    "superagent": "^6.0.0",
     "weather-js": "^2.0.0",
     "yt-search": "^2.1.8",
-    "ytdl-core": "^3.2.0",
     "ytdl-core-discord": "^1.2.1"
   }
 }
