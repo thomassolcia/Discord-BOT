@@ -4,5 +4,5 @@ module.exports = async client => {
     let memberCount = myGuild.memberCount;
     let memberCountChannel = myGuild.channels.cache.get('704815480967266385');
     memberCountChannel.setName('👥│Usuários: ' + memberCount);
-    client.user.setActivity("=ajuda", { type: "PLAYING" })
+    client.user.setActivity("-ajuda", { type: "PLAYING" })
 }
