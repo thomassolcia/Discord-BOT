@@ -77,22 +77,22 @@ exports.run = (client, message, args) => {
             const embedinformacao = new Discord.MessageEmbed()
                 .setTitle(`Proerd ™ - Ajuda`)
                 .setDescription(`ℹ️ **Informativos**
-                    =ajuda - Exibe um menu de ajuda.
-                    =avatar \`<@user>\` - Mostra o avatar de um usuário ou do próprio usuário que usou o comando.
-                    =bot - Mostra informações sobre mim.
-                    =changelog - Mostra o site para acompanhamento das mudanças realizadas no BOT.
-                    =clima \`<cidade>\` - Mostra o climpa atual da cidade citada.
-                    =covid \`<país>\` -  Mostra informações estatísticas sobre o covid-19 no país desejado.
-                    =dolar - Mostra a cotação atual do dolar.
-                    =mix - Para organizar times.
-                    =ping - Mostra a latência bot-servidor.
-                    =promo \`<Nome>\` \`<Dia>\` \`<Hora>\` \`<Link>\` - Posta uma promoção de jogo, dlc ou pacote.
-                    =server - Mostra informações sobre o servidor.
-                    =steam - Fique por dentro das promoções da steam.
-                    =steamstats \`<Steam ID>\` - Mostra informações sobre a steam do ID inserido.
-                    =user - Mostra informações sobre o seu usuário.
-                    =users - Mostra informações gerais sobre os usuários do canal.
-                    =year - Mostra quanto tempo falta até o fim do ano. 
+                    -ajuda - Exibe um menu de ajuda.
+                    -avatar \`<@user>\` - Mostra o avatar de um usuário ou do próprio usuário que usou o comando.
+                    -bot - Mostra informações sobre mim.
+                    -changelog - Mostra o site para acompanhamento das mudanças realizadas no BOT.
+                    -clima \`<cidade>\` - Mostra o climpa atual da cidade citada.
+                    -covid \`<país>\` -  Mostra informações estatísticas sobre o covid-19 no país desejado.
+                    -dolar - Mostra a cotação atual do dolar.
+                    -mix - Para organizar times.
+                    -ping - Mostra a latência bot-servidor.
+                    -promo \`<Nome>\` \`<Dia>\` \`<Hora>\` \`<Link>\` - Posta uma promoção de jogo, dlc ou pacote.
+                    -server - Mostra informações sobre o servidor.
+                    -steam - Fique por dentro das promoções da steam.
+                    -steamstats \`<Steam ID>\` - Mostra informações sobre a steam do ID inserido.
+                    -user - Mostra informações sobre o seu usuário.
+                    -users - Mostra informações gerais sobre os usuários do canal.
+                    -year - Mostra quanto tempo falta até o fim do ano. 
             `)
                 .setColor("BLUE")
                 .setFooter(message.author.tag, message.author.avatarURL)
@@ -104,24 +104,24 @@ exports.run = (client, message, args) => {
             const embeddiversao = new Discord.MessageEmbed()
                 .setTitle(`Proerd ™ - Ajuda`)
                 .setDescription(`🍀 **Diversos**
-                    =8ball \`<texto>\` - Responde qualquer pergunta sua.
-                    =ascii \`<texto>\` - Transforma um texto pequeno em ASCII.
-                    =bigtext \`<texto>\` - Transforma um texto em emojis maiores.
-                    =biscoito \`<@user>\` - Dê um biscoito para alguém. Seja gentil!
-                    =bug \`<texto>\` - Informa um bug diratamente ao desenvolvedor.
-                    =calc \`<expressão>\` - Calcula alguma expressão matemática.
-                    =dick \`<@user>\` - Descobre o tamanho do dick de alguém.
-                    =frase - Mostra alguma frase de alguém inteligênte ou completamente aleatório.
-                    =hex \`<#000000>\` - Mostra a cor de qualquer hex desejado.
-                    =igor - O Pinscher Malvoso.
-                    =imgur \`<anexo>\` - Envie uma imagem dirato para o imgur.
+                    -8ball \`<texto>\` - Responde qualquer pergunta sua.
+                    -ascii \`<texto>\` - Transforma um texto pequeno em ASCII.
+                    -bigtext \`<texto>\` - Transforma um texto em emojis maiores.
+                    -biscoito \`<@user>\` - Dê um biscoito para alguém. Seja gentil!
+                    -bug \`<texto>\` - Informa um bug diratamente ao desenvolvedor.
+                    -calc \`<expressão>\` - Calcula alguma expressão matemática.
+                    -dick \`<@user>\` - Descobre o tamanho do dick de alguém.
+                    -frase - Mostra alguma frase de alguém inteligênte ou completamente aleatório.
+                    -hex \`<#000000>\` - Mostra a cor de qualquer hex desejado.
+                    -igor - O Pinscher Malvoso.
+                    -imgur \`<anexo>\` - Envie uma imagem dirato para o imgur.
                     -inverter \`<texto>\` - Inverte um texto.
-                    =lembrete \`<tempo>\` \`<texto>\`  - Faz com que o bot te lembre de algo em um tempo determinado.
-                    =lenny - Sorteia uma lennyface. ಠ‿↼
-                    =morse \`<palavra/frase>\` - Transforme uma palavra ou frase em código morse.
-                    =nick \`<novoApelido>\` - Muda seu apelido dentro do servidor.
-                    =sugerir \`<sugestão>\` - Dê uma sugestão para o servidor.
-                    =tapa \`<@user>\` - Dê um tapa em alguém.
+                    -lembrete \`<tempo>\` \`<texto>\`  - Faz com que o bot te lembre de algo em um tempo determinado.
+                    -lenny - Sorteia uma lennyface. ಠ‿↼
+                    -morse \`<palavra/frase>\` - Transforme uma palavra ou frase em código morse.
+                    -nick \`<novoApelido>\` - Muda seu apelido dentro do servidor.
+                    -sugerir \`<sugestão>\` - Dê uma sugestão para o servidor.
+                    -tapa \`<@user>\` - Dê um tapa em alguém.
             `)
                 .setColor("GREEN")
                 .setFooter(message.author.tag, message.author.avatarURL)
@@ -133,11 +133,11 @@ exports.run = (client, message, args) => {
             const embedanimais = new Discord.MessageEmbed()
                 .setTitle(`Proerd ™ - Ajuda`)
                 .setDescription(`🦁 **Animais**
-                    =cat - Foto aleatória de um gatinho.
-                    =catfacts - Algum fato aleatório sobre gatos.
-                    =dog - Foto aleatória de um doguinho.
-                    =goat - Gif aleatório de uma cabra.
-                    =raccon - Gif aleatório de um guaxinim.
+                    -cat - Foto aleatória de um gatinho.
+                    -catfacts - Algum fato aleatório sobre gatos.
+                    -dog - Foto aleatória de um doguinho.
+                    -goat - Gif aleatório de uma cabra.
+                    -raccon - Gif aleatório de um guaxinim.
             `)
                 .setColor("PURPLE")
                 .setFooter(message.author.tag, message.author.avatarURL)
@@ -149,11 +149,11 @@ exports.run = (client, message, args) => {
             const embedGames = new Discord.MessageEmbed()
                 .setTitle(`Proerd ™ - Ajuda`)
                 .setDescription(`🎮 **Mini-Games**
-                    =forca - Jogue forca no discord. Isso mesmo!
-                    =moeda - Tira cara ou coroa.
-                    =ppt \`<pedra/papel/tesoura>\` - Jogue pedra, papel ou tesoura contra o bot.
-                    =sorte - Faça-o e veja se hoje é seu dia de sorte.
-                    =roll \`<tipoDado>\` \`<bonûs>\` - Role os dados. d2, d4, d6, d8, d10, d20 ou d100.
+                    -forca - Jogue forca no discord. Isso mesmo!
+                    -moeda - Tira cara ou coroa.
+                    -ppt \`<pedra/papel/tesoura>\` - Jogue pedra, papel ou tesoura contra o bot.
+                    -sorte - Faça-o e veja se hoje é seu dia de sorte.
+                    -roll \`<tipoDado>\` \`<bonûs>\` - Role os dados. d2, d4, d6, d8, d10, d20 ou d100.
             `)
                 .setColor("ORANGE")
                 .setFooter(message.author.tag, message.author.avatarURL)
@@ -165,18 +165,18 @@ exports.run = (client, message, args) => {
             const embedmusic = new Discord.MessageEmbed()
                 .setTitle(`Proerd ™ - Ajuda`)
                 .setDescription(`🎶 **Music**
-                    =clear - Limpa a fila atual de músicas.
-                    =next - Pula a música que está tocando.
-                    =p \`<Link>\` ou \`<nome>\` - Começa a tocar uma música ou coloca ela na fila.
-                    =play \`<Link>\` ou \`<nome>\` - Começa a tocar uma música ou coloca ela na fila.
-                    =pause - Pausa a música que está tocando.
-                    =queue - Mostra as músicas que estão na fila.
-                    =resume - Volta a tocar a música que foi pausada.
-                    =search \`<nome>\` - Faz uma busca no youtube e te mostra 5 opções de músicas para adicionar na fila.
-                    =src \`<nome>\` - Faz uma busca no youtube e te mostra 5 opções de músicas para adicionar na fila.
-                    =skip - Pula a música que está tocando.
-                    =stop - Para de tocar as músicas e o bot sai da sala.
-                    =volume - Controla o volume geral de reprodução. Não é o mesmo volume do servidor.
+                    -clear - Limpa a fila atual de músicas.
+                    -next - Pula a música que está tocando.
+                    -p \`<Link>\` ou \`<nome>\` - Começa a tocar uma música ou coloca ela na fila.
+                    -play \`<Link>\` ou \`<nome>\` - Começa a tocar uma música ou coloca ela na fila.
+                    -pause - Pausa a música que está tocando.
+                    -queue - Mostra as músicas que estão na fila.
+                    -resume - Volta a tocar a música que foi pausada.
+                    -search \`<nome>\` - Faz uma busca no youtube e te mostra 5 opções de músicas para adicionar na fila.
+                    -src \`<nome>\` - Faz uma busca no youtube e te mostra 5 opções de músicas para adicionar na fila.
+                    -skip - Pula a música que está tocando.
+                    -stop - Para de tocar as músicas e o bot sai da sala.
+                    -volume - Controla o volume geral de reprodução. Não é o mesmo volume do servidor.
             `)
                 .setColor("YELLOW")
                 .setFooter(message.author.tag, message.author.avatarURL)
@@ -188,13 +188,13 @@ exports.run = (client, message, args) => {
             const embeddiversao = new Discord.MessageEmbed()
                 .setTitle(`Proerd ™ - Ajuda`)
                 .setDescription(`👑 **Staff**
-                    =ban \`<@user>\` \`<motivo>\` - Bane um usuário.
-                    =grole \`<@user>\` \`<Cargo>\` \`<Motivo>\` - Dá um cargo para algum usuário.
-                    =kick \`<@user>\` \`<motivo>\` - Expulsa um usuário.
-                    =limpar \`<quantidade>\` - Limpa mensagens de até 2 semanas. (2 a 100)
-                    =listban - Receba a lista de usuários banidos no privado.
-                    =poll \`<titulo>\` - Cria uma votação de sim ou não para sua enquete.
-                    =rrole \`<@user>\` \`<Cargo>\` \`<Motivo>\` - Remove um cargo de algum usuário.
+                    -ban \`<@user>\` \`<motivo>\` - Bane um usuário.
+                    -grole \`<@user>\` \`<Cargo>\` \`<Motivo>\` - Dá um cargo para algum usuário.
+                    -kick \`<@user>\` \`<motivo>\` - Expulsa um usuário.
+                    -limpar \`<quantidade>\` - Limpa mensagens de até 2 semanas. (2 a 100)
+                    -listban - Receba a lista de usuários banidos no privado.
+                    -poll \`<titulo>\` - Cria uma votação de sim ou não para sua enquete.
+                    -rrole \`<@user>\` \`<Cargo>\` \`<Motivo>\` - Remove um cargo de algum usuário.
             `)
                 .setColor("RED")
                 .setFooter(message.author.tag, message.author.avatarURL)
