@@ -22,7 +22,7 @@ module.exports = (client, message) => {
         console.log(err)
         const embed = new Discord.MessageEmbed()
           .setTitle(`Este comando não existe ou o formato está incorreto.`)
-          .setDescription("Digite `=ajuda` para mais informações!")
+          .setDescription("Digite `-ajuda` para mais informações!")
           .addField('Erro:', `\`${err}\``)
           .setColor("ORANGE")
           .setTimestamp()
