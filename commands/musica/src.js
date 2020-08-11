@@ -54,10 +54,41 @@ exports.run = async (client, message, args) => {
                                             queue.songs.push(song);
                                             client.queues.set(message.guild.id, queue);
                                         } else playSong(client, message, song);
-                                        const embed1 = new Discord.MessageEmbed()
-                                            .setDescription(`[${result.videos[0].title}](${result.videos[0].url}) adicionada na fila!`)
-                                            .setColor("YELLOW")
-                                        message.channel.send(embed1)
+                                        try {
+                                            if (!queue) {
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`Começando a tocar [${result.videos[0].title}](${result.videos[0].url})`)
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            } else {
+                                                init = 0;
+                                                var tEstimado = 0;
+                                                for (var i = 1; i < queue.songs.length; i++) {
+                                                    tEstimado += queue.songs[i].seconds;
+                                                }
+                                                var duracao = `${result.videos[0].duration}`;
+                                                var pTocada = `${queue.songs.length - 1}`;
+                                                var pFila = `${queue.songs.length}`;
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`**Adicionada na fila**`)
+                                                    .setThumbnail(`${result.videos[0].thumbnail}`)
+                                                    .addField('Música', `**[${result.videos[0].title}](${result.videos[0].url})**`)
+                                                    .addFields(
+                                                        { name: 'Tempo aproximado até ser tocada', value: `${parseInt(tEstimado / 60)} minutos`, inline: true },
+                                                        { name: 'Duração', value: duracao, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .addFields(
+                                                        { name: 'Músicas na frente', value: pTocada, inline: true },
+                                                        { name: 'Posição atual na fila', value: pFila, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            }
+                                        } catch (err) {
+                                            console.log(err)
+                                        }
                                         msg.delete()
                                     })
 
@@ -67,10 +98,41 @@ exports.run = async (client, message, args) => {
                                             queue.songs.push(song);
                                             client.queues.set(message.guild.id, queue);
                                         } else playSong(client, message, song);
-                                        const embed1 = new Discord.MessageEmbed()
-                                            .setDescription(`[${result.videos[1].title}](${result.videos[1].url}) adicionada na fila!`)
-                                            .setColor("YELLOW")
-                                        message.channel.send(embed1)
+                                        try {
+                                            if (!queue) {
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`Começando a tocar [${result.videos[1].title}](${result.videos[1].url})`)
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            } else {
+                                                init = 0;
+                                                var tEstimado = 0;
+                                                for (var i = 1; i < queue.songs.length; i++) {
+                                                    tEstimado += queue.songs[i].seconds;
+                                                }
+                                                var duracao = `${result.videos[1].duration}`;
+                                                var pTocada = `${queue.songs.length - 1}`;
+                                                var pFila = `${queue.songs.length}`;
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`**Adicionada na fila**`)
+                                                    .setThumbnail(`${result.videos[1].thumbnail}`)
+                                                    .addField('Música', `**[${result.videos[1].title}](${result.videos[1].url})**`)
+                                                    .addFields(
+                                                        { name: 'Tempo aproximado até ser tocada', value: `${parseInt(tEstimado / 60)} minutos`, inline: true },
+                                                        { name: 'Duração', value: duracao, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .addFields(
+                                                        { name: 'Músicas na frente', value: pTocada, inline: true },
+                                                        { name: 'Posição atual na fila', value: pFila, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            }
+                                        } catch (err) {
+                                            console.log(err)
+                                        }
                                         msg.delete()
                                     })
 
@@ -80,10 +142,41 @@ exports.run = async (client, message, args) => {
                                             queue.songs.push(song);
                                             client.queues.set(message.guild.id, queue);
                                         } else playSong(client, message, song);
-                                        const embed1 = new Discord.MessageEmbed()
-                                            .setDescription(`[${result.videos[2].title}](${result.videos[2].url}) adicionada na fila!`)
-                                            .setColor("YELLOW")
-                                        message.channel.send(embed1)
+                                        try {
+                                            if (!queue) {
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`Começando a tocar [${result.videos[2].title}](${result.videos[2].url})`)
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            } else {
+                                                init = 0;
+                                                var tEstimado = 0;
+                                                for (var i = 1; i < queue.songs.length; i++) {
+                                                    tEstimado += queue.songs[i].seconds;
+                                                }
+                                                var duracao = `${result.videos[2].duration}`;
+                                                var pTocada = `${queue.songs.length - 1}`;
+                                                var pFila = `${queue.songs.length}`;
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`**Adicionada na fila**`)
+                                                    .setThumbnail(`${result.videos[2].thumbnail}`)
+                                                    .addField('Música', `**[${result.videos[2].title}](${result.videos[2].url})**`)
+                                                    .addFields(
+                                                        { name: 'Tempo aproximado até ser tocada', value: `${parseInt(tEstimado / 60)} minutos`, inline: true },
+                                                        { name: 'Duração', value: duracao, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .addFields(
+                                                        { name: 'Músicas na frente', value: pTocada, inline: true },
+                                                        { name: 'Posição atual na fila', value: pFila, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            }
+                                        } catch (err) {
+                                            console.log(err)
+                                        }
                                         msg.delete()
                                     })
 
@@ -93,10 +186,41 @@ exports.run = async (client, message, args) => {
                                             queue.songs.push(song);
                                             client.queues.set(message.guild.id, queue);
                                         } else playSong(client, message, song);
-                                        const embed1 = new Discord.MessageEmbed()
-                                            .setDescription(`[${result.videos[3].title}](${result.videos[3].url}) adicionada na fila!`)
-                                            .setColor("YELLOW")
-                                        message.channel.send(embed1)
+                                        try {
+                                            if (!queue) {
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`Começando a tocar [${result.videos[3].title}](${result.videos[3].url})`)
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            } else {
+                                                init = 0;
+                                                var tEstimado = 0;
+                                                for (var i = 1; i < queue.songs.length; i++) {
+                                                    tEstimado += queue.songs[i].seconds;
+                                                }
+                                                var duracao = `${result.videos[3].duration}`;
+                                                var pTocada = `${queue.songs.length - 1}`;
+                                                var pFila = `${queue.songs.length}`;
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`**Adicionada na fila**`)
+                                                    .setThumbnail(`${result.videos[3].thumbnail}`)
+                                                    .addField('Música', `**[${result.videos[3].title}](${result.videos[3].url})**`)
+                                                    .addFields(
+                                                        { name: 'Tempo aproximado até ser tocada', value: `${parseInt(tEstimado / 60)} minutos`, inline: true },
+                                                        { name: 'Duração', value: duracao, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .addFields(
+                                                        { name: 'Músicas na frente', value: pTocada, inline: true },
+                                                        { name: 'Posição atual na fila', value: pFila, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            }
+                                        } catch (err) {
+                                            console.log(err)
+                                        }
                                         msg.delete()
                                     })
 
@@ -106,10 +230,41 @@ exports.run = async (client, message, args) => {
                                             queue.songs.push(song);
                                             client.queues.set(message.guild.id, queue);
                                         } else playSong(client, message, song);
-                                        const embed1 = new Discord.MessageEmbed()
-                                            .setDescription(`[${result.videos[4].title}](${result.videos[4].url}) adicionada na fila!`)
-                                            .setColor("YELLOW")
-                                        message.channel.send(embed1)
+                                        try {
+                                            if (!queue) {
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`Começando a tocar [${result.videos[4].title}](${result.videos[4].url})`)
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            } else {
+                                                init = 0;
+                                                var tEstimado = 0;
+                                                for (var i = 1; i < queue.songs.length; i++) {
+                                                    tEstimado += queue.songs[i].seconds;
+                                                }
+                                                var duracao = `${result.videos[4].duration}`;
+                                                var pTocada = `${queue.songs.length - 1}`;
+                                                var pFila = `${queue.songs.length}`;
+                                                const embed1 = new Discord.MessageEmbed()
+                                                    .setDescription(`**Adicionada na fila**`)
+                                                    .setThumbnail(`${result.videos[4].thumbnail}`)
+                                                    .addField('Música', `**[${result.videos[4].title}](${result.videos[4].url})**`)
+                                                    .addFields(
+                                                        { name: 'Tempo aproximado até ser tocada', value: `${parseInt(tEstimado / 60)} minutos`, inline: true },
+                                                        { name: 'Duração', value: duracao, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .addFields(
+                                                        { name: 'Músicas na frente', value: pTocada, inline: true },
+                                                        { name: 'Posição atual na fila', value: pFila, inline: true },
+                                                        { name: '\u200B', value: '\u200B', inline: true },
+                                                    )
+                                                    .setColor("YELLOW")
+                                                message.channel.send(embed1)
+                                            }
+                                        } catch (err) {
+                                            console.log(err)
+                                        }
                                         msg.delete()
                                     })
 
@@ -152,6 +307,13 @@ exports.run = async (client, message, args) => {
                 dispatcher: null,
                 songs: [song],
             };
+        } else {
+            var embed = new Discord.MessageEmbed()
+                .setDescription(`Começando a tocar **[${queue.songs[0].title}](${queue.songs[0].url})**`)
+                .setColor("YELLOW")
+            message.channel.send(embed).then(msg => {
+                msg.delete({ timeout: (queue.songs[0].seconds) * 1000, reason: 'Feito!' })
+            })
         }
         queue.dispatcher = await queue.connection.play(
             await ytdl(song.url, { bitrate: 192000, quality: 'highestaudio', highWaterMark: 1 << 25, filter: "audioonly" }),
@@ -159,14 +321,6 @@ exports.run = async (client, message, args) => {
                 type: "opus",
             }
         );
-        var embed = new Discord.MessageEmbed()
-            .setDescription(`Tocando [${queue.songs[0].title}](${queue.songs[0].url})`)
-            .addField('Pedido:', `<@${nameUser}>`, true)
-            .addField('Duração:', `${song.duration}`, true)
-            .setColor("YELLOW")
-        message.channel.send(embed).then(msg => {
-            msg.delete({ timeout: (queue.songs[0].seconds) * 1000, reason: 'Feito!' })
-        });
         queue.dispatcher.on("finish", () => {
             queue.songs.shift();
             playSong(client, message, queue.songs[0]);
