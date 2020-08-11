@@ -23,7 +23,7 @@ exports.run = async (client, message, args) => {
         try {
           if (!queue) {
             const embed1 = new Discord.MessageEmbed()
-              .setDescription(`Começando a tocar [${result.videos[0].title}](${result.videos[0].url})`)
+              .setDescription(`Começando a tocar **[${result.videos[0].title}](${result.videos[0].url})**`)
               .setColor("YELLOW")
             message.channel.send(embed1).then(msgd => {
               msgd.delete({ timeout: (song.seconds) * 1000, reason: 'Feito!' })
@@ -31,7 +31,7 @@ exports.run = async (client, message, args) => {
           } else {
             init = 0;
             var tEstimado = 0;
-            for (var i = 1; i < queue.songs.length; i++) {
+            for (var i = 0; i < queue.songs.length-1; i++) {
               tEstimado += queue.songs[i].seconds;
             }
             var duracao = `${result.videos[0].duration}`;
@@ -42,7 +42,7 @@ exports.run = async (client, message, args) => {
               .setThumbnail(`${result.videos[0].thumbnail}`)
               .addField('Música', `**[${result.videos[0].title}](${result.videos[0].url})**`)
               .addFields(
-                { name: 'Tempo aproximado até ser tocada', value: `${parseInt(tEstimado / 60)} minutos`, inline: true },
+                { name: 'Tempo até ser tocada', value: `≅ ${parseInt(tEstimado / 60)} minutos`, inline: true },
                 { name: 'Duração', value: duracao, inline: true },
                 { name: '\u200B', value: '\u200B', inline: true },
               )
@@ -96,7 +96,7 @@ exports.run = async (client, message, args) => {
       })
     }
     queue.dispatcher = await queue.connection.play(
-      await ytdl(song.url, { bitrate: 192000, quality: 'highestaudio', highWaterMark: 1 << 25, filter: "audioonly" }),
+      await ytdl(song.url, { bitrate: 96000, quality: 'highestaudio', highWaterMark: 1 << 30, filter: "audioonly" }),
       {
         type: "opus",
       }

@@ -8,11 +8,11 @@ exports.run = (client, message, args) => {
             "fields": [
                 {
                     "name": "**Fila de Músicas:**",
-                    "value": `${queue.songs.map(song => `[${init++}]. ` + song.title).join('\n')}`
+                    "value": `${queue.songs.map(song => `[${++init}]. ` + song.title).join('\n')}`
                 },
                 {
                     "name": "**Tocando Agora:**",
-                    "value": `[${queue.songs[0].title}](${queue.songs[0].url})`
+                    "value": `**[${queue.songs[0].title}](${queue.songs[0].url})**`
                 }
             ]
         };
