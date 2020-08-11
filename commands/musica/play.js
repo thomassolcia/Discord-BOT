@@ -3,6 +3,9 @@ const ytdl = require("ytdl-core-discord");
 const Discord = require('discord.js');
 
 exports.run = async (client, message, args) => {
+  if (message.content.includes('playlist') || message.content.includes('list') || message.content.includes('index')) {
+    return message.reply('Playlists não estão disponíveis para reprodução no momento.')
+  }
   const nameUser = message.author.id;
   const s = args.join(" ");
   try {
@@ -16,10 +19,44 @@ exports.run = async (client, message, args) => {
           queue.songs.push(song);
           client.queues.set(message.guild.id, queue);
         } else playSong(client, message, song);
-        const embed1 = new Discord.MessageEmbed()
-          .setDescription(`[${result.videos[0].title}](${result.videos[0].url}) adicionada na fila!`)
-          .setColor("YELLOW")
-        message.channel.send(embed1)
+        init = 0;
+        try {
+          if (!queue) {
+            const embed1 = new Discord.MessageEmbed()
+              .setDescription(`Começando a tocar [${result.videos[0].title}](${result.videos[0].url})`)
+              .setColor("YELLOW")
+            message.channel.send(embed1).then(msgd => {
+              msgd.delete({ timeout: (song.seconds) * 1000, reason: 'Feito!' })
+            })
+          } else {
+            init = 0;
+            var tEstimado = 0;
+            for (var i = 1; i < queue.songs.length; i++) {
+              tEstimado += queue.songs[i].seconds;
+            }
+            var duracao = `${result.videos[0].duration}`;
+            var pTocada = `${queue.songs.length - 1}`;
+            var pFila = `${queue.songs.length}`;
+            const embed1 = new Discord.MessageEmbed()
+              .setDescription(`**Adicionada na fila**`)
+              .setThumbnail(`${result.videos[0].thumbnail}`)
+              .addField('Música', `**[${result.videos[0].title}](${result.videos[0].url})**`)
+              .addFields(
+                { name: 'Tempo aproximado até ser tocada', value: `${parseInt(tEstimado / 60)} minutos`, inline: true },
+                { name: 'Duração', value: duracao, inline: true },
+                { name: '\u200B', value: '\u200B', inline: true },
+              )
+              .addFields(
+                { name: 'Músicas na frente', value: pTocada, inline: true },
+                { name: 'Posição atual na fila', value: pFila, inline: true },
+                { name: '\u200B', value: '\u200B', inline: true },
+              )
+              .setColor("YELLOW")
+            message.channel.send(embed1)
+          }
+        } catch (err) {
+          console.log(err)
+        }
       } else {
         return message.reply("desculpe, não encontrei o que você desejava!");
       }
@@ -43,28 +80,27 @@ exports.run = async (client, message, args) => {
     }
 
     if (!queue) {
-      const conn = await message.member.voice.channel.join();
+      const conn = await message.member.voice.channel.join()
       queue = {
         volume: 10,
         connection: conn,
         dispatcher: null,
         songs: [song],
       };
+    } else {
+      var embed = new Discord.MessageEmbed()
+        .setDescription(`Começando a tocar **[${queue.songs[0].title}](${queue.songs[0].url})**`)
+        .setColor("YELLOW")
+      message.channel.send(embed).then(msg => {
+        msg.delete({ timeout: (queue.songs[0].seconds) * 1000, reason: 'Feito!' })
+      })
     }
     queue.dispatcher = await queue.connection.play(
       await ytdl(song.url, { bitrate: 192000, quality: 'highestaudio', highWaterMark: 1 << 25, filter: "audioonly" }),
       {
         type: "opus",
       }
-    );
-    var embed = new Discord.MessageEmbed()
-      .setDescription(`Tocando [${queue.songs[0].title}](${queue.songs[0].url})`)
-      .addField('Pedido:', `<@${nameUser}>`, true)
-      .addField('Duração:', `${song.duration}`, true)
-      .setColor("YELLOW")
-    message.channel.send(embed).then(msg => {
-      msg.delete({ timeout: (queue.songs[0].seconds) * 1000, reason: 'Feito!' })
-    });
+    )
     queue.dispatcher.on("finish", () => {
       queue.songs.shift();
       playSong(client, message, queue.songs[0]);
