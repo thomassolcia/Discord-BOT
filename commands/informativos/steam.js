@@ -11,13 +11,12 @@ exports.run = async (client, message, args) => {
 	const minutes = Math.floor((duration / 1000 / 60) % 60);
 	const hours = Math.floor((duration / (1000 * 60 * 60)) % 24);
 	const days = Math.floor(duration / (1000 * 60 * 60 * 24));
-
 	const yearembed = new Discord.MessageEmbed()
-    .setTitle(`🛍 Halloween Sale 2020`)
-    .addField('Status:', 'Em Breve')
-	.addField(`Começa em:`, ` **${days} dias**, **${hours} horas**, **${minutes} minutos** e **${seconds} segundos**`)
-	.setColor("BLUE")
-	.setTimestamp()
-	.setFooter(message.author.tag)
+		.setTitle(`🛍 Halloween Sale 2020`)
+		.addField('Status:', 'Em Breve')
+		.addField(`Começa em:`, ` **${days} dias**, **${hours} horas**, **${minutes} minutos** e **${seconds} segundos**`)
+		.setColor("BLUE")
+		.setTimestamp()
+		.setFooter(message.author.tag)
 	message.channel.send(yearembed)
 };
