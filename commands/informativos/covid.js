@@ -28,7 +28,7 @@ exports.run = (client, message, args) => {
       .setTimestamp()
       .setFooter(message.author.tag);
       message.channel.send(embed1);
-    message.channel.send('Informações do Covid-19 em um páis específico: \`=covid brazil\` ou \`=covid br\`')
+    message.channel.send('Informações do Covid-19 em um país específico: \`-covid brazil\` ou \`-covid br\`')
   })
   }else{
     let countries = args[0] 
