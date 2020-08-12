@@ -19,6 +19,7 @@
   "homepage": "https://github.com/awoone/Discord-BOT#readme",
   "dependencies": {
     "@discordjs/opus": "^0.3.2",
+    "axios": "^0.19.2",
     "common-tags": "^1.8.0",
     "discord.js": "^12.2.0",
     "dotenv": "^8.2.0",
