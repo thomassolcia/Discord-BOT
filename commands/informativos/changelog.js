@@ -15,7 +15,7 @@ exports.run = (client, message, args) => {
         msg.react('⬅').then(r => {
             msg.react('➡').then(s => {
                 msg.react('❌')
-            }).then(message.delete({ timeout: 5000, reason: 'Feito!' }))
+            });
 
             // Filters
             const backwardsFilter = (reaction, user) => reaction.emoji.name === '⬅' && user.id === message.author.id
