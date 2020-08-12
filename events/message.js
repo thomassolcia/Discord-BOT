@@ -19,7 +19,9 @@ module.exports = (client, message) => {
         exports.run(client, message, args);
       }
       catch (err) {
-        console.log(err)
+        var d = new Date();
+        var n = `${d.getHours()}:${d.getMinutes()}`;
+        console.log(`Ocorreu um erro: ${err}\nComando utilizado: ${message.content}\nHorário: ${n}\n`)
         const embed = new Discord.MessageEmbed()
           .setTitle(`Este comando não existe ou o formato está incorreto.`)
           .setDescription("Digite `-ajuda` para mais informações!")
