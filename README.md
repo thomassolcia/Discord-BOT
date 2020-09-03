@@ -13,12 +13,12 @@
 
 ### Recursos
 
-- Moderação;
-- Mini-Games;
-- Informativos;
-- Música;
 - Animais;
-- Entre outras categorias.
+- Informativos;
+- Moderação;
+- Uteis;
+- Mini-Games (Removidos para correções e novas implementações);
+- Música (Removidos para correções)
 
 [JavaScript]: https://devdocs.io/javascript/
 [Node.js 12]: https://nodejs.org/en/download/
@@ -27,4 +27,4 @@
 [Visual Studio Code]: https://code.visualstudio.com/
 [GameGuardian]: https://gameguardian.net/
 [changelog]: https://sites.google.com/view/awoone/
-[changelog-badge]: https://img.shields.io/badge/changelog-2.4.1-blue
+[changelog-badge]: https://img.shields.io/badge/changelog-2.5.0-blue
