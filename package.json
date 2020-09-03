@@ -1,38 +1,29 @@
 {
-  "name": "discord-bot",
-  "version": "2.4.2",
-  "description": "A Discord Bot",
+  "name": "proerd-bot",
+  "version": "3.0.0",
+  "description": "[![changelog-badge]][changelog]",
   "main": "index.js",
+  "dependencies": {
+    "axios": "^0.20.0",
+    "cheerio": "^1.0.0-rc.3",
+    "discord.js": "^12.3.1",
+    "dotenv": "^8.2.0",
+    "enmap": "^5.7.1",
+    "superagent": "^6.1.0",
+    "weather-js": "^2.0.0"
+  },
+  "devDependencies": {},
   "scripts": {
-    "start": "node .",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/awoone/Discord-BOT.git"
   },
-  "author": "Thomas Solcia",
+  "author": "awoone",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/awoone/Discord-BOT/issues"
   },
-  "homepage": "https://github.com/awoone/Discord-BOT#readme",
-  "dependencies": {
-    "@discordjs/opus": "^0.3.2",
-    "axios": "^0.19.2",
-    "common-tags": "^1.8.0",
-    "discord.js": "^12.2.0",
-    "dotenv": "^8.2.0",
-    "enmap": "^5.6.1",
-    "imgur": "^0.3.1",
-    "jsdom": "^16.4.0",
-    "math-expression-evaluator": "^1.2.22",
-    "moment": "^2.27.0",
-    "number-to-words": "^1.2.4",
-    "request": "^2.88.2",
-    "superagent": "^6.0.0",
-    "weather-js": "^2.0.0",
-    "yt-search": "^2.1.8",
-    "ytdl-core-discord": "^1.2.1"
-  }
+  "homepage": "https://github.com/awoone/Discord-BOT#readme"
 }

@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
-
 exports.run = (client, message, args) => {
-
-    try{
+    try {
         let raccon = [
             'https://media.giphy.com/media/ofHpfBbgXhEVG/giphy.gif',
             'https://media.giphy.com/media/3WvdC5etwu52rLUAWm/giphy.gif',
@@ -36,20 +34,16 @@ exports.run = (client, message, args) => {
             'https://media.giphy.com/media/JumHZQU0IABMI/giphy.gif'
         ];
         const racconembed = new Discord.MessageEmbed()
-        .setColor("PURPLE")
-        .setTitle("🦝 Guaxinim")
-        .setImage(raccon[Math.floor(Math.random() * raccon.length)])
-        .setTimestamp()
-        .setFooter(message.author.tag);
+            .setColor('BLACK')
+            .setTitle("GUAXININHO 🦝")
+            .setImage(raccon[Math.floor(Math.random() * raccon.length)])
         message.channel.send(racconembed)
-    }catch(err){
-        const embed = new Discord.MessageEmbed() 
-        .setTitle(`Este comando não está disponível no momento!`)
-        .setDescription("Contate alguém da staff para mais informações.")
-        .addField('Erro:',`\`${err}\``)
-        .setColor("PURPLE")
-        .setTimestamp()
-        .setFooter(message.author.tag)
+    } catch (err) {
+        const embed = new Discord.MessageEmbed()
+            .setTitle(`Este comando não está disponível no momento!`)
+            .setDescription("Contate alguém da staff para mais informações.")
+            .addField('Erro:', `\`${err}\``)
+            .setColor('BLACK')
         message.channel.send(embed)
     }
 }

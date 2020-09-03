@@ -1,8 +1,6 @@
 const Discord = require('discord.js');
-
 exports.run = (client, message, args) => {
-
-    try{
+    try {
         let goat = [
             'https://media.giphy.com/media/SbtVCIxfmJlvfmL6d1/giphy.gif',
             'https://media.giphy.com/media/l41lKq44QEMdjxEo8/giphy.gif',
@@ -36,20 +34,16 @@ exports.run = (client, message, args) => {
             'https://media.giphy.com/media/l41m54nolBBeVNGGA/giphy.gif'
         ];
         const goatembed = new Discord.MessageEmbed()
-        .setColor("PURPLE")
-        .setTitle("🐐 G.O.A.T")
-        .setImage(goat[Math.floor(Math.random() * goat.length)])
-        .setTimestamp()
-        .setFooter(message.author.tag);
+            .setColor('BLACK')
+            .setTitle("BODINHO 🐐")
+            .setImage(goat[Math.floor(Math.random() * goat.length)])
         message.channel.send(goatembed)
-    }catch(err){
-        const embed = new Discord.MessageEmbed() 
-        .setTitle(`Este comando não está disponível no momento!`)
-        .setDescription("Contate alguém da staff para mais informações.")
-        .addField('Erro:',`\`${err}\``)
-        .setColor("PURPLE")
-        .setTimestamp()
-        .setFooter(message.author.tag)
+    } catch (err) {
+        const embed = new Discord.MessageEmbed()
+            .setTitle(`Este comando não está disponível no momento!`)
+            .setDescription("Contate alguém da staff para mais informações.")
+            .addField('Erro:', `\`${err}\``)
+            .setColor('BLACK')
         message.channel.send(embed)
     }
 }
