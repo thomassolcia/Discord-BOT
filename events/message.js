@@ -22,8 +22,6 @@ module.exports = (client, message) => {
                     .setDescription("Digite `-ajuda` para mais informações!")
                     .addField('Erro:', `\`${err}\``)
                     .setColor("ORANGE")
-                    .setTimestamp()
-                    .setFooter(message.author.tag)
                 message.channel.send(embed)
             }
         } else {
