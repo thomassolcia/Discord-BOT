@@ -1,6 +1,5 @@
 const Discord = require('discord.js');
 exports.run = async(client, message, args) => {
-    message.delete();
     if (!message.member.hasPermission("BAN_MEMBERS")) {
         return message.channel.send(`${message.author}, você não possui permissão para executar esse comando.`).then(msg => msg.delete(8000))
     } else {
