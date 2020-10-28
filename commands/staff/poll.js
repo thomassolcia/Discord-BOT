@@ -58,15 +58,15 @@ exports.run = async(bot, message, args) => {
             var embed = new Discord.MessageEmbed()
                 .setColor('RED')
                 .setTitle(`**${question}**`)
-                .setDescription(`${content}`)
+                .setDescription(`${content}\n\nHost: <@${message.author.id}>`)
                 .setFooter(`Tempo restante: ${hours} minutos (${cooldown} segundos)`)
-            await message.channel.send(`:bar_chart: ${message.author} iniciou uma votação.`, embed).then(async m => {
+            await message.channel.send(embed).then(async m => {
                         for (let i = 0; i < choices.length; i++) await m.react(options[i]);
                         refreshIntervalId = setInterval(() => {
                                     var embed = new Discord.MessageEmbed()
                                         .setColor('RED')
                                         .setTitle(`**${question}**`)
-                                        .setDescription(`${content}`)
+                                        .setDescription(`${content}\n\nHost: <@${message.author.id}>`)
                                         .setFooter(`Tempo restante: ${(hours=hours-0.085714286).toFixed(2)} minutos (${cooldown=cooldown-5} segundos)`)
                                     m.edit(embed)
                                     if (cooldown < 0 || hours < 0) {
@@ -77,7 +77,7 @@ exports.run = async(bot, message, args) => {
                                             .setColor('RED')
                                             .setAuthor('RESUMO')
                                             .setTitle(`**${question}**`)
-                                            .setDescription(`${m.reactions.cache.map(g => `${options[a++]} ${choices[b++]} (${g.count} votos)`).join(`\n`)}`)
+                                            .setDescription(`${m.reactions.cache.map(g => `${options[a++]} ${choices[b++]} (${g.count} votos)`).join(`\n`)}\n\nHost: <@${message.author.id}>`)
                                         .setFooter(`Votação encerrada!`)
                                         m.edit(embed)
                 return clearInterval(refreshIntervalId);
