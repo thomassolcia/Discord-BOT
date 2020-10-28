@@ -11,7 +11,7 @@ exports.run = async(client, message, args) => {
         };
         const embed = new Discord.MessageEmbed()
             .setColor('BLACK')
-            .setTitle("INFORMAÇÕES DE USUÁRIO: " + message.author.username)
+            .setTitle("INFORMAÇÕES DE USUÁRIO")
             .setThumbnail(message.author.displayAvatarURL({ format: "png", dynamic: true }))
             .addField('Username/ID', `${message.author.username}#${message.author.discriminator}/${message.author.id}`)
             .addField('Entrou', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date))
