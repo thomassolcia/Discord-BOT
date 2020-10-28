@@ -1,29 +1,31 @@
 {
-  "name": "proerd-bot",
-  "version": "3.0.0",
-  "description": "[![changelog-badge]][changelog]",
-  "main": "index.js",
-  "dependencies": {
-    "axios": "^0.20.0",
-    "cheerio": "^1.0.0-rc.3",
-    "discord.js": "^12.3.1",
-    "dotenv": "^8.2.0",
-    "enmap": "^5.7.1",
-    "superagent": "^6.1.0",
-    "weather-js": "^2.0.0"
-  },
-  "devDependencies": {},
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/awoone/Discord-BOT.git"
-  },
-  "author": "awoone",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/awoone/Discord-BOT/issues"
-  },
-  "homepage": "https://github.com/awoone/Discord-BOT#readme"
+    "name": "proerd-bot",
+    "version": "3.0.0",
+    "description": "[![changelog-badge]][changelog]",
+    "main": "index.js",
+    "dependencies": {
+        "axios": "^0.20.0",
+        "cheerio": "^1.0.0-rc.3",
+        "discord.js": "^12.3.1",
+        "discord.js-menu": "^2.1.1",
+        "dotenv": "^8.2.0",
+        "enmap": "^5.7.1",
+        "quick.db": "^7.1.3",
+        "superagent": "^6.1.0",
+        "weather-js": "^2.0.0"
+    },
+    "devDependencies": {},
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/awoone/Discord-BOT.git"
+    },
+    "author": "awoone",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/awoone/Discord-BOT/issues"
+    },
+    "homepage": "https://github.com/awoone/Discord-BOT#readme"
 }
