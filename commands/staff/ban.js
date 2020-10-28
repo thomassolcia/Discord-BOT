@@ -1,6 +1,5 @@
 const Discord = require('discord.js')
 exports.run = async(client, message, args) => {
-    message.delete()
     const member = message.mentions.users.first() || client.users.cache.get(args[0]);
     const embed = new Discord.MessageEmbed()
         .setColor("RED")
