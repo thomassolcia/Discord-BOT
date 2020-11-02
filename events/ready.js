@@ -9,6 +9,7 @@ module.exports = async (client, message) => {
     }, 10000);
 
     client.on('messageDelete', async msg => {
+        if (msg.author.bot) return;
         let logs = await msg.guild.fetchAuditLogs({ type: "MESSAGE_DELETED" });
         let entry = logs.entries.first();
         let messageDeletedEmbed = new Discord.MessageEmbed()
@@ -23,6 +24,7 @@ module.exports = async (client, message) => {
         LoggingChannel.send(messageDeletedEmbed);
     });
     client.on('messageUpdate', async (oldMessage, newMessage) => {
+        if (oldMessage.author.bot) return;
         let logs = await oldMessage.guild.fetchAuditLogs({ type: "MESSAGE_UPDATE" });
         let entry = logs.entries.first();
         let messageDeletedEmbed = new Discord.MessageEmbed()
