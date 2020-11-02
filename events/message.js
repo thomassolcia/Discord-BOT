@@ -11,7 +11,7 @@ module.exports = (client, message) => {
         return
     } else {
         if (message.content.startsWith(`!`) || message.content.startsWith(`-`) || message.content.startsWith(`=`) || message.content.startsWith(`.`)) {
-            if (message.content.startsWith(`=`) && message.channel.name === 'bot-spam') {
+            if (message.content.startsWith(`=`) && (message.channel.name === 'bot-spam' || message.channel.name === 'log-teste')) {
                 try {
                     exports.run(client, message, args);
                 } catch (err) {
@@ -25,11 +25,11 @@ module.exports = (client, message) => {
                         .setColor("BLACK")
                     message.channel.send(embed)
                 }
-            } else if (message.content.startsWith(`!`) && message.channel.name === 'bot-spam') {
+            } else if (message.content.startsWith(`!`) && (message.channel.name === 'bot-spam' || message.channel.name === 'log-teste')) {
                 return;
-            } else if (message.content.startsWith(`-`) && message.channel.name === 'bot-spam') {
+            } else if (message.content.startsWith(`-`) && (message.channel.name === 'bot-spam' || message.channel.name === 'log-teste')) {
                 return;
-            } else if (message.content.startsWith(`.`) && message.channel.name === 'bot-spam') {
+            } else if (message.content.startsWith(`.`) && (message.channel.name === 'bot-spam' || message.channel.name === 'log-teste')) {
                 return;
             } else {
                 message.delete();
