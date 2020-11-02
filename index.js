@@ -14,7 +14,7 @@ fs.readdir("./events/", (err, files) => {
     });
 });
 client.commands = new Enmap();
-console.log(`[✔️  ] Carregado | [❌ ] Com erro`);
+console.log(`[True] Carregado | [False] Com erro`);
 console.log('\n     [Status dos Comandos]      \n')
 fs.readdir("./commands/animais/", (err, files) => {
     if (err) return console.error(err);
@@ -22,7 +22,7 @@ fs.readdir("./commands/animais/", (err, files) => {
         if (!file.endsWith(".js")) return;
         let props = require(`./commands/animais/${file}`);
         let commandName = file.split(".")[0];
-        console.log(`[✔️  ] ${commandName}`);
+        console.log(`[True] ${commandName}`);
         client.commands.set(commandName, props);
     });
 });
@@ -32,7 +32,7 @@ fs.readdir("./commands/info/", (err, files) => {
         if (!file.endsWith(".js")) return;
         let props = require(`./commands/info/${file}`);
         let commandName = file.split(".")[0];
-        console.log(`[✔️  ] ${commandName}`);
+        console.log(`[True] ${commandName}`);
         client.commands.set(commandName, props);
     });
 });
@@ -42,7 +42,7 @@ fs.readdir("./commands/uteis/", (err, files) => {
         if (!file.endsWith(".js")) return;
         let props = require(`./commands/uteis/${file}`);
         let commandName = file.split(".")[0];
-        console.log(`[✔️  ] ${commandName}`);
+        console.log(`[True] ${commandName}`);
         client.commands.set(commandName, props);
     });
 });
@@ -52,7 +52,17 @@ fs.readdir("./commands/staff/", (err, files) => {
         if (!file.endsWith(".js")) return;
         let props = require(`./commands/staff/${file}`);
         let commandName = file.split(".")[0];
-        console.log(`[✔️  ] ${commandName}`);
+        console.log(`[True] ${commandName}`);
+        client.commands.set(commandName, props);
+    });
+});
+fs.readdir("./commands/steam/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+        if (!file.endsWith(".js")) return;
+        let props = require(`./commands/steam/${file}`);
+        let commandName = file.split(".")[0];
+        console.log(`[True] ${commandName}`);
         client.commands.set(commandName, props);
     });
 });
