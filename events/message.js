@@ -18,18 +18,13 @@ module.exports = (client, message) => {
                     var d = new Date();
                     var n = `${d.getHours()}:${d.getMinutes()}`;
                     console.log(`Ocorreu um erro: ${err}\nComando utilizado: ${message.content}\nHorário: ${n}\n`)
-                    const embed = new Discord.MessageEmbed()
-                        .setTitle(`Este comando não existe ou o formato está incorreto.`)
-                        .setDescription("Digite `=ajuda` para mais informações!")
-                        .addField('Erro:', `\`${err}\``)
-                        .setColor("BLACK")
-                    message.channel.send(embed)
+                    return;
                 }
-            } else if (message.content.startsWith(`!`) && (message.channel.name === 'bot-spam' || message.channel.name === 'log-teste')) {
+            } else if (message.content.startsWith(`!`) && message.channel.name === 'bot-spam' || message.channel.name === 'log-teste') {
                 return;
-            } else if (message.content.startsWith(`-`) && (message.channel.name === 'bot-spam' || message.channel.name === 'log-teste')) {
+            } else if (message.content.startsWith(`-`) && message.channel.name === 'bot-spam' || message.channel.name === 'log-teste') {
                 return;
-            } else if (message.content.startsWith(`.`) && (message.channel.name === 'bot-spam' || message.channel.name === 'log-teste')) {
+            } else if (message.content.startsWith(`.`) && message.channel.name === 'bot-spam' || message.channel.name === 'log-teste') {
                 return;
             } else {
                 message.delete();
