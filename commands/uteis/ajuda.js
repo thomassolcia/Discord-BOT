@@ -3,17 +3,17 @@ exports.run = (client, message, args) => {
     const erros = new Discord.MessageEmbed()
         .setAuthor(`Proerd ™ - Erro`, client.user.avatarURL)
         .setDescription(`${message.author}, não consigo enviar mensagem para você, ative suas mensagens diretas!`)
-        .setTimestamp()
         .setThumbnail(client.user.avatarURL)
-        .setFooter(message.author.tag, message.author.avatarURL)
+        .setTimestamp()
+        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
         .setColor('BLACK')
 
     const yes = new Discord.MessageEmbed()
         .setTitle(`Proerd ™ - Comandos`)
         .setDescription(` ${message.author}, enviei meus comandos em seu privado!`)
         .setTimestamp()
+        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
         .setColor('BLACK')
-        .setFooter(message.author.tag, message.author.avatarURL)
     message.channel.send(yes).then(msg => msg.delete({ timeout: 10000 }))
 
     const embed = new Discord.MessageEmbed()
@@ -23,8 +23,8 @@ exports.run = (client, message, args) => {
         .addField(`ℹ️ **Informativos**`, '• `bot`, `ping`, ...')
         .addField(`👑 **Staff**`, '• `ban`, `kick`, ...')
         .addField(`🔨 **Uteis**`, '• `ajuda`, `clima`, ...')
-        .setFooter(message.author.tag, message.author.avatarURL)
         .setTimestamp()
+        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
         .setColor('BLACK')
     message.author.send(embed).catch(err => message.channel.send(erros)).then(async msg => {
         await msg.react('🦁')
@@ -53,8 +53,8 @@ exports.run = (client, message, args) => {
                 .addField(`ℹ️ **Informativos**`, '• `bot`, `ping`, ...')
                 .addField(`👑 **Staff**`, '• `ban`, `kick`, ...')
                 .addField(`🔨 **Uteis**`, '• `ajuda`, `clima`, ...')
-                .setFooter(message.author.tag, message.author.avatarURL)
                 .setTimestamp()
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
                 .setColor("BLACK")
             msg.edit(embedd)
         })
@@ -69,7 +69,7 @@ exports.run = (client, message, args) => {
                 -raccon *.........................::* Mostra uma imagem aleatória de um guaxinim.
             `)
                 .setColor("BLACK")
-                .setFooter(message.author.tag, message.author.avatarURL)
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
                 .setTimestamp()
             msg.edit(embedinformacao)
         })
@@ -83,7 +83,7 @@ exports.run = (client, message, args) => {
                     -user \`<@user>\` *...............::* Mostra informações sobre o usuário.
             `)
                 .setColor("BLACK")
-                .setFooter(message.author.tag, message.author.avatarURL)
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
                 .setTimestamp()
             msg.edit(embeddiversao)
         })
@@ -100,7 +100,7 @@ exports.run = (client, message, args) => {
                 -unmute \`<@user>\` *..............................::* Desmuta um usuário que esta silenciado.
             `)
                 .setColor("BLACK")
-                .setFooter(message.author.tag, message.author.avatarURL)
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
                 .setTimestamp()
             msg.edit(embedanimais)
         })
@@ -113,9 +113,22 @@ exports.run = (client, message, args) => {
                     -cotacao *..........................::* Mostra a cotação atual do dólar e do euro.
             `)
                 .setColor("BLACK")
-                .setFooter(message.author.tag, message.author.avatarURL)
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
                 .setTimestamp()
             msg.edit(embedGames)
         })
     })
 }
+
+exports.conf = {
+    commands: ["ajuda", "help"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = {
+    name: 'ajuda',
+    description: 'Manda ao usuário uma lista de comandos disponívels',
+    usage: '[=]ajuda',
+    kategori: 'uteis'
+};

@@ -21,6 +21,8 @@ exports.run = async(client, message, args) => {
         .addField('Cargos', message.guild.roles.cache.size, true)
         .addField('Canais', message.guild.channels.cache.size, true)
         .addField('Criação', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date), true)
+        .setTimestamp()
+        .setFooter(`Comando =server`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
     message.channel.send(embed);
 
     function formatDate(template, date) {
@@ -31,3 +33,16 @@ exports.run = async(client, message, args) => {
         }, template)
     }
 }
+
+exports.conf = {
+    commands: ["server", "serverinfo"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = { 
+    name: 'server', 
+    description: 'Mostra informações sobre o servidor atual',
+    usage: '[=]server',
+    kategori: 'info'
+};

@@ -78,3 +78,16 @@ exports.run = (client, message, args) => {
         }
     }
 }
+
+exports.conf = {
+    commands: ["clima", "weather"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = {
+    name: 'clima',
+    description: 'Mostra informações do clima de um local específico',
+    usage: '[=]clima',
+    kategori: 'uteis'
+};

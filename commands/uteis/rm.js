@@ -26,15 +26,30 @@ exports.run = async (client, message, args, level, id) => {
         return message.reply('O tempo deve ser númerico [s/m/h/d]');
     }
     const embed = new Discord.MessageEmbed()
-        .setColor("GREEN")
+        .setColor("BLACK")
+        .setTimestamp()
+        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
         .setTitle(`✉️ Lembrete #${id}`)
         .setDescription(`Lembrarei você de \`${reminder}\` daqui \`${time}\` em seu chat privado!`)
     message.channel.send(embed)
     setTimeout(function () {
         const embed = new Discord.MessageEmbed()
-            .setColor("GREEN")
+            .setColor("BLACK")
             .setTitle(`✉️ Lembrete #${id}`)
             .setDescription(`${time} atrás você pediu para te lembrar de \`${reminder}\``)
         message.author.send(embed)
     }, parseInt(timems));
+};
+
+exports.conf = {
+    commands: ["rm", "lembrar"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = {
+    name: 'rm',
+    description: 'Te lembra de algo',
+    usage: '[=]rm',
+    kategori: 'uteis'
 };

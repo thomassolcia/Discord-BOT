@@ -13,6 +13,8 @@ exports.run = async(client, message, args) => {
                 .setDescription(`O usuário ${member} foi mutado por tempo indefinido!`)
                 .addField("Staff", message.author.username, true)
                 .addField("Motivo", args[2], true)
+                .setTimestamp()
+                .setFooter(`Comando =mute`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
             message.channel.send(embed)
         } else {
             var segundos = args[1];
@@ -25,9 +27,24 @@ exports.run = async(client, message, args) => {
                 .setDescription(`O usuário ${member} foi mutado por ${segundos} segundos!`)
                 .addField("Staff", message.author.username, true)
                 .addField("Motivo", args[2], true)
+                .setTimestamp()
+                .setFooter(`Comando =mute`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
             message.channel.send(embed).then(msg => msg.delete({ timeout: `${segundos}` * 1000 }))
             setTimeout(() => { member.voice.setMute(false) }, `${segundos}` * 1000);
         }
 
     }
 }
+
+exports.conf = {
+    commands: ["mute", "mutar"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = { 
+    name: 'mute', 
+    description: 'Muta um usuário',
+    usage: '[=]mute',
+    kategori: 'staff'
+};

@@ -30,7 +30,20 @@ exports.run = async(client, message, args) => {
             .addField('Erro:', `\`${err}\``)
             .setColor("BLACK")
             .setTimestamp()
-            .setFooter(message.author.tag)
+            .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
         message.channel.send(embed)
     }
 }
+
+exports.conf = {
+    commands: ["cotacao", "dol"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = {
+    name: 'cotacao',
+    description: 'Mostra informações do dolar/euro',
+    usage: '[=]cotacao',
+    kategori: 'uteis'
+};

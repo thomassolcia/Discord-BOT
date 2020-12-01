@@ -1,21 +1,27 @@
 const Discord = require('discord.js')
-exports.run = async(client, message, args) => {
+exports.run = async (client, message, args) => {
     message.delete()
     const member = message.mentions.users.first() || client.users.cache.get(args[0]);
     const embed = new Discord.MessageEmbed()
-        .setColor("RED")
+        .setColor("BLACK")
         .setThumbnail(member.displayAvatarURL())
         .setDescription(`O usuário ${member} foi expulso!`)
         .addField("Staff", message.author.username, true)
+        .setTimestamp()
+        .setFooter(`Comando =kick`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
     const embedErr = new Discord.MessageEmbed()
         .setTitle(`Este comando não existe ou o formato está incorreto.`)
         .setDescription("Digite `-ajuda` para mais informações!")
         .addField('Uso correto do comando:', `\`-kick <@user>\``)
         .setColor("RED")
+        .setTimestamp()
+        .setFooter(`Comando =kick`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
     const embedPermissoes = new Discord.MessageEmbed()
         .setTitle(`Você não tem permissões para executar esse comando.`)
         .setDescription("Digite `-ajuda` para mais informações!")
         .setColor("RED")
+        .setTimestamp()
+        .setFooter(`Comando =kick`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
 
     if (!member) {
         return message.channel.send(embedErr)
@@ -27,3 +33,16 @@ exports.run = async(client, message, args) => {
         .then(() => message.channel.send(embed))
         .catch(err => message.channel.send(embedErr));
 }
+
+exports.conf = {
+    commands: ["kick", "expulsar"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = {
+    name: 'kick',
+    description: 'Expulsa um usuário',
+    usage: '[=]kick',
+    kategori: 'staff'
+};

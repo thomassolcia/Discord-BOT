@@ -12,5 +12,20 @@ exports.run = async(client, message, args) => {
     const embed = new Discord.MessageEmbed()
         .setDescription(`Quantidade de mensagens excluídas: **${amount}**`)
         .setColor("RED")
+        .setTimestamp()
+        .setFooter(`Comando =limpar`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
     message.channel.send(embed).then(msg => msg.delete({ timeout: 5000 }));
 }
+
+exports.conf = {
+    commands: ["limpar", "clean"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = { 
+    name: 'limpar', 
+    description: 'Limpa uma quantia de mensagens',
+    usage: '[=]limpar',
+    kategori: 'staff'
+};

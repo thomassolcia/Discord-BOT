@@ -37,6 +37,8 @@ exports.run = (client, message, args) => {
             .setColor('BLACK')
             .setTitle("GUAXININHO 🦝")
             .setImage(raccon[Math.floor(Math.random() * raccon.length)])
+            .setTimestamp()
+            .setFooter(`Comando =raccoon`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
         message.channel.send(racconembed)
     } catch (err) {
         const embed = new Discord.MessageEmbed()
@@ -44,6 +46,21 @@ exports.run = (client, message, args) => {
             .setDescription("Contate alguém da staff para mais informações.")
             .addField('Erro:', `\`${err}\``)
             .setColor('BLACK')
+            .setTimestamp()
+            .setFooter(`Comando =raccoon`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
         message.channel.send(embed)
     }
 }
+
+exports.conf = {
+    commands: ["raccoon", "guaxinim", "racoon"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = { 
+    name: 'raccoon', 
+    description: 'Mostra a imagem ou gif de um guaxinim',
+    usage: '[=]raccoon',
+    kategori: 'animais'
+};

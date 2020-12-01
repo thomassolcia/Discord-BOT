@@ -37,6 +37,8 @@ exports.run = (client, message, args) => {
         .addField('Uptime', uptempo)
         .addField('Comandos', 'digite \`-ajuda\`')
         .addField('Criado', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date))
+        .setTimestamp()
+        .setFooter(`Comando =bot`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
     message.channel.send(embed);
 }
 
@@ -47,3 +49,16 @@ function formatDate(template, date) {
         return template.split(specs[i]).join(item)
     }, template)
 }
+
+exports.conf = {
+    commands: ["bot", "botinfo"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = { 
+    name: 'bot', 
+    description: 'Mostra informações sobre o bot',
+    usage: '[=]bot',
+    kategori: 'info'
+};

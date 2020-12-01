@@ -15,6 +15,8 @@ exports.run = async(client, message, args) => {
             .setThumbnail(message.author.displayAvatarURL({ format: "png", dynamic: true }))
             .addField('Username/ID', `${message.author.username}#${message.author.discriminator}/${message.author.id}`)
             .addField('Entrou', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date))
+            .setTimestamp()
+            .setFooter(`Comando =user`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
         message.channel.send(embed);
 
         function formatDate(template, date) {
@@ -40,6 +42,8 @@ exports.run = async(client, message, args) => {
                 .setThumbnail(user.displayAvatarURL({ format: "png", dynamic: true }))
                 .addField('Username/ID', `${user.username}#${user.discriminator}/${user.id}`)
                 .addField('Entrou', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date))
+                .setTimestamp()
+                .setFooter(`Comando =user`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
             message.channel.send(embed);
 
             function formatDate(template, date) {
@@ -52,3 +56,16 @@ exports.run = async(client, message, args) => {
         });
     }
 }
+
+exports.conf = {
+    commands: ["user", "usuario"],
+    enabled: true,
+    guildOnly: true
+};
+
+exports.help = { 
+    name: 'user', 
+    description: 'Mostra informações sobre o usuario',
+    usage: '[=]user',
+    kategori: 'info'
+};
