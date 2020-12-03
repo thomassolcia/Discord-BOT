@@ -2,6 +2,12 @@ const Discord = require("discord.js");
 const Database = require("../../Helpers/Database");
 const vt = new Database("Database", "Voice");
 const mdb = new Database("Database", "Message");
+const vtWeekly = new Database("Database", "VoiceWeekly");
+const mdbWeekly = new Database("Database", "MessageWeekly");
+const vtMonthly = new Database("Database", "VoiceMonthly");
+const mdbMonthly = new Database("Database", "MessageMonthly");
+const vtDaily = new Database("Database", "VoiceDaily");
+const mdbDaily = new Database("Database", "MessageDaily");
 // exports.onLoad = (client) => {};
 /**
  * 
@@ -32,16 +38,34 @@ exports.run = async (client, message, args) => {
         case "tudo":
             vt.set(`stats.${message.guild.id}`, {});
             mdb.set(`stats.${message.guild.id}`, {});
+            vtWeekly.set(`stats.${message.guild.id}`, {});
+            mdbWeekly.set(`stats.${message.guild.id}`, {});
+            vtDaily.set(`stats.${message.guild.id}`, {});
+            mdbDaily.set(`stats.${message.guild.id}`, {});
+            vtMonthly.set(`stats.${message.guild.id}`, {});
+            mdbMonthly.set(`stats.${message.guild.id}`, {});
             break;
         case "voz":
             vt.set(`stats.${message.guild.id}`, {});
+            vtWeekly.set(`stats.${message.guild.id}`, {});
+            vtDaily.set(`stats.${message.guild.id}`, {});
+            vtMonthly.set(`stats.${message.guild.id}`, {});
             break;
         case "mensagens":
             mdb.set(`stats.${message.guild.id}`, {});
+            mdbWeekly.set(`stats.${message.guild.id}`, {});
+            mdbDaily.set(`stats.${message.guild.id}`, {});
+            mdbMonthly.set(`stats.${message.guild.id}`, {});
             break;
         default:
             vt.set(`stats.${message.guild.id}`, {});
             mdb.set(`stats.${message.guild.id}`, {});
+            vtWeekly.set(`stats.${message.guild.id}`, {});
+            mdbWeekly.set(`stats.${message.guild.id}`, {});
+            vtDaily.set(`stats.${message.guild.id}`, {});
+            mdbDaily.set(`stats.${message.guild.id}`, {});
+            vtMonthly.set(`stats.${message.guild.id}`, {});
+            mdbMonthly.set(`stats.${message.guild.id}`, {});
             break;
     }
     delete_Messages(deleteMessages);
@@ -55,10 +79,10 @@ exports.conf = {
 };
 
 exports.help = {
-    name: 'me',
-    description: 'Sunucudaki aktifliğiniz hakkında bilgi verir.',
-    usage: 'me',
-    kategori: 'kullanıcı'
+    name: 'reset',
+    description: 'Reseta suas informações.',
+    usage: '[=]reset',
+    kategori: 'stats'
 };
 
 function delete_Messages(messages) {

@@ -13,6 +13,7 @@
         "enmap": "^5.7.1",
         "moment": "^2.29.1",
         "moment-duration-format": "^2.3.2",
+        "moment-timezone": "^0.5.32",
         "quick.db": "^7.1.3",
         "request-promise": "^4.2.6",
         "superagent": "^6.1.0",
