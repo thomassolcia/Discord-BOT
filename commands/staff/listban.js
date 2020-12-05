@@ -9,7 +9,7 @@ exports.run = async (client, message) => {
                 .setDescription('Enviei a lista de bans no seu privado!')
                 .setColor("RED")
                 .setTimestamp()
-                .setFooter(`Comando =listban`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                .setFooter(`Comando =listban`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
             message.channel.send(embedConfirm).then(msg => msg.delete({ timeout: 5000 }))
             bans.forEach(async (ban) => {
                 i++;
@@ -17,7 +17,7 @@ exports.run = async (client, message) => {
                     .setDescription(`${i}. Usuário: <@${ban.user.id}> | ID: ${ban.user.id}`)
                     .setColor("RED")
                     .setTimestamp()
-                    .setFooter(`Comando =listban`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                    .setFooter(`Comando =listban`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                 await message.author.send(embed)
             });
         });

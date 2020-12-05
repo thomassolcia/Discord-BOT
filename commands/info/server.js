@@ -22,7 +22,7 @@ exports.run = async(client, message, args) => {
         .addField('Canais', message.guild.channels.cache.size, true)
         .addField('Criação', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date), true)
         .setTimestamp()
-        .setFooter(`Comando =server`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+        .setFooter(`Comando =server`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
     message.channel.send(embed);
 
     function formatDate(template, date) {

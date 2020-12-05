@@ -9,7 +9,7 @@ exports.run = async(bot, message, args) => {
             .setTitle("GATINHO 🐱")
             .setImage(body.file)
             .setTimestamp()
-            .setFooter(`Comando =cat`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+            .setFooter(`Comando =cat`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         message.channel.send(catembed);
     } catch (err) {
         const embed = new Discord.MessageEmbed()
@@ -18,7 +18,7 @@ exports.run = async(bot, message, args) => {
             .addField('Erro:', `\`${err}\``)
             .setColor('BLACK')
             .setTimestamp()
-            .setFooter(`Comando =cat`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+            .setFooter(`Comando =cat`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         message.channel.send(embed)
     }
 }

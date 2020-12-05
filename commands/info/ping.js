@@ -8,7 +8,7 @@ exports.run = async(client, message) => {
         .addField(`Bot`, `${clientms}ms`, true)
         .addField(`API`, `${Math.floor(client.ws.ping)}ms`, true)
         .setTimestamp()
-        .setFooter(`Comando =ping`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+        .setFooter(`Comando =ping`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
     ms.delete()
     ms.channel.send(tempEmbed)
 }

@@ -28,7 +28,7 @@ exports.run = async (client, message, args, level, id) => {
     const embed = new Discord.MessageEmbed()
         .setColor("BLACK")
         .setTimestamp()
-        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         .setTitle(`✉️ Lembrete #${id}`)
         .setDescription(`Lembrarei você de \`${reminder}\` daqui \`${time}\` em seu chat privado!`)
     message.channel.send(embed)

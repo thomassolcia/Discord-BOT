@@ -38,7 +38,7 @@ exports.run = (client, message, args) => {
         .addField('Comandos', 'digite \`-ajuda\`')
         .addField('Criado', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date))
         .setTimestamp()
-        .setFooter(`Comando =bot`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+        .setFooter(`Comando =bot`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
     message.channel.send(embed);
 }
 

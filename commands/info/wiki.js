@@ -44,7 +44,7 @@ exports.run = async (client, message, args) => {
                 .setTitle(`${title.split("(")[0]}`)
                 .setDescription(`**Fato Histórico Aleatório**\n${d.getDate()} de ${mes} de ${fato}`)
                 .setColor("BLACK")
-                .setFooter(title.split(").")[1], `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                .setFooter(title.split(").")[1], `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                 .setTimestamp()
             message.channel.send(dolarEmbed)
         } else {
@@ -53,7 +53,7 @@ exports.run = async (client, message, args) => {
                 .setTitle(`${title.split("(")[0]}`)
                 .setDescription(`**Fato Histórico Aleatório**\n${d.getDate()} de ${mes} de ${fato}`)
                 .setColor("BLACK")
-                .setFooter(title.split(").")[1], `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                .setFooter(title.split(").")[1], `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                 .setTimestamp()
             message.channel.send(dolarEmbed)
         }
@@ -64,7 +64,7 @@ exports.run = async (client, message, args) => {
             .addField('Erro:', `\`${err}\``)
             .setColor("BLACK")
             .setTimestamp()
-            .setFooter(`Comando =wiki`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+            .setFooter(`Comando =wiki`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         message.channel.send(embed)
     }
 }

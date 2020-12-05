@@ -16,7 +16,7 @@ exports.run = async(client, message, args) => {
             .addField('Username/ID', `${message.author.username}#${message.author.discriminator}/${message.author.id}`)
             .addField('Entrou', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date))
             .setTimestamp()
-            .setFooter(`Comando =user`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+            .setFooter(`Comando =user`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         message.channel.send(embed);
 
         function formatDate(template, date) {
@@ -43,7 +43,7 @@ exports.run = async(client, message, args) => {
                 .addField('Username/ID', `${user.username}#${user.discriminator}/${user.id}`)
                 .addField('Entrou', formatDate('DD/MM/YYYY, às HH:mm:ss', date) + ' | ' + checkDays(date))
                 .setTimestamp()
-                .setFooter(`Comando =user`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                .setFooter(`Comando =user`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
             message.channel.send(embed);
 
             function formatDate(template, date) {

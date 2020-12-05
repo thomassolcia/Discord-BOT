@@ -5,14 +5,14 @@ exports.run = (client, message, args) => {
         .setDescription(`${message.author}, não consigo enviar mensagem para você, ative suas mensagens diretas!`)
         .setThumbnail(client.user.avatarURL)
         .setTimestamp()
-        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         .setColor('BLACK')
 
     const yes = new Discord.MessageEmbed()
         .setTitle(`Proerd ™ - Comandos`)
         .setDescription(` ${message.author}, enviei meus comandos em seu privado!`)
         .setTimestamp()
-        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         .setColor('BLACK')
     message.channel.send(yes).then(msg => msg.delete({ timeout: 10000 }))
 
@@ -24,7 +24,7 @@ exports.run = (client, message, args) => {
         .addField(`👑 **Staff**`, '• `ban`, `kick`, ...')
         .addField(`🔨 **Uteis**`, '• `ajuda`, `clima`, ...')
         .setTimestamp()
-        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+        .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         .setColor('BLACK')
     message.author.send(embed).catch(err => message.channel.send(erros)).then(async msg => {
         await msg.react('🦁')
@@ -54,7 +54,7 @@ exports.run = (client, message, args) => {
                 .addField(`👑 **Staff**`, '• `ban`, `kick`, ...')
                 .addField(`🔨 **Uteis**`, '• `ajuda`, `clima`, ...')
                 .setTimestamp()
-                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                 .setColor("BLACK")
             msg.edit(embedd)
         })
@@ -69,7 +69,7 @@ exports.run = (client, message, args) => {
                 -raccon *.........................::* Mostra uma imagem aleatória de um guaxinim.
             `)
                 .setColor("BLACK")
-                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                 .setTimestamp()
             msg.edit(embedinformacao)
         })
@@ -83,7 +83,7 @@ exports.run = (client, message, args) => {
                     -user \`<@user>\` *...............::* Mostra informações sobre o usuário.
             `)
                 .setColor("BLACK")
-                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                 .setTimestamp()
             msg.edit(embeddiversao)
         })
@@ -100,7 +100,7 @@ exports.run = (client, message, args) => {
                 -unmute \`<@user>\` *..............................::* Desmuta um usuário que esta silenciado.
             `)
                 .setColor("BLACK")
-                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                 .setTimestamp()
             msg.edit(embedanimais)
         })
@@ -113,7 +113,7 @@ exports.run = (client, message, args) => {
                     -cotacao *..........................::* Mostra a cotação atual do dólar e do euro.
             `)
                 .setColor("BLACK")
-                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                .setFooter(`Comando =ajuda`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                 .setTimestamp()
             msg.edit(embedGames)
         })

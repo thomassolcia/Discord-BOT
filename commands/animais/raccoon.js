@@ -38,7 +38,7 @@ exports.run = (client, message, args) => {
             .setTitle("GUAXININHO 🦝")
             .setImage(raccon[Math.floor(Math.random() * raccon.length)])
             .setTimestamp()
-            .setFooter(`Comando =raccoon`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+            .setFooter(`Comando =raccoon`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         message.channel.send(racconembed)
     } catch (err) {
         const embed = new Discord.MessageEmbed()
@@ -47,7 +47,7 @@ exports.run = (client, message, args) => {
             .addField('Erro:', `\`${err}\``)
             .setColor('BLACK')
             .setTimestamp()
-            .setFooter(`Comando =raccoon`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+            .setFooter(`Comando =raccoon`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
         message.channel.send(embed)
     }
 }

@@ -59,7 +59,7 @@ exports.run = async (bot, message, args) => {
             .setColor('RED')
             .setTitle(`**${question}**`)
             .setDescription(`${content}\n\nHost: <@${message.author.id}>`)
-            .setFooter(`Tempo restante: ${hours} minutos (${cooldown} segundos)`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+            .setFooter(`Tempo restante: ${hours} minutos (${cooldown} segundos)`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
             .setTimestamp()
         await message.channel.send(embed).then(async m => {
             for (let i = 0; i < choices.length; i++) await m.react(options[i]);
@@ -68,7 +68,7 @@ exports.run = async (bot, message, args) => {
                     .setColor('RED')
                     .setTitle(`**${question}**`)
                     .setDescription(`${content}\n\nHost: <@${message.author.id}>`)
-                    .setFooter(`Tempo restante: ${(hours = hours - 0.085714286).toFixed(2)} minutos (${cooldown = cooldown - 5} segundos)`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                    .setFooter(`Tempo restante: ${(hours = hours - 0.085714286).toFixed(2)} minutos (${cooldown = cooldown - 5} segundos)`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                     .setTimestamp()
                 m.edit(embed)
                 if (cooldown < 0 || hours < 0) {
@@ -80,7 +80,7 @@ exports.run = async (bot, message, args) => {
                         .setAuthor('RESUMO')
                         .setTitle(`**${question}**`)
                         .setDescription(`${m.reactions.cache.map(g => `${options[a++]} ${choices[b++]} (${g.count} votos)`).join(`\n`)}\n\nHost: <@${message.author.id}>`)
-                        .setFooter(`Votação encerrada!`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
+                        .setFooter(`Votação encerrada!`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
                         .setTimestamp()
                     m.edit(embed)
                     return clearInterval(refreshIntervalId);
