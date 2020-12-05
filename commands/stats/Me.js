@@ -36,15 +36,6 @@ exports.run = async (client, message, args) => {
         return days + (days == 1 ? " dia" : " dias") + " atrás";
     };
 
-    const voiceDataGlobal = vt.get(`stats.${message.guild.id}`) || undefined;
-    const messageDataGlobal = mdb.get(`stats.${message.guild.id}`) || undefined;
-    const voiceData1 = vtDaily.get(`stats.${message.guild.id}`) || undefined;
-    const messageData1 = mdbDaily.get(`stats.${message.guild.id}`) || undefined;
-    const voiceData7 = vtWeekly.get(`stats.${message.guild.id}`) || undefined;
-    const messageData7 = mdbWeekly.get(`stats.${message.guild.id}`) || undefined;
-    const voiceData30 = vtMonthly.get(`stats.${message.guild.id}`) || undefined;
-    const messageData30 = mdbMonthly.get(`stats.${message.guild.id}`) || undefined;
-
     let voiceData = vt.get(`stats.${message.guild.id}.${message.author.id}`) || { voice: 0, channels: {} };
     let messageData = mdb.get(`stats.${message.guild.id}.${message.author.id}`) || { messages: 0, channels: {} };
     let voiceDataDaily = vtDaily.get(`stats.${message.guild.id}.${message.author.id}`) || { voice: 0, channels: {} };
@@ -60,6 +51,8 @@ exports.run = async (client, message, args) => {
             Total: voiceDataMonthly.channels[vd]
         };
     }).sort((a, b) => b.Total - a.Total);
+    let sumVoiceListMonthly = voiceListMonthly.reduce((accum, obj) => accum + obj.Total, 0)
+    sumVoiceListMonthly = moment.duration(sumVoiceListMonthly, 'milliseconds').format("h [h], mm [min]")
 
     let messageListMonthly = Object.keys(messageDataMonthly.channels).map(md => {
         return {
@@ -67,6 +60,7 @@ exports.run = async (client, message, args) => {
             Total: messageDataMonthly.channels[md]
         };
     }).sort((a, b) => b.Total - a.Total);
+    let sumMessageListMonthly = messageListMonthly.reduce((accum, obj) => accum + obj.Total, 0)
 
     let voiceListWeekly = Object.keys(voiceDataWeekly.channels).map(vd => {
         return {
@@ -74,6 +68,8 @@ exports.run = async (client, message, args) => {
             Total: voiceDataWeekly.channels[vd]
         };
     }).sort((a, b) => b.Total - a.Total);
+    let sumVoiceListWeekly = voiceListWeekly.reduce((accum, obj) => accum + obj.Total, 0)
+    sumVoiceListWeekly = moment.duration(sumVoiceListWeekly, 'milliseconds').format("h [h], mm [min]")
 
     let messageListWeekly = Object.keys(messageDataWeekly.channels).map(md => {
         return {
@@ -81,6 +77,7 @@ exports.run = async (client, message, args) => {
             Total: messageDataWeekly.channels[md]
         };
     }).sort((a, b) => b.Total - a.Total);
+    let sumMessageListWeekly = messageListWeekly.reduce((accum, obj) => accum + obj.Total, 0)
 
     let voiceListDaily = Object.keys(voiceDataDaily.channels).map(vd => {
         return {
@@ -88,6 +85,8 @@ exports.run = async (client, message, args) => {
             Total: voiceDataDaily.channels[vd]
         };
     }).sort((a, b) => b.Total - a.Total);
+    let sumVoiceListDaily = voiceListDaily.reduce((accum, obj) => accum + obj.Total, 0)
+    sumVoiceListDaily = moment.duration(sumVoiceListDaily, 'milliseconds').format("h [h], mm [min]")
 
     let messageListDaily = Object.keys(messageDataDaily.channels).map(md => {
         return {
@@ -95,6 +94,7 @@ exports.run = async (client, message, args) => {
             Total: messageDataDaily.channels[md]
         };
     }).sort((a, b) => b.Total - a.Total);
+    let sumMessageListDaily = messageListDaily.reduce((accum, obj) => accum + obj.Total, 0)
 
     let voiceList = Object.keys(voiceData.channels).map(vd => {
         return {
@@ -102,6 +102,8 @@ exports.run = async (client, message, args) => {
             Total: voiceData.channels[vd]
         };
     }).sort((a, b) => b.Total - a.Total);
+    let sumVoiceList = voiceList.reduce((accum, obj) => accum + obj.Total, 0)
+    sumVoiceList = moment.duration(sumVoiceList, 'milliseconds').format("h [h], mm [min]")
 
     let messageList = Object.keys(messageData.channels).map(md => {
         return {
@@ -109,6 +111,7 @@ exports.run = async (client, message, args) => {
             Total: messageData.channels[md]
         };
     }).sort((a, b) => b.Total - a.Total);
+    let sumMessageList = messageList.reduce((accum, obj) => accum + obj.Total, 0)
 
     let voiceListAct = Object.keys(voiceData.channels).map(vd => {
         return {
@@ -124,126 +127,47 @@ exports.run = async (client, message, args) => {
         };
     }).sort((a, b) => b.Total - a.Total);
 
-    let messageListGlobal = "Sem informações.";
-    if (messageDataGlobal) {
-        messageListGlobal = Object.keys(messageDataGlobal || {}).map(md => {
-            return {
-                Id: md,
-                Total: Object.values(messageDataGlobal[md].channels || {}).reduce((a, b) => a + b, 0)
-            };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 1).map((user, index) => `\`${user.Total} msgs\``).join("\n");
-    }
-
-    let messageList30 = "Sem informações.";
-    if (messageData30) {
-        messageList30 = Object.keys(messageData30 || {}).map(md => {
-            return {
-                Id: md,
-                Total: Object.values(messageData30[md].channels || {}).reduce((a, b) => a + b, 0)
-            };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 1).map((user, index) => `\`${user.Total} msgs\``).join("\n");
-    }
-
-    let messageList7 = "Sem informações.";
-    if (messageData7) {
-        messageList7 = Object.keys(messageData7 || {}).map(md => {
-            return {
-                Id: md,
-                Total: Object.values(messageData7[md].channels || {}).reduce((a, b) => a + b, 0)
-            };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 1).map((user, index) => `\`${user.Total} msgs\``).join("\n");
-    }
-
-    let messageList1 = "Sem informações.";
-    if (messageData1) {
-        messageList1 = Object.keys(messageData1 || {}).map(md => {
-            return {
-                Id: md,
-                Total: Object.values(messageData1[md].channels || {}).reduce((a, b) => a + b, 0)
-            };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 1).map((user, index) => `\`${user.Total} msgs\``).join("\n");
-    }
-
-    let voiceListGlobal = "Sem informações.";
-    if (voiceDataGlobal) {
-        voiceListGlobal = Object.keys(voiceDataGlobal || {}).map(md => {
-            return {
-                Id: md,
-                Total: Object.values(voiceDataGlobal[md].channels || {}).reduce((a, b) => a + b, 0)
-            };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 1).map((user, index) => `\`${moment.duration(user.Total).format("H [h,] m [min]")}\``).join("\n");
-    }
-
-    let voiceList30 = "Sem informações.";
-    if (voiceData30) {
-        voiceList30 = Object.keys(voiceData30 || {}).map(md => {
-            return {
-                Id: md,
-                Total: Object.values(voiceData30[md].channels || {}).reduce((a, b) => a + b, 0)
-            };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 1).map((user, index) => `\`${moment.duration(user.Total).format("H [h,] m [min]")}\``).join("\n");
-    }
-
-    let voiceList7 = "Sem informações.";
-    if (voiceData7) {
-        voiceList7 = Object.keys(voiceData7 || {}).map(md => {
-            return {
-                Id: md,
-                Total: Object.values(voiceData7[md].channels || {}).reduce((a, b) => a + b, 0)
-            };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 1).map((user, index) => `\`${moment.duration(user.Total).format("H [h,] m [min]")}\``).join("\n");
-    }
-
-    let voiceList1 = "Sem informações.";
-    if (voiceData1) {
-        voiceList1 = Object.keys(voiceData1 || {}).map(md => {
-            return {
-                Id: md,
-                Total: Object.values(voiceData1[md].channels || {}).reduce((a, b) => a + b, 0)
-            };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 1).map((user, index) => `\`${moment.duration(user.Total).format("H [h,] m [min]")}\``).join("\n");
-    }
-
     //Mais Ativos
     voiceListAct = voiceListAct.length > 1 ? voiceListAct.splice(0, 1) : voiceListAct;
-    voiceListAct = voiceListAct.map((vd, index) => `${client.channels.cache.has(vd.Id) ? client.channels.cache.get(vd.Id).toString() : "#deleted-channel"}: \`${moment.duration(vd.Total).format("H [h,] m [min]")}\``).join("\n");
+    voiceListAct = voiceListAct.map((vd, index) => `${client.channels.cache.has(vd.Id) ? client.channels.cache.get(vd.Id).toString() : "#deleted-channel"}: \`${moment.duration(vd.Total).format("h [h], mm [min]")}\``).join("\n");
     messageListAct = messageListAct.length > 1 ? messageListAct.splice(0, 1) : messageListAct;
     messageListAct = messageListAct.map((md, index) => `${client.channels.cache.has(md.Id) ? client.channels.cache.get(md.Id).toString() : "#deleted-channel"}: \`${md.Total} msgs\``).join("\n");
 
     //Mensal
-    messageListMonthly = messageListMonthly.length > 10 ? messageListMonthly.splice(0, 10) : messageListMonthly;
-    messageListMonthly = messageListMonthly.map((md, index) => `${index + 1}. ${client.channels.cache.has(md.Id) ? client.channels.cache.get(md.Id).toString() : "#deleted-channel"}: \`${md.Total} msgs\``).join("\n");
-    voiceListMonthly = voiceListMonthly.length > 10 ? voiceListMonthly.splice(0, 10) : voiceListMonthly;
-    voiceListMonthly = voiceListMonthly.map((vd, index) => `${index + 1}. ${client.channels.cache.has(vd.Id) ? client.channels.cache.get(vd.Id).toString() : "#deleted-channel"}: \`${moment.duration(vd.Total).format("H [h,] m [min]")}\``).join("\n");
+    messageListMonthly = messageListMonthly.length > 1 ? messageListMonthly.splice(0, 1) : messageListMonthly;
+    messageListMonthly = messageListMonthly.map((md, index) => `\`${md.Total} msgs\``).join("\n");
+    voiceListMonthly = voiceListMonthly.length > 1 ? voiceListMonthly.splice(0, 1) : voiceListMonthly;
+    voiceListMonthly = voiceListMonthly.map((vd, index) => `${index + 1}. \`${moment.duration(vd.Total).format("h [h], mm [min]")}\``).join("\n");
 
     //Semanal
-    messageListWeekly = messageListWeekly.length > 10 ? messageListWeekly.splice(0, 10) : messageListWeekly;
-    messageListWeekly = messageListWeekly.map((md, index) => `${index + 1}. ${client.channels.cache.has(md.Id) ? client.channels.cache.get(md.Id).toString() : "#deleted-channel"}: \`${md.Total} msgs\``).join("\n");
-    voiceListWeekly = voiceListWeekly.length > 10 ? voiceListWeekly.splice(0, 10) : voiceListWeekly;
-    voiceListWeekly = voiceListWeekly.map((vd, index) => `${index + 1}. ${client.channels.cache.has(vd.Id) ? client.channels.cache.get(vd.Id).toString() : "#deleted-channel"}: \`${moment.duration(vd.Total).format("H [h,] m [min]")}\``).join("\n");
+    messageListWeekly = messageListWeekly.length > 1 ? messageListWeekly.splice(0, 1) : messageListWeekly;
+    messageListWeekly = messageListWeekly.map((md, index) => `\`${md.Total} msgs\``).join("\n");
+    voiceListWeekly = voiceListWeekly.length > 1 ? voiceListWeekly.splice(0, 1) : voiceListWeekly;
+    voiceListWeekly = voiceListWeekly.map((vd, index) => `${index + 1}. \`${moment.duration(vd.Total).format("h [h], mm [min]")}\``).join("\n");
 
     //Diário
-    messageListDaily = messageListDaily.length > 10 ? messageListDaily.splice(0, 10) : messageListDaily;
-    messageListDaily = messageListDaily.map((md, index) => `${index + 1}. ${client.channels.cache.has(md.Id) ? client.channels.cache.get(md.Id).toString() : "#deleted-channel"}: \`${md.Total} msgs\``).join("\n");
-    voiceListDaily = voiceListDaily.length > 10 ? voiceListDaily.splice(0, 10) : voiceListDaily;
-    voiceListDaily = voiceListDaily.map((vd, index) => `${index + 1}. ${client.channels.cache.has(vd.Id) ? client.channels.cache.get(vd.Id).toString() : "#deleted-channel"}: \`${moment.duration(vd.Total).format("H [h,] m [min]")}\``).join("\n");
+    messageListDaily = messageListDaily.length > 1 ? messageListDaily.splice(0, 1) : messageListDaily;
+    messageListDaily = messageListDaily.map((md, index) => `\`${md.Total} msgs\``).join("\n");
+    voiceListDaily = voiceListDaily.length > 1 ? voiceListDaily.splice(0, 1) : voiceListDaily;
+    voiceListDaily = voiceListDaily.map((vd, index) => `${index + 1}. \`${moment.duration(vd.Total).format("h [h], mm [min]")}\``).join("\n");
 
     //Global
-    voiceList = voiceList.length > 10 ? voiceList.splice(0, 10) : voiceList;
-    voiceList = voiceList.map((vd, index) => `${index + 1}. ${client.channels.cache.has(vd.Id) ? client.channels.cache.get(vd.Id).toString() : "#deleted-channel"}: \`${moment.duration(vd.Total).format("H [h,] m [min]")}\``).join("\n");
-    messageList = messageList.length > 10 ? messageList.splice(0, 10) : messageList;
-    messageList = messageList.map((md, index) => `${index + 1}. ${client.channels.cache.has(md.Id) ? client.channels.cache.get(md.Id).toString() : "#deleted-channel"}: \`${md.Total} msgs\``).join("\n");
-
+    voiceList = voiceList.length > 1 ? voiceList.splice(0, 1) : voiceList;
+    voiceList = voiceList.map((vd, index) => `${index + 1}. \`${moment.duration(vd.Total).format("h [h], mm [min]")}\``).join("\n");
+    messageList = messageList.length > 1 ? messageList.splice(0, 1) : messageList;
+    messageList = messageList.map((md, index) => `\`${md.Total} msgs\``).join("\n");
+    cargosTamanho =  message.member.roles.cache.size - 3 
+    
     let embed = new Discord.MessageEmbed();
     embed.setColor('BLACK')
         .setTimestamp()
         .setFooter(`Comando =me`, `https://cdn.discordapp.com/avatars/704392967074349087/9956009aae6e58b3e4c0ef086e98ad9b.png`)
         .setThumbnail(message.author.avatarURL({ dynamic: true }))
-        .setDescription(`<@${message.member.id}> (${message.member.displayName}#${message.author.discriminator})\n\nInformações do usuário nos últimos dias. A contagem é feita apenas quando o bot está ativo. *(Utilize o comando \`=top\` para ver os usuários mais ativos do servidor).*`)
+        .setDescription(`<@${message.member.id}> (${message.member.displayName}#${message.author.discriminator})\n\nAqui estão as suas principais informações, contagem de mensagens e tempo em canais de voz. As contagens são feitas enquanto o bot estiver ativo. *(Utilize o comando \`=top\` para ver os usuários mais ativos do servidor).*`)
         .addField("Informações do Usuário", `Criado: \`${formatDate('DD/MM/YYYY, às HH:mm:ss', dateCreated)} | ${checkDays(dateCreated)}\`
     Entrou: \`${formatDate('DD/MM/YYYY, às HH:mm:ss', dateJoined)} | ${checkDays(dateJoined)}\`
     ID: \`${message.author.id} \`
-    Cargos: ${message.member.roles.cache.size >= 8 ? "Muitos cargos..." : message.member.roles.cache.map(role => role.toString())}
+    Cargos: ${message.member.roles.cache.size >= 4 ? message.member.roles.cache.map(role => role.toString()).slice(0, 3) + ', + ' + cargosTamanho + ' cargos' : message.member.roles.cache.map(role => role.toString())}
     `)
         .addField("Canais mais Utilizados", `
     Mensagem: ${messageListAct}
@@ -252,18 +176,18 @@ exports.run = async (client, message, args) => {
     ** **
     `)
         .addField("Mensagem", `
-    Global: ${messageListGlobal}
-    30 Dias: ${messageList30}
-    7 Dias: ${messageList7}
-    24 Horas: ${messageList1}
+    Global: \`${sumMessageList} msgs\`
+    30 Dias: \`${sumMessageListMonthly} msgs\`
+    7 Dias: \`${sumMessageListWeekly} msgs\`
+    24 Horas: \`${sumMessageListDaily} msgs\`
 
     ** **
     `, true)
         .addField("Voz", `
-    Global: ${voiceListGlobal}
-    30 Dias: ${voiceList30}
-    7 Dias: ${voiceList7}
-    24 Horas: ${voiceList1}
+    Global: \`${sumVoiceList}\`
+    30 Dias: \`${sumVoiceListMonthly}\`
+    7 Dias: \`${sumVoiceListWeekly}\`
+    24 Horas: \`${sumVoiceListDaily}\`
 
     ** **
     `, true);
