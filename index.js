@@ -4,15 +4,9 @@ const Enmap = require("enmap");
 const fs = require("fs");
 //const client = new Discord.Client();
 const config = require("./config.json");
-const Settings = global.Settings = require("./Settings/Settings.json");
 
 console.log("Launching bot...");
 let _client = new Discord.Client();
-if (Settings.Private_Server === true) {
-    _client = new Discord.Client({
-        fetchAllMembers: true
-    });
-}
 
 const client = global.client = _client;
 
@@ -64,6 +58,15 @@ fs.readdirSync("./commands/stats/", { encoding: "utf-8" }).filter(file => file.e
     if (prop.onLoad != undefined && typeof (prop.onLoad) == "function") prop.onLoad(client);
     console.log(`[COMANDO] Um total de ${prop.conf.commands.length} suportes foram instalados para ${file}.`);
 });
+fs.readdirSync("./commands/giveaways/", { encoding: "utf-8" }).filter(file => file.endsWith(".js")).forEach(file => {
+    let prop = require(`./commands/giveaways/${file}`);
+    if (prop.conf.commands == undefined || prop.run == undefined) return console.error(`[COMMAND] ${file} não foi carregado.`);
+    if (prop.conf.commands && prop.conf.commands.length > 0) {
+        prop.conf.commands.forEach(aliase => Commands.set(aliase, prop));
+    }
+    if (prop.onLoad != undefined && typeof (prop.onLoad) == "function") prop.onLoad(client);
+    console.log(`[COMANDO] Um total de ${prop.conf.commands.length} suportes foram instalados para ${file}.`);
+});
 console.log("--------------------------------");
 console.log("Carregando eventos...");
 fs.readdirSync("./events/", { encoding: "utf-8" }).filter(file => file.endsWith(".js")).forEach(file => {
@@ -71,83 +74,17 @@ fs.readdirSync("./events/", { encoding: "utf-8" }).filter(file => file.endsWith(
     client.on(prop.conf.event, prop.execute);
     console.log(`[EVENTO] ${file} foi carregado.`);
 });
-
+fs.readdir("./eventsReady/", (err, files) => {
+    if (err) return console.error(err);
+    files.forEach(file => {
+        const event = require(`./eventsReady/${file}`);
+        let eventName = file.split(".")[0];
+        client.on(eventName, event.bind(null, client));
+    });
+});
 console.log("--------------------------------");
 console.log("| Preparação concluida. Inicializando o bot agora... |");
 
 require("./bot.js");
 
-/*
-client.config = config;
-fs.readdir("./events/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-        const event = require(`./events/${file}`);
-        let eventName = file.split(".")[0];
-        client.on(eventName, event.bind(null, client));
-    });
-});
-client.commands = new Enmap();
-console.log(`[True] Carregado | [False] Com erro`);
-console.log('\n     [Status dos Comandos]      \n')
-fs.readdir("./commands/animais/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-        if (!file.endsWith(".js")) return;
-        let props = require(`./commands/animais/${file}`);
-        let commandName = file.split(".")[0];
-        console.log(`[True] ${commandName}`);
-        client.commands.set(commandName, props);
-    });
-});
-fs.readdir("./commands/info/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-        if (!file.endsWith(".js")) return;
-        let props = require(`./commands/info/${file}`);
-        let commandName = file.split(".")[0];
-        console.log(`[True] ${commandName}`);
-        client.commands.set(commandName, props);
-    });
-});
-fs.readdir("./commands/uteis/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-        if (!file.endsWith(".js")) return;
-        let props = require(`./commands/uteis/${file}`);
-        let commandName = file.split(".")[0];
-        console.log(`[True] ${commandName}`);
-        client.commands.set(commandName, props);
-    });
-});
-fs.readdir("./commands/staff/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-        if (!file.endsWith(".js")) return;
-        let props = require(`./commands/staff/${file}`);
-        let commandName = file.split(".")[0];
-        console.log(`[True] ${commandName}`);
-        client.commands.set(commandName, props);
-    });
-});
-fs.readdir("./commands/signos/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-        if (!file.endsWith(".js")) return;
-        let props = require(`./commands/signos/${file}`);
-        let commandName = file.split(".")[0];
-        console.log(`[True] ${commandName}`);
-        client.commands.set(commandName, props);
-    });
-});
-fs.readdir("./commands/stats/", (err, files) => {
-    if (err) return console.error(err);
-    files.forEach(file => {
-        if (!file.endsWith(".js")) return;
-        let props = require(`./commands/stats/${file}`);
-        let commandName = file.split(".")[0];
-        console.log(`[True] ${commandName}`);
-        client.commands.set(commandName, props);
-    });
-});*/
 client.login(config.token);

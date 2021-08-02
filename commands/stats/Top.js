@@ -34,7 +34,7 @@ exports.run = async (client, message, args) => {
                 Id: md,
                 Total: Object.values(messageDataMonthly[md].channels || {}).reduce((a, b) => a + b, 0)
             };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${user.Total} msgs\``).join("\n");
+        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${user.Total} mensagens\``).join("\n");
     }
 
     let voiceListMonthly = "Sem informações.";
@@ -44,7 +44,7 @@ exports.run = async (client, message, args) => {
                 Id: md,
                 Total: Object.values(voiceDataMonthly[md].channels || {}).reduce((a, b) => a + b, 0)
             };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${moment.duration(user.Total).format("H [h,] m [min]")}\``).join("\n");
+        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${moment.duration(user.Total).format("D[d] H[h] m[min]")}\``).join("\n");
     }
 
     let messageListWeekly = "Sem informações.";
@@ -54,7 +54,7 @@ exports.run = async (client, message, args) => {
                 Id: md,
                 Total: Object.values(messageDataWeekly[md].channels || {}).reduce((a, b) => a + b, 0)
             };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${user.Total} msgs\``).join("\n");
+        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${user.Total} mensagens\``).join("\n");
     }
 
     let voiceListWeekly = "Sem informações.";
@@ -64,7 +64,7 @@ exports.run = async (client, message, args) => {
                 Id: md,
                 Total: Object.values(voiceDataWeekly[md].channels || {}).reduce((a, b) => a + b, 0)
             };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${moment.duration(user.Total).format("H [h,] m [min]")}\``).join("\n");
+        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${moment.duration(user.Total).format("D[d] H[h] m[min]")}\``).join("\n");
     }
 
     let messageListDaily = "Sem informações.";
@@ -74,7 +74,7 @@ exports.run = async (client, message, args) => {
                 Id: md,
                 Total: Object.values(messageDataDaily[md].channels || {}).reduce((a, b) => a + b, 0)
             };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${user.Total} msgs\``).join("\n");
+        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${user.Total} mensagens\``).join("\n");
     }
 
     let voiceListDaily = "Sem informações.";
@@ -84,7 +84,7 @@ exports.run = async (client, message, args) => {
                 Id: md,
                 Total: Object.values(voiceDataDaily[md].channels || {}).reduce((a, b) => a + b, 0)
             };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${moment.duration(user.Total).format("H [h,] m [min]")}\``).join("\n");
+        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${moment.duration(user.Total).format("D[d] H[h] m[min]")}\``).join("\n");
     }
 
     let messageList = "Sem informações.";
@@ -94,7 +94,7 @@ exports.run = async (client, message, args) => {
                 Id: md,
                 Total: Object.values(messageData[md].channels || {}).reduce((a, b) => a + b, 0)
             };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${user.Total} msgs\``).join("\n");
+        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${user.Total} mensagens\``).join("\n");
     }
 
     let voiceList = "Sem informações.";
@@ -104,7 +104,7 @@ exports.run = async (client, message, args) => {
                 Id: md,
                 Total: Object.values(voiceData[md].channels || {}).reduce((a, b) => a + b, 0)
             };
-        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${moment.duration(user.Total).format("H [h,] m [min]")}\``).join("\n");
+        }).sort((a, b) => b.Total - a.Total).splice(0, 10).map((user, index) => `${index + 1}. <@${user.Id}> \`${moment.duration(user.Total).format("D[d] H[h] m[min]")}\``).join("\n");
     }
 
     if (!args[0]) {
@@ -112,9 +112,8 @@ exports.run = async (client, message, args) => {
             .setColor('BLACK')
             .setTimestamp()
             .setFooter(`Comando =top global`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
-            .setThumbnail(message.author.avatarURL({ dynamic: true }))
             .setDescription(`*RANKING GLOBAL DO SERVIDOR*`)
-            .addField("Mensagens", `** **\n${messageList}`, true)
+            .addField("Mensagem", `** **\n${messageList}`, true)
             .addField("Voz", `** **\n${voiceList}`, true)
         message.channel.send(embed);
     } else if (args[0] == 'global' || args[0] == 'g') {
@@ -122,9 +121,8 @@ exports.run = async (client, message, args) => {
             .setColor('BLACK')
             .setTimestamp()
             .setFooter(`Comando =top global`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
-            .setThumbnail(message.author.avatarURL({ dynamic: true }))
             .setDescription(`*RANKING GLOBAL DO SERVIDOR*`)
-            .addField("Mensagens", `** **\n${messageList}`, true)
+            .addField("Mensagem", `** **\n${messageList}`, true)
             .addField("Voz", `** **\n${voiceList}`, true)
         message.channel.send(embed);
     } else if (args[0] == 'diario' || args[0] == 'daily' || args[0] == 'd') {
@@ -132,9 +130,8 @@ exports.run = async (client, message, args) => {
             .setColor('BLACK')
             .setTimestamp()
             .setFooter(`Comando =top daily`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
-            .setThumbnail(message.author.avatarURL({ dynamic: true }))
             .setDescription(`*RANKING DIÁRIO DO SERVIDOR*`)
-            .addField("Mensagens", `** **\n${messageListDaily}`, true)
+            .addField("Mensagem", `** **\n${messageListDaily}`, true)
             .addField("Voz", `** **\n${voiceListDaily}`, true);
         message.channel.send(embed);
     } else if (args[0] == 'semanal' || args[0] == 'weekly' || args[0] == 's' || args[0] == 'w') {
@@ -142,9 +139,8 @@ exports.run = async (client, message, args) => {
             .setColor('BLACK')
             .setTimestamp()
             .setFooter(`Comando =top weekly`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
-            .setThumbnail(message.author.avatarURL({ dynamic: true }))
             .setDescription(`*RANKING SEMANAL DO SERVIDOR*`)
-            .addField("Mensagens", `** **\n${messageListWeekly}`, true)
+            .addField("Mensagem", `** **\n${messageListWeekly}`, true)
             .addField("Voz", `** **\n${voiceListWeekly}`, true);
         message.channel.send(embed);
     } else if (args[0] == 'mensal' || args[0] == 'monthly' || args[0] == 'm') {
@@ -152,9 +148,8 @@ exports.run = async (client, message, args) => {
             .setColor('BLACK')
             .setTimestamp()
             .setFooter(`Comando =top monthly`, `https://cdn.discordapp.com/avatars/704392967074349087/50aae36a503d4f4f4d32253aa8010afc.png`)
-            .setThumbnail(message.author.avatarURL({ dynamic: true }))
             .setDescription(`*RANKING MENSAL DO SERVIDOR*`)
-            .addField("Mensagens", `** **\n${messageListMonthly}`, true)
+            .addField("Mensagem", `** **\n${messageListMonthly}`, true)
             .addField("Voz", `** **\n${voiceListMonthly}`, true);
         message.channel.send(embed);
     }

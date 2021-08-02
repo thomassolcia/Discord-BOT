@@ -4,7 +4,8 @@ const vt = new Database("Database", "Message");
 const vtDaily = new Database("Database", "MessageDaily");
 const vtWeekly = new Database("Database", "MessageWeekly");
 const vtMonthly = new Database("Database", "MessageMonthly");
-
+const config = require("../config.json");
+require("dotenv").config();
 /**
  * @param {Discord.Message} message
  */
@@ -19,18 +20,17 @@ exports.execute = async (message) => {
         message.reply('Você só pode executar este comando num servidor.')
         return
     } else {
-        if (message.content.startsWith(`!`) || message.content.startsWith(`-`) || message.content.startsWith(global.Settings.Prefix) || message.content.startsWith(`.`)) {
-            if (message.content.startsWith(global.Settings.Prefix) && (message.channel.name === 'bot-spam')) {
+        if (message.content.startsWith(`!`) || message.content.startsWith(`-`) || message.content.startsWith(config.prefix) || message.content.startsWith(`.`)) {
+            if (message.content.startsWith(config.prefix) && (message.channel.name === 'bot-spam') || (message.channel.name === 'anúncios')) {
                 return;
-            } else if (message.content.startsWith(`!`) && message.channel.name === 'bot-spam') {
+            } else if (message.content.startsWith(`!`) && message.channel.name === 'bot-spam' || (message.channel.name === 'anúncios')) {
                 return;
-            } else if (message.content.startsWith(`-`) && message.channel.name === 'bot-spam') {
+            } else if (message.content.startsWith(`-`) && message.channel.name === 'bot-spam' || (message.channel.name === 'anúncios')) {
                 return;
-            } else if (message.content.startsWith(`.`) && message.channel.name === 'bot-spam') {
+            } else if (message.content.startsWith(`.`) && message.channel.name === 'bot-spam' || (message.channel.name === 'anúncios')) {
                 return;
             } else {
-                message.delete();
-                message.reply("os comandos agora só estão habilitados no canal <#694285200582115418> para evitarmos qualquer tipo de spam e termos uma melhor organização dentro do servidor.").then(msg => msg.delete({ timeout: 5000, reason: 'Feito!' }))
+                return;
             }
         } else if ((message.content.startsWith(`https://`) || message.content.startsWith(`www.`) || message.content.endsWith(`.com`) || message.content.endsWith(`.br`)) && message.member.hasPermission("KICK_MEMBERS")) {
             return;
