@@ -1,9 +1,6 @@
 # Discord bot
 
-[![changelog-badge]][changelog]
-
-## Desenvolvimento
-### O que foi usado
+### Desenvolvimento
 
 - [Visual Studio Code]
 - [JavaScript]
